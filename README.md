@@ -15,6 +15,7 @@ git clone https://github.com/starterkits/frontend-starterkit-minimal.git
 cd frontend-starterkit-minimal
 npm install -g webpack-dev-server bower
 npm install
+open http://localhost:8080/webpack-dev-server/index.html
 ```
 
 # Development
