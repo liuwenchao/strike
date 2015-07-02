@@ -1,0 +1,6 @@
+{
+  "name": "frontend-starterkit-minimal",
+  "dependencies": {
+    "jquery": "~2.1.0"
+  }
+}
