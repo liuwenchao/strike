@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>搜索</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta name="format-detection" content="telephone=no"/>
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<link href="images/ico/72.png" sizes="72x72" rel="apple-touch-icon-precomposed">
+<link href="images/ico/144.png" sizes="144x144" rel="apple-touch-icon">
+<link href="images/ico/57.png" not-need-sizes="57x57" rel="apple-touch-icon">
+<link href="images/ico/114.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+
+<link href="css/zm.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/index_search.js"></script>
+</head>
+<body>
+<div class="market-page fake-body" style="box-sizing: border-box; padding-bottom: 117px;">
+    <form method="get" action="">
+        <div class="main-header bb1">
+          <a class="backwrap" href="javascript:history.back();"><i class="backicon icon"></i> </a>
+        <span class="center-wrap">
+            <input id="keyWordName" name="keyWord" class="search zmboxb" value="" type="text" placeholder="请输入品名或牌号">
+        </span>
+            <a class="right zmboxb borar2" href="javascript:void(0)" id="searchKeyWord"><i class="icon"></i></a>
+        </div>
+    </form>
+
+	
+	
+	<div class="result-wrap" id="prices">
+
+			
+			<div class="new-array-wrap clearfix" id="orderByWarp">
+				
+	            <input type="hidden" id="orderByStatus" name="orderBy" value="null">
+				<a href="javascript:void(0)" class="item selected" flag="DEFAULT">
+					<span class="name">默认</span>
+				</a>
+				<a href="javascript:void(0)" id="price" class="item" flag="price">
+					<span class="name">价格</span><i class="arrow"></i>
+				</a>
+				<a href="javascript:void(0)" id="weight" class="item" flag="weight">
+					<span class="name">数量</span><i class="arrow"></i>
+				</a>
+				<a href="javascript:goToMarketSelect();" class="item">
+					<span class="name">筛选</span>
+				</a>
+			</div>
+
+	        <!-- <div class="market-list clearfix " id="list_price"></div> -->
+
+	        <div class="market-list-new clearfix">
+
+	            
+				
+
+	                <div class="pro-wrap">
+
+	                        
+	                    <div class="inner-list hidden" style="display: block;">
+	                        
+							<!--内容输出-->
+	                            <a href="javascript:void(0)" class="inner-row showKuaisuPricePrice" priceidcode="943292917410">
+	                                <p class="clearfix"><span class="name c-blue">自营商城</span><span class="zhiying">5500</span><span class="zhiying">kcal</span><i class="f-c cash"></i>
+	                                    <span class="row-right price orange">￥10950.0元/吨</span></p>
+
+	                                <p class="clearfix">
+	                                    <span class="color-9">山西世德：</span>40.0吨
+	                                    <span class="color-9"> 交割地：</span>上海&nbsp;&nbsp;
+	                                    <span class="row-right color-9">17天前</span></p>
+	                            </a>
+	                            <a href="javascript:void(0)" class="inner-row showKuaisuPricePrice" priceidcode="943292917410">
+	                                <p class="clearfix"><span class="name c-blue">自营商城</span><span class="zhiying">5500</span><span class="zhiying">kcal</span><i class="f-c cash"></i>
+	                                    <span class="row-right price orange">￥10950.0元/吨</span></p>
+
+	                                <p class="clearfix">
+	                                    <span class="color-9">山西世德：</span>40.0吨
+	                                    <span class="color-9"> 交割地：</span>上海&nbsp;&nbsp;
+	                                    <span class="row-right color-9">17天前</span></p>
+	                            </a>
+	                            <a href="javascript:void(0)" class="inner-row showKuaisuPricePrice" priceidcode="943292917410">
+	                                <p class="clearfix"><span class="name c-blue">自营商城</span><span class="zhiying">5500</span><span class="zhiying">kcal</span><i class="f-c cash"></i>
+	                                    <span class="row-right price orange">￥10950.0元/吨</span></p>
+
+	                                <p class="clearfix">
+	                                    <span class="color-9">山西世德：</span>40.0吨
+	                                    <span class="color-9"> 交割地：</span>上海&nbsp;&nbsp;
+	                                    <span class="row-right color-9">17天前</span></p>
+	                            </a>
+							
+							
+	                        
+	                        <div></div>
+						</div>
+	                </div>
+	            
+
+	        </div>
+			
+				
+
+
+
+<!-- 分页区 -->
+<div class="page-wrap-out">
+    <div class="list-foot">
+        <input name="offset" id="offset" value="0" type="hidden">
+        <input name="rows" id="rows" value="15" type="hidden">
+        <input name="pageCount" id="pageCount" value="591" type="hidden">
+        <input name="pageIndex" id="pageIndex" value="1" type="hidden">
+
+        <p>共找到<span class="num" id="total-count">8865</span>条产品信息</p>
+        <p class="page-wrap" id="pageConntrol">
+            <a href="javascript:void(0)" class="small" id="firstPage">首页</a>
+            <a href="javascript:void(0);" class="big disabled" id="prePage">上一页</a>
+            <span>1/591</span>
+            <a href="javascript:void(0);" class="big" id="nextPage">下一页</a>
+            <a href="javascript:void(0);" class="small" id="lastPage">尾页</a>
+        </p>
+    </div>
+</div>
+
+				
+				
+			
+
+			
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    
+
+<footer class="zm-wraps" id="zmMobileAllFooter">
+
+<p> <img src="images/bottomlogo.png"></p>
+</footer>
+
+</div>
+    
+</body>
+</html>

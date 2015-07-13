@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>发布采购需求</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta name="format-detection" content="telephone=no"/>
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<link href="images/ico/72.png" sizes="72x72" rel="apple-touch-icon-precomposed">
+<link href="images/ico/144.png" sizes="144x144" rel="apple-touch-icon">
+<link href="images/ico/57.png" not-need-sizes="57x57" rel="apple-touch-icon">
+<link href="images/ico/114.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+
+<link href="css/zm.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/index_search.js"></script>
+</head>
+<body>
+<form id="requirementForm" method="post" action="#">
+<!-- 发布求购 -->
+<div class="requirement-page fake-body" id="requirement" style="min-height: 667px; box-sizing: border-box; padding-bottom: 0px;">
+
+    <div class="main-header">
+        <a class="left" href="javascript:window.history.back();"><span class="back-btn"></span></a>
+        <span class="center">
+          <span class="title">发布采购需求</span>
+        </span>
+    </div>
+
+
+    <div class="info-wrap">
+		
+		<p class="w90">品种</p>
+		<input class="input-item apply l-input49 ac_input" id="categoryName" name="categoryName" type="text" value="" autocomplete="off">
+		<input id="category" name="category" type="hidden" value="">
+		
+		<p class="w90">牌号</p>
+        <input id="designation" name="designation" type="text" class="l-input49" value="">
+        <input id="designationHidden" name="designationHidden" type="hidden" value="">
+		
+        <p class="w90">厂家</p>
+        <input id="producerName" name="producerName" type="text" class="l-input49 ac_input" value="" autocomplete="off">
+        <input type="hidden" id="producerId" name="producerId">
+		
+        <p class="w90">意向价格（元/吨）</p>
+        <input id="price" name="price" type="number" class="l-input49" value="">
+
+        <p class="w90">数量（吨）</p>
+        <input id="amount" name="amount" type="number" class="l-input49" value="">
+
+        <a class="send l-btn49" href="javascript:send();">委&nbsp;&nbsp;托</a>
+
+  
+  
+    </div>
+</div>
+
+	
+</form>
+<script>
+//提交表单
+function send()
+{
+    document.getElementById("requirementForm").submit();    
+    alert(11);
+}
+</script>
+</body>
+</html>

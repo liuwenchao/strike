@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>我的订单</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta name="format-detection" content="telephone=no"/>
+<meta content="yes" name="apple-mobile-web-app-capable">
+
+<link href="images/ico/72.png" sizes="72x72" rel="apple-touch-icon-precomposed">
+<link href="images/ico/144.png" sizes="144x144" rel="apple-touch-icon">
+<link href="images/ico/57.png" not-need-sizes="57x57" rel="apple-touch-icon">
+<link href="images/ico/114.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+
+<link href="css/zm.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/order.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/index_search.js"></script>
+</head>
+<body>
+<div class="myorder-page fake-body" style="min-height: 776px; box-sizing: border-box; padding-bottom: 70px;">
+
+    <div class="main-header">
+        <a class="left" href="javascript:history.go(-1)"><span class="back-btn"></span></a>
+        <span class="center">
+          <span class="title">我的订单</span>
+        </span>
+        <a class="right" href="javascript:void(0)"></a>
+    </div>
+
+    <div class="buyer-choose-wrap bb1 clearfix">
+        <div class="c-item selected"><p class="bl1">我的采购</p></div>
+        <div class="c-item"><p class="bl1">我的供货</p></div>
+    </div>
+
+    <!--我的采购 内容-->
+    <div class="all-type mall-items">
+        <div class="dingdan-nav">
+			<span class="selected">全部</span>
+			<span>未审核</span>
+			<span>待报价</span>
+			<span>已报价</span>
+			<span class="noborder">已成交</span>
+		</div>
+        
+        
+        
+        
+        
+        
+    </div>
+
+    <!--我的供货 内容-->
+    <div class="all-type market-items hidden">
+        
+        
+        
+
+        
+        
+    </div>
+
+
+
+</div>
+<footer class="zm-wraps" id="zmMobileAllFooter"><p> <img src="images/bottomlogo.png"></p></footer>
+	
+	    <script>
+        $(".c-item").click(function(){
+            var self=this
+            var isSelected = $(self).hasClass("selected");
+            if(!isSelected){
+                $(".c-item").removeClass("selected");
+                $(self).addClass("selected");
+                $(".all-type").slideToggle();
+            }
+            return;
+        })
+        $(".dingdan-nav span").click(function(){
+            var self=this
+            var isSelected = $(self).hasClass("selected");
+            if(!isSelected){
+                $(".dingdan-nav span").removeClass("selected");
+                $(self).addClass("selected");
+            }
+            return;
+        })
+    </script>
+</body>
+</html>
