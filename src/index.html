@@ -21,8 +21,6 @@
   <link href="css/zm.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link href="css/index.css" rel="stylesheet">
-  <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
-  <script type="text/javascript" src="js/index_search.js"></script>
 </head>
 
 <body>
@@ -36,12 +34,10 @@
         <span class="center search">请输入牌号</span>
       </a>
 
-      <a class="right" href="/mobile/passport/login.html">
+      <a class="right" href="login.html">
         <span class="login"></span>
       </a>
-
     </div>
-
 
     <!--banner-->
     <div class="index-adv">
@@ -50,99 +46,97 @@
       </a>
     </div>
 
-
     <div class="nav-wrap mb10 bb1">
-
       <div class="tdbg">
         <span class="bigicon">
           <img src="images/maimei.png">
         </span>
-        <a href="#">
+        <a href="caigou_new.html">
           <span>买煤</span>免费发布采购委托</a>
       </div>
       <div class="tdbg tdbgborder">
         <span class="bigicon">
           <img src="images/maimei2.png">
         </span>
-        <a href="#">
-          <span>买煤</span>免费发布采购委托</a>
+        <a href="supply_new.html">
+          <span>卖煤</span>免费发布采购委托</a>
       </div>
-
     </div>
 
     <div class="tel zm-wraps mt10">
       <span><i class="t-icon"></i></span>
       <span class="t-name">委托电话：</span>
       <span class="t-num">400-876-2500</span>
-      <span class="t-send"><a href="tel:4008762500" style="color: #3093ed">点击拨号</a></span>
+      <span class="t-send">
+        <a href="tel:4008762500" style="color: #3093ed">
+          点击拨号
+        </a>
+      </span>
     </div>
-
 
     <div class="quick-nav">
-      <div class="nav nav01">
-        <span>
-          <img src="images/zhishu.png">
-        </span>现货行情</div>
-      <div class="nav nav02">
-        <span>
-          <img src="images/zixun.png">
-        </span>热门资讯</div>
-      <div class="nav nav03">
-        <span>
-          <img src="images/hotfire.png">
-        </span>今日交易</div>
+      <a href="hangqing.html">
+        <div class="nav nav01">
+          <span>
+            <img src="images/zhishu.png">
+          </span>
+          现货行情
+        </div>
+      </a>
+      <a href="news.html">
+        <div class="nav nav02">
+          <span>
+            <img src="images/zixun.png">
+          </span>
+          热门资讯
+        </div>
+      </a>
+      <a href="order.html">
+        <div class="nav nav03">
+          <span>
+            <img src="images/hotfire.png">
+          </span>
+          今日交易
+        </div>
+      </a>
     </div>
-
-
 
     <div class="my-office zm-wraps mt10">
       <div class="name bb1">我的</div>
 
-      <a class="office-item bb1" href="@">
+      <a class="office-item bb1" href="myorder.html">
         <i class="o-icon icon2"></i>
         <span class="title">我的交易</span>
 
         <p class="word">交易状态实时掌控</p>
       </a>
-      <a class="office-item bb1" href="@">
+      <a class="office-item bb1" href="caigou_new.html">
         <i class="o-icon icon3"></i>
         <span class="title">发布采购需求</span>
 
         <p class="word">免费找煤，第一手实时报价信息</p>
       </a>
-
     </div>
-
-
-
-
 
     <div class="index-nav zm-wraps mt10 mb10">
       <!--未登录-->
       <a class="item br1" href="./login.html">登录</a>
-      <a class="item" href="./register.html">注册</a>
-      <a class="go-top" href="./suggest.html">意见反馈 </a>
-
+      <a class="item"     href="./register.html">注册</a>
+      <a class="go-top"   href="./suggest.html">意见反馈 </a>
 
       <!--如果已登录，显示此处，否则隐藏-->
-      <a class="item br1 log-name">小李小李</a>
+      <a class="item br1 log-name" data-bind="text: name">小李小李</a>
       <a class="item" href="javascript:logout('false')">退出</a>
       <a class="go-top" href="./suggest.html">意见反馈 </a>
-
-
-
     </div>
-
-
-
   </div>
 
   <footer class="zm-wraps" id="zmMobileAllFooter">
-
     <p>
       <img src="images/bottomlogo.png">
     </p>
   </footer>
+  <script type="text/javascript" src="/index.js"></script>
 </body>
 
 </html>

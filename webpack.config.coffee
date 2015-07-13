@@ -14,8 +14,8 @@ module.exports =
   cache: true
 
   entry:
-    app: './src/js/app'
     head: './src/js/head'
+    index: './src/js/index'
 
   output:
     path: path.join(__dirname, 'dist')
