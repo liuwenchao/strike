@@ -1,1 +1,121 @@
-*{margin:0;}.help-article-page{;position:relative;width:100%;max-width:640px;margin:0 auto;font-family:'微软雅黑','Microsoft Yahei',sans-serif}#topAllWrap{display:none}#navBar{display:none}#articleWebFooter{display:none}.help-article-page .right.clearfix{display:none}.help-article-page .right .product{display:none}.help-article-page .share{display:none}.help-article-page div.left{background:#fbfbfb}.help-article-page div.left *{background:#fff}.help-article-page .left h1{font-size:1.8rem;text-align:center;color:#333;padding:1rem 0}.help-article-page .left .line{border-bottom:solid 1px #dbdbdb;width:94%;margin-left:3%}.help-article-page .left .articlePage{padding:0 1.5rem;line-height:4rem;border-top:solid 1px #dbdbdb;border-bottom:solid 1px #dbdbdb}.help-article-page .left .articlePage a{color:#3094ed}.help-article-page .left .main-content{padding:1.5rem;border-bottom:solid 1px #dbdbdb;line-height:2rem}.help-article-page .left .editer{text-align:center;color:#999;font-size:1.2rem;padding:5px 0}.help-article-page .left .editer .edline{visibility:hidden}.help-article-page .tel-share{background:#fff;margin-top:1rem;padding:.8rem 1.5rem}.help-article-page .share.tel-share{display:block}.help-article-page .tel-share .left{float:left;text-align:center;width:7rem}.help-article-page .tel-share .left i{height:3.5rem;width:3.5rem;margin:0 auto;display:inline-block}.help-article-page .tel-share.share .left i{background:url("../img/2.png") no-repeat center;background-size:contain}.help-article-page .tel-share .right{float:left;margin:.3rem 0 0rem 1rem;border-left:solid 1px #dbdbdb!important;padding:.2rem 0 .4rem 2rem}.help-article-page .tel-share .right .orange{font-size:1.5rem;color:#f70;margin-right:1rem}.help-article-page .tel-share .right p:last-child{margin-top:.6rem}.main-content img{width:100%}.help-article-page .left .claimwrap{display:none}.help-article-page .left .relatedwrap{display:none}.help-article-page .left .editershare{display:none}.help-article-page .artitle{display:none}
+* {
+  margin: 0;
+}
+.help-article-page {
+  ;
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  font-family: '微软雅黑', 'Microsoft Yahei', sans-serif
+}
+#topAllWrap {
+  display: none
+}
+#navBar {
+  display: none
+}
+#articleWebFooter {
+  display: none
+}
+.help-article-page .right.clearfix {
+  display: none
+}
+.help-article-page .right .product {
+  display: none
+}
+.help-article-page .share {
+  display: none
+}
+.help-article-page div.left {
+  background: #fbfbfb
+}
+.help-article-page div.left * {
+  background: #fff
+}
+.help-article-page .left h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #333;
+  padding: 1rem 0
+}
+.help-article-page .left .line {
+  border-bottom: solid 1px #dbdbdb;
+  width: 94%;
+  margin-left: 3%
+}
+.help-article-page .left .articlePage {
+  padding: 0 1.5rem;
+  line-height: 4rem;
+  border-top: solid 1px #dbdbdb;
+  border-bottom: solid 1px #dbdbdb
+}
+.help-article-page .left .articlePage a {
+  color: #3094ed
+}
+.help-article-page .left .main-content {
+  padding: 1.5rem;
+  border-bottom: solid 1px #dbdbdb;
+  line-height: 2rem
+}
+.help-article-page .left .editer {
+  text-align: center;
+  color: #999;
+  font-size: 1.2rem;
+  padding: 5px 0
+}
+.help-article-page .left .editer .edline {
+  visibility: hidden
+}
+.help-article-page .tel-share {
+  background: #fff;
+  margin-top: 1rem;
+  padding: .8rem 1.5rem
+}
+.help-article-page .share.tel-share {
+  display: block
+}
+.help-article-page .tel-share .left {
+  float: left;
+  text-align: center;
+  width: 7rem
+}
+.help-article-page .tel-share .left i {
+  height: 3.5rem;
+  width: 3.5rem;
+  margin: 0 auto;
+  display: inline-block
+}
+.help-article-page .tel-share.share .left i {
+  background: url("../img/2.png") no-repeat center;
+  background-size: contain
+}
+.help-article-page .tel-share .right {
+  float: left;
+  margin: .3rem 0 0rem 1rem;
+  border-left: solid 1px #dbdbdb!important;
+  padding: .2rem 0 .4rem 2rem
+}
+.help-article-page .tel-share .right .orange {
+  font-size: 1.5rem;
+  color: #f70;
+  margin-right: 1rem
+}
+.help-article-page .tel-share .right p:last-child {
+  margin-top: .6rem
+}
+.main-content img {
+  width: 100%
+}
+.help-article-page .left .claimwrap {
+  display: none
+}
+.help-article-page .left .relatedwrap {
+  display: none
+}
+.help-article-page .left .editershare {
+  display: none
+}
+.help-article-page .artitle {
+  display: none
+}

@@ -1,1 +1,15 @@
-.hot-trades-page .bigrow{line-height:3rem}.hot-trades-page .smrow{line-height:2.8rem;height:2.8rem;overflow:hidden}.hot-trades-page .smrow2{margin-top:-0.5rem}.hot-trades-page .bigrow .time{right:0;top:.1rem}
+.hot-trades-page .bigrow {
+  line-height: 3rem
+}
+.hot-trades-page .smrow {
+  line-height: 2.8rem;
+  height: 2.8rem;
+  overflow: hidden
+}
+.hot-trades-page .smrow2 {
+  margin-top: -0.5rem
+}
+.hot-trades-page .bigrow .time {
+  right: 0;
+  top: .1rem
+}

@@ -1,11 +1,69 @@
-.myorder-page{background:#f3f3f3}.myorder-page .all-type{background:#fff}.myorder-page .all-type a{display:block;position:relative;border-bottom:solid 1px #dbdbdb;line-height:4rem;padding-left:5.5rem;font-size:1.6rem;color:#333}.myorder-page .all-type .icon{display:inline-block;position:absolute;left:1.5rem;top:.75rem;width:2.5rem;height:2.5rem}.myorder-page .buyer-choose-wrap{background:#fff}.myorder-page .buyer-choose-wrap .c-item{font-size:1.6rem;width:50%;float:left;text-align:center;line-height:2rem;height:2rem;padding:1rem 0;border-bottom:solid 2px #fff}.myorder-page .buyer-choose-wrap .c-item.selected{border-bottom:solid 2px #fe8419;color:#fe8419}.myorder-page .buyer-choose-wrap .c-item .zhiying{width:5.75rem;height:1.8rem}.myorder-list-page .results-list{background:#f3f3f3}
-
-.myorder-page .all-type .dingdan-nav{width:100%;height:4rem;text-align:center;border-bottom:1px solid #CCC;}
-.myorder-page .all-type .dingdan-nav span{width:5.5rem;display:inline-block;text-align:center;font-size:1.5rem;border-right:1px solid #CCC;height:2.5rem;line-height:2.5rem;margin-top:0.8rem;}
-.myorder-page .all-type .dingdan-nav span.selected{color:#fe8419;}
-.myorder-page .all-type .dingdan-nav span.noborder{border:0;}
-
-
-
-
-
+.myorder-page {
+  background: #f3f3f3
+}
+.myorder-page .all-type {
+  background: #fff
+}
+.myorder-page .all-type a {
+  display: block;
+  position: relative;
+  border-bottom: solid 1px #dbdbdb;
+  line-height: 4rem;
+  padding-left: 5.5rem;
+  font-size: 1.6rem;
+  color: #333
+}
+.myorder-page .all-type .icon {
+  display: inline-block;
+  position: absolute;
+  left: 1.5rem;
+  top: .75rem;
+  width: 2.5rem;
+  height: 2.5rem
+}
+.myorder-page .buyer-choose-wrap {
+  background: #fff
+}
+.myorder-page .buyer-choose-wrap .c-item {
+  font-size: 1.6rem;
+  width: 50%;
+  float: left;
+  text-align: center;
+  line-height: 2rem;
+  height: 2rem;
+  padding: 1rem 0;
+  border-bottom: solid 2px #fff
+}
+.myorder-page .buyer-choose-wrap .c-item.selected {
+  border-bottom: solid 2px #fe8419;
+  color: #fe8419
+}
+.myorder-page .buyer-choose-wrap .c-item .zhiying {
+  width: 5.75rem;
+  height: 1.8rem
+}
+.myorder-list-page .results-list {
+  background: #f3f3f3
+}
+.myorder-page .all-type .dingdan-nav {
+  width: 100%;
+  height: 4rem;
+  text-align: center;
+  border-bottom: 1px solid #CCC;
+}
+.myorder-page .all-type .dingdan-nav span {
+  width: 5.5rem;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.5rem;
+  border-right: 1px solid #CCC;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin-top: 0.8rem;
+}
+.myorder-page .all-type .dingdan-nav span.selected {
+  color: #fe8419;
+}
+.myorder-page .all-type .dingdan-nav span.noborder {
+  border: 0;
+}
