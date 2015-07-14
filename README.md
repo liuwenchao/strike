@@ -17,11 +17,16 @@ By default, CSS files are included by requiring them in JavaScript files via web
 # https://nodejs.org/
 
 # set this if you are in China
-npm config set registry "http://registry.npm.taobao.org/"
+npm config -g set registry "http://registry.npm.taobao.org/"
 
-npm install -g npm #update npm
+# update npm
+npm install -g npm
+# install development tools
 npm install -g gulp webpack-dev-server bower
+# install project dependencies
 npm install
+
+# open this in browser
 open http://localhost:8080/webpack-dev-server/index.html
 ```
 

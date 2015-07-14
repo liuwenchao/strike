@@ -2,6 +2,7 @@
   "name": "frontend-starterkit-minimal",
   "dependencies": {
     "jquery": "~2.1.0",
-    "knockout": "~3.3"
+    "knockout": "~3.3",
+    "cookies-js": "~1.2.1"
   }
 }

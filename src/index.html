@@ -119,15 +119,19 @@
     </div>
 
     <div class="index-nav zm-wraps mt10 mb10">
-      <!--未登录-->
-      <a class="item br1" href="./login.html">登录</a>
-      <a class="item"     href="./register.html">注册</a>
-      <a class="go-top"   href="./suggest.html">意见反馈 </a>
+      <a class="item br1"
+        data-bind="ifnot: loggedin"
+        href="login.html">登录</a>
+      <a class="item"
+        data-bind="ifnot: loggedin"
+        href="register.html">注册</a>
 
-      <!--如果已登录，显示此处，否则隐藏-->
-      <a class="item br1 log-name" data-bind="text: name">小李小李</a>
-      <a class="item" href="javascript:logout('false')">退出</a>
-      <a class="go-top" href="./suggest.html">意见反馈 </a>
+      <a class="item br1 log-name"
+        data-bind="visible: loggedin, text: name">ttt</a>
+      <a class="item"
+        href="javascript:;"
+        data-bind="visible: loggedin, click: logout">退出</a>
+      <a class="go-top" href="suggest.html">意见反馈 </a>
     </div>
   </div>
 
