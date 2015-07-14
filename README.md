@@ -20,7 +20,7 @@ By default, CSS files are included by requiring them in JavaScript files via web
 npm config set registry "http://registry.npm.taobao.org/"
 
 npm install -g npm #update npm
-npm install -g webpack-dev-server bower
+npm install -g gulp webpack-dev-server bower
 npm install
 open http://localhost:8080/webpack-dev-server/index.html
 ```
