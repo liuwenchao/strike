@@ -1,8 +1,9 @@
 {
-  "name": "frontend-starterkit-minimal",
+  "name": "zhaomei_weixin",
   "version": "0.0.1",
-  "description": "Frontend deveopment framework for node.",
-  "author": "Joe Johnston",
+  "private": true,
+  "author": "zhaomei.com",
+  "description": "weixin application for zhaomei.",
   "homepage": "https://github.com/starterkits/frontend-starterkit-minimal",
   "keywords": [
     "node",
@@ -11,17 +12,11 @@
     "bootstrap"
   ],
   "repository": {
-    "type": "git",
-    "url": "git://github.com/starterkits/frontend-starterkit-minimal.git"
+    "type": "git"
   },
   "bugs": "https://github.com/starterkits/frontend-starterkit-minimal/issues",
   "contributors": "https://github.com/starterkits/frontend-starterkit-minimal/graphs/contributors",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://raw.github.com/starterkits/frontend-starterkit-minimal/master/LICENSE"
-    }
-  ],
+  "licenses": "Commertial",
   "scripts": {
     "start": "gulp",
     "install": "bower install"
@@ -34,7 +29,6 @@
   "optionalDependencies": {},
   "devDependencies": {
     "gulp": "*",
-    "gulp-sass": "*",
     "gulp-util": "*",
     "coffee-script": "*",
     "webpack": "*",
