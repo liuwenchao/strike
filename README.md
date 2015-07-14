@@ -22,7 +22,7 @@ npm config -g set registry "http://registry.npm.taobao.org/"
 # update npm
 npm install -g npm
 # install development tools
-npm install -g gulp webpack-dev-server bower
+npm install -g gulp webpack-dev-server bower coffee-script
 # install project dependencies
 npm install
 

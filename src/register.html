@@ -45,9 +45,10 @@
             placeholder="请输入您的姓名">
         </div>
         <div class="input-wrap mt20">
-          <input type="text"
+          <input type="tel"
             class=" l-input49"
             required
+            pattern="1[0-9]{10}"
             data-bind="value: mobile"
             placeholder="请输入手机号码">
           <div class="clearfix w90 mt10">
@@ -80,11 +81,10 @@
         </div>
       </div>
 
-      <a href="javascript:;"
-        class="next l-btn49"
-        onclick="this.parentElement.submit();">
+      <button
+        class="next l-btn49">
         提&nbsp;&nbsp;交
-      </a>
+      </button>
 
       <div class="textac mt20" data-bind="visible: error">
         <p class="tips hidden"

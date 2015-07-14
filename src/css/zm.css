@@ -160,7 +160,7 @@ input.l-input49 {
   width: 90%;
   margin: 0 auto
 }
-a.l-btn49 {
+.l-btn49 {
   font-size: 1.5rem;
   background: #f70;
   height: 4rem;
@@ -170,7 +170,8 @@ a.l-btn49 {
   width: 90%;
   margin: 0 auto;
   text-align: center;
-  color: #fff
+  color: #fff;
+  border: 0;
 }
 a.l-btn50 {
   font-size: 1.5rem;
@@ -205,7 +206,7 @@ select.l-input49 {
   -webkit-border-radius: .2rem;
   color: #fff
 }
-a.l-btn49:active {
+.l-btn49:active {
   background: #ff4500
 }
 a.l-btn50:active {
