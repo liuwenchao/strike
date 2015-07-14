@@ -17,6 +17,7 @@ module.exports =
     head: './src/js/head'
     index: './src/js/index'
     login: './src/js/login'
+    register: './src/js/register'
 
   output:
     path: path.join(__dirname, 'dist')

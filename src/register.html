@@ -20,12 +20,11 @@
 
   <link href="css/zm.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
-  <script type="text/javascript" src="js/index_search.js"></script>
 </head>
 
 <body>
-  <div class="register-page fake-body" style="min-height: 667px; box-sizing: border-box; padding-bottom: 70px;">
+  <div class="register-page fake-body"
+    style="min-height: 667px; box-sizing: border-box; padding-bottom: 70px;">
 
     <div class="main-header">
       <a class="left" href="javascript:window.history.back();">
@@ -34,51 +33,71 @@
       <span class="center">
         <span class="title">免费注册</span>
       </span>
-      <a class="right" href="javascript:void (0)" style="visibility: hidden"></a>
+      <a class="right" href="javascript:;" style="visibility: hidden"></a>
     </div>
-
-
-    <div class="first-step mt15">
-      <div class="input-wrap mt20">
-        <input type="text" id="phone" class=" l-input49" placeholder="请输入您的姓名">
-      </div>
-      <div class="input-wrap mt20">
-        <input type="text" id="phone" class=" l-input49" placeholder="请输入手机号码">
-        <div class="clearfix w90 mt10">
-          <a href="javascript:void(0)" class="get l-btn45" id="regBtnGetCode">获取校验码</a>
-          <input type="text" id="validCode" name="validCode" class="num l-input44" placeholder="请输入短信校验码">
+    <form data-bind="submit: register">
+      <div class="first-step mt15">
+        <div class="input-wrap mt20">
+          <input type="text"
+            class="l-input49"
+            required
+            data-bind="value: truename"
+            placeholder="请输入您的姓名">
+        </div>
+        <div class="input-wrap mt20">
+          <input type="text"
+            class=" l-input49"
+            required
+            data-bind="value: mobile"
+            placeholder="请输入手机号码">
+          <div class="clearfix w90 mt10">
+            <a href="javascript:;"
+              class="get l-btn45"
+              data-bind="click: verify">
+              获取校验码
+            </a>
+            <input type="text"
+              required
+              class="num l-input44"
+              data-bind="value: code"
+              placeholder="请输入短信校验码">
+          </div>
         </div>
       </div>
 
-
-    </div>
-
-    <div class="second-step">
-      <div class="input-wrap mt20">
-        <input id="password" type="password" class="password l-input49" placeholder="请输入登录密码">
+      <div class="second-step">
+        <div class="input-wrap mt20">
+          <input type="password"
+            required
+            class="password l-input49"
+            placeholder="请输入登录密码">
+        </div>
+        <div class="input-wrap mt20">
+          <input type="password"
+            required
+            class="password l-input49"
+            placeholder="请输入登录密码">
+        </div>
       </div>
-      <div class="input-wrap mt20">
-        <input id="password" type="password" class="password l-input49" placeholder="请输入登录密码">
+
+      <a href="javascript:;"
+        class="next l-btn49"
+        onclick="this.parentElement.submit();">
+        提&nbsp;&nbsp;交
+      </a>
+
+      <div class="textac mt20" data-bind="visible: error">
+        <p class="tips hidden"
+          style="display: none;"
+          data-bind="text: error"></p>
       </div>
-
-    </div>
-
-
-
-    <a id="butRegister" href="./register_ok.html" class="next l-btn49">提&nbsp;&nbsp;交</a>
-
-    <div id="textac" class="textac mt20">
-      <p id="tips" class="tips hidden" style="display: none;">手机号码不能为空</p>
-    </div>
-
-
+    </form>
   </div>
   <footer class="zm-wraps" id="zmMobileAllFooter">
-
     <p>
       <img src="images/bottomlogo.png">
     </p>
   </footer>
+  <script type="text/javascript" src="/login.js"></script>
 </body>
-
 </html>
