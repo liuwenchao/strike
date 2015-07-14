@@ -120,17 +120,17 @@
 
     <div class="index-nav zm-wraps mt10 mb10">
       <a class="item br1"
-        data-bind="ifnot: loggedin"
+        data-bind="ifnot: isLoggedin"
         href="login.html">登录</a>
       <a class="item"
-        data-bind="ifnot: loggedin"
+        data-bind="ifnot: isLoggedin"
         href="register.html">注册</a>
 
       <a class="item br1 log-name"
-        data-bind="visible: loggedin, text: name">ttt</a>
+        data-bind="visible: isLoggedin, text: name"></a>
       <a class="item"
-        href="javascript:;"
-        data-bind="visible: loggedin, click: logout">退出</a>
+        href="login.html"
+        data-bind="visible: isLoggedin">退出</a>
       <a class="go-top" href="suggest.html">意见反馈 </a>
     </div>
   </div>

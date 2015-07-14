@@ -1,8 +1,10 @@
 $ = require 'jquery'
 ko = require 'knockout'
-auth = require 'auth'
 
-ko.applyBindings
-  loggedin: true
-  name: 'test user'
-  logout: -> true
+account =
+    isLoggedin: false
+$.get 'http://test.account.zhaomw.cn/?_format=json', (data) ->
+    account.name = data.truename || data.username || data.mobile
+    account.isLoggedin = true
+
+ko.applyBindings account
