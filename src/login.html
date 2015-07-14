@@ -28,24 +28,36 @@
       <img src="images/banner.png">
     </div>
 
-    <div class="input-wrap  mt10">
-      <input type="text" id="account" name="j_username" class="name l-input49" placeholder="请输入邮箱/已验证手机">
-      <input type="password" id="password" name="j_password" class="password l-input49" placeholder="请输入密码">
-      <a href="javascript:void(0)" id="butLogin" class="l-btn49" onclick="formSubmit()">登&nbsp;&nbsp;录</a>
-      <a href="javascript:void(0)" id="butLogin" class="l-btn50" onclick="formSubmit()">免费注册</a>
+    <div class="input-wrap mt10">
+      <input type="text"
+        data-bind="value: account._username"
+        class="name l-input49"
+        placeholder="请输入邮箱/已验证手机">
+      <input type="password"
+        data-bind="value: account._password"
+        class="password l-input49"
+        placeholder="请输入密码">
+      <a href="javascript:;"
+        class="l-btn49"
+        data-bind="click: login">
+        登&nbsp;&nbsp;录
+      </a>
+      <a href="register.html"
+        class="l-btn50">
+        免费注册
+      </a>
     </div>
     <div class="need-wrap clearfix">
-      <a class="forget" href="#">忘记密码</a>
+      <a class="forget" href="forget.html">忘记密码</a>
     </div>
 
-    <footer class="zm-wraps" id="zmMobileAllFooter">
+    <footer class="zm-wraps">
       <p>
         <img src="images/bottomlogo.png">
       </p>
     </footer>
 
   </div>
-  <script type="text/javascript" src="js/login.js"></script>
-
+  <script type="text/javascript" src="/login.js"></script>
 </body>
 </html>
