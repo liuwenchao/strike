@@ -26,7 +26,7 @@ npm install -g gulp webpack-dev-server bower coffee-script
 # install project dependencies
 npm install
 
-# open this in browser
+# open this in browser, make sure 80 port is not used.
 open http://dev.wx.zhaomw.cn/webpack-dev-server/index.html
 ```
 
