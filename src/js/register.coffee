@@ -11,7 +11,7 @@ register = (form) ->
       withCredentials: true
     url: 'http://test.api.zhaomw.cn/members.json'
     data: ko.toJS(account)
-    success: -> window.location.href='login.html'
+    success: -> window.location.href='register_ok.html'
     error: -> window.alert '验证码错误！'
 
 verify = ->
