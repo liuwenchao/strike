@@ -27,7 +27,7 @@ npm install -g gulp webpack-dev-server bower coffee-script
 npm install
 
 # open this in browser
-open http://localhost:8080/webpack-dev-server/index.html
+open http://dev.wx.zhaomw.cn/webpack-dev-server/index.html
 ```
 
 # Development

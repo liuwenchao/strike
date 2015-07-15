@@ -26,7 +26,7 @@ gulp.task 'webpack-dev-server', (callback) ->
     contentBase: conf.contentBase
     stats:
       colors: true
-  .listen 8080, 'localhost', (err) ->
+  .listen 80, 'dev.wx.zhaomw.cn', (err) ->
     throw new gutil.PluginError('webpack-dev-server', err) if err
     gutil.log '[webpack-dev-server]', 'http://localhost:8080/webpack-dev-server/index.html'
 
