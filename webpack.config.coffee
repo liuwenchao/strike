@@ -14,10 +14,13 @@ module.exports =
   cache: true
 
   entry:
-    head: './src/js/head'
     index: './src/js/index'
     login: './src/js/login'
     register: './src/js/register'
+    news: './src/js/news'
+    supply: './src/js/supply'
+    caigou: './src/js/caigou'
+    hangqing: './src/js/hangqing'
 
   output:
     path: path.join(__dirname, 'dist')

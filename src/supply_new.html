@@ -20,56 +20,47 @@
 
   <link href="css/zm.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
-  <script type="text/javascript" src="js/index_search.js"></script>
 </head>
 
 <body>
-  <form id="requirementForm" method="post" action="#">
+  <form method="post" action="#">
     <!-- 发布求购 -->
-    <div class="requirement-page fake-body" id="requirement" style="min-height: 667px; box-sizing: border-box; padding-bottom: 0px;">
+    <div class="requirement-page fake-body" style="min-height: 667px; box-sizing: border-box; padding-bottom: 0px;">
 
       <div class="main-header">
         <a class="left" href="javascript:window.history.back();">
           <span class="back-btn"></span>
         </a>
         <span class="center">
-          <span class="title">发布采购需求</span>
+          <span class="title">发布供应</span>
         </span>
       </div>
-
 
       <div class="info-wrap">
 
         <p class="w90">煤种</p>
-        <input class="input-item apply l-input49 ac_input" id="categoryName" name="categoryName" type="text" value="" autocomplete="off">
-        <input id="category" name="category" type="hidden" value="">
+        <input class="input-item apply l-input49 ac_input"
+          name="categoryName" type="text" value="" autocomplete="off">
+        <input name="category" type="hidden" value="">
 
         <p class="w90">化验指标</p>
-        <textarea rows="5" cols="40"></textarea>
+        <textarea rows="5" cols="40" class=""></textarea>
 
-        <p class="w90">意向价格（元/吨）</p>
-        <input id="price" name="price" type="number" class="l-input49" value="">
+        <p class="w90">价格（元/吨）</p>
+        <input name="price" type="number" class="l-input49" value="">
+        <input name="price" type="number" class="l-input49" value="">
+        <input name="price" type="number" class="l-input49" value="">
+        <input name="price" type="number" class="l-input49" value="">
 
         <p class="w90">数量（吨）</p>
-        <input id="amount" name="amount" type="number" class="l-input49" value="">
+        <input name="amount" type="number" class="l-input49" value="">
 
         <a class="send l-btn49" href="javascript:send();">委&nbsp;&nbsp;托</a>
-
-
-
       </div>
     </div>
-
-
   </form>
-  <script>
-    //提交表单
-    function send() {
-      document.getElementById("requirementForm").submit();
-      alert(11);
-    }
-  </script>
-</body>
 
+  <script type="text/javascript" src="/supply.js"></script>
+
+</body>
 </html>
