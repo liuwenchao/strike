@@ -4,6 +4,9 @@ ko = require 'knockout'
 account =
   isLoggedin: ko.observable(false)
   name: ko.observable()
+  logout: ->
+    document.cookie = "PHPSESSID=; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain=.zhaomw.cn; path=/"
+    location.reload()
 
 $.ajax
   type: 'GET'

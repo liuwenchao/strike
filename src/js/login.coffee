@@ -13,9 +13,14 @@ failure = ->
   window.alert '用户名或者密码错误！'
 
 login = ->
-    $.post 'http://test.account.zhaomw.cn/login', ko.toJS(account)
-    .done success
-    .fail failure
+  $.ajax
+    type: 'post'
+    xhrFields:
+      withCredentials: true
+    url: 'http://test.account.zhaomw.cn/login'
+    data: ko.toJS(account)
+    success: success
+    error: failure
 
 ko.applyBindings
   account: account
