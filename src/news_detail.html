@@ -23,48 +23,25 @@
 </head>
 
 <body>
-
   <div class="article-page">
     <div class="main-header">
       <a class="left" href="javascript:void (0)" onclick="window.history.back()">
         <span class="back-btn"></span>
       </a>
       <span class="center">
-        <span class="title">资讯</span>
+        <span class="title" data-bind="text: title"></span>
       </span>
       <a class="right" href="javascript:void (0)" style="visibility: hidden"></a>
     </div>
 
-    <div class="list-top">
-      <img src="images/articletop.png">
-    </div>
-    <div class="list-wrap">
-      <ul data-bind="foreach: records">
-        <!--内容输出-->
-        <a href="#" data-bind="attr: { href: 'news_detail.html?id='+id}">
-          <li>
-            <span class="title">
-              <img src="images/articletitle.png">
-              <span data-bind="text: title"></span>
-            <span class="desc" data-bind="text: summary"></span>
-            <span class="time">发布时间：
-              <span data-bind="text: addtime.getFullYear()"></span>
-              <span>-</span>
-              <span data-bind="text: addtime.getMonth()"></span>
-              <span>-</span>
-              <span data-bind="text: addtime.getDate()"></span>
-            </span>
-          </li>
-        </a>
-      </ul>
-    </div>
+    <div data-bind="html: content"></div>
   </div>
 
-  <footer class="zm-wraps" id="zmMobileAllFooter">
+  <footer class="zm-wraps">
     <p>
       <img src="images/bottomlogo.png">
     </p>
   </footer>
-  <script type="text/javascript" src="/news.js"></script>
+  <script type="text/javascript" src="/news_detail.js"></script>
 </body>
 </html>

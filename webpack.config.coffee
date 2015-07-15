@@ -18,6 +18,7 @@ module.exports =
     login: './src/js/login'
     register: './src/js/register'
     news: './src/js/news'
+    news_detail: './src/js/news_detail'
     supply: './src/js/supply'
     caigou: './src/js/caigou'
     hangqing: './src/js/hangqing'
