@@ -24,6 +24,8 @@ module.exports =
     caigou:       './src/coffee/caigou'
     caigou_new:   './src/coffee/caigou_new'
     hangqing:     './src/coffee/hangqing'
+    myorder:      './src/coffee/myorder'
+    orders:       './src/coffee/orders'
 
   output:
     path: path.join(__dirname, 'src')
