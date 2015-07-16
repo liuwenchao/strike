@@ -28,28 +28,32 @@
       <img src="images/banner.png">
     </div>
 
-    <div class="input-wrap mt10">
-      <input type="text"
-        data-bind="value: account._username"
-        class="name l-input49"
-        placeholder="请输入邮箱/已验证手机">
-      <input type="password"
-        data-bind="value: account._password"
-        class="password l-input49"
-        placeholder="请输入密码">
-      <a href="javascript:;"
-        class="l-btn49"
-        data-bind="click: login">
-        登&nbsp;&nbsp;录
-      </a>
-      <a href="register.html"
-        class="l-btn50">
-        免费注册
-      </a>
-    </div>
-    <div class="need-wrap clearfix">
-      <a class="forget" href="forget.html">忘记密码</a>
-    </div>
+    <form id="loginform" data-bind="submit: login">
+      <div class="input-wrap mt10">
+        <input type="text"
+          data-bind="value: account.username"
+          required
+          class="name l-input49"
+          placeholder="请输入邮箱/已验证手机">
+        <input type="password"
+          data-bind="value: account.password"
+          required
+          class="password l-input49"
+          placeholder="请输入密码">
+        <button
+          class="l-btn49"
+          type="submit">
+          登&nbsp;&nbsp;录
+        </button>
+        <a href="register.html"
+          class="l-btn50">
+          免费注册
+        </a>
+      </div>
+      <div class="need-wrap clearfix">
+        <a class="forget" href="forget.html">忘记密码</a>
+      </div>
+    </form>
 
     <footer class="zm-wraps">
       <p>

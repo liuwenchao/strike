@@ -2,9 +2,8 @@ $ = require 'jquery'
 ko = require 'knockout'
 
 account =
-  _username: ko.observable()
-  _password: ko.observable()
-  _format: 'json'
+  username: ko.observable()
+  password: ko.observable()
 
 success = ->
   window.location.href='index.html'
@@ -18,7 +17,10 @@ login = ->
     xhrFields:
       withCredentials: true
     url: 'http://test.account.zhaomw.cn/login'
-    data: ko.toJS(account)
+    data:
+      _username: account.username()
+      _password: account.password()
+      _format: 'json'
     success: success
     error: failure
 
