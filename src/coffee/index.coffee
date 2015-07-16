@@ -1,5 +1,6 @@
 $ = require 'jquery'
 ko = require 'knockout'
+parameters = require 'parameters'
 
 account =
   isLoggedin: ko.observable(false)
@@ -12,7 +13,7 @@ $.ajax
   type: 'GET'
   xhrFields:
     withCredentials: true
-  url: 'http://test.account.zhaomw.cn/?_format=json'
+  url: parameters.account.host+'/?_format=json'
   success: (data) ->
       account.name data.truename || data.username || data.mobile
       account.isLoggedin true

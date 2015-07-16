@@ -1,5 +1,6 @@
 $ = require 'jquery'
 ko = require 'knockout'
+parameters = require 'parameters'
 
 form =
   pinming_one: ko.observable()
@@ -33,7 +34,7 @@ save = ->
     type: 'post'
     xhrFields:
       withCredentials: true
-    url: 'http://test.api.zhaomw.cn/supplies'
+    url: parameters.api.host+'/supplies'
     data: ko.toJS(form)
     success: -> window.alert '发布成功'
     # window.location.href='index.html'

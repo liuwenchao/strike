@@ -1,5 +1,6 @@
 $ = require 'jquery'
 ko = require 'knockout'
+parameters = require 'parameters'
 
 register = (form) ->
   if form.password.value != form.repasswd.value
@@ -9,7 +10,7 @@ register = (form) ->
     type: 'post'
     xhrFields:
       withCredentials: true
-    url: 'http://test.api.zhaomw.cn/members.json'
+    url: parameters.api.host+'/members.json'
     data: ko.toJS(account)
     success: -> window.location.href='register_ok.html'
     error: -> window.alert '验证码错误！'
@@ -20,7 +21,7 @@ verify = ->
       type: 'post'
       xhrFields:
         withCredentials: true
-      url: 'http://test.api.zhaomw.cn/messages.json'
+      url: parameters.api.host+'/messages.json'
       data:
         mobile: account.sms()
         tpl: 'mcode'

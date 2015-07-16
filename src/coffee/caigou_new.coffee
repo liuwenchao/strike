@@ -1,5 +1,6 @@
 $ = require 'jquery'
 ko = require 'knockout'
+parameters = require 'parameters'
 
 form =
   standard_cate_one: ko.observable()
@@ -12,7 +13,7 @@ save = ->
     type: 'post'
     xhrFields:
       withCredentials: true
-    url: 'http://test.api.zhaomw.cn/caigouses'
+    url: parameters.api.host+'/caigouses'
     data: ko.toJS(form)
     success: -> window.alert '发布成功'
     # window.location.href='index.html'

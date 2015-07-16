@@ -16,7 +16,7 @@ login = ->
     type: 'post'
     xhrFields:
       withCredentials: true
-    url: 'http://test.account.zhaomw.cn/login'
+    url: parameters.account.host+'/login'
     data:
       _username: account.username()
       _password: account.password()
