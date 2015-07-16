@@ -20,7 +20,9 @@ module.exports =
     news:         './src/coffee/news'
     news_detail:  './src/coffee/news_detail'
     supply:       './src/coffee/supply'
+    supply_new:   './src/coffee/supply_new'
     caigou:       './src/coffee/caigou'
+    caigou_new:   './src/coffee/caigou_new'
     hangqing:     './src/coffee/hangqing'
 
   output:

@@ -160,6 +160,17 @@ input.l-input49 {
   width: 90%;
   margin: 0 auto
 }
+textarea.l-input49 {
+  color: #999;
+  text-indent: 1rem;
+  height: 8rem;
+  display: block;
+  line-height: 4rem \9;
+  border: solid 1px #dbdbdb;
+  border-radius: .2rem;
+  width: 90%;
+  margin: 0 auto
+}
 .l-btn49 {
   font-size: 1.5rem;
   background: #f70;
@@ -172,6 +183,7 @@ input.l-input49 {
   text-align: center;
   color: #fff;
   border: 0;
+  margin-top: 2rem;
 }
 a.l-btn50 {
   font-size: 1.5rem;
