@@ -14,18 +14,18 @@ module.exports =
   cache: true
 
   entry:
-    index: './src/js/index'
-    login: './src/js/login'
-    register: './src/js/register'
-    news: './src/js/news'
-    news_detail: './src/js/news_detail'
-    supply: './src/js/supply'
-    caigou: './src/js/caigou'
-    hangqing: './src/js/hangqing'
+    index:        './src/coffee/index'
+    login:        './src/coffee/login'
+    register:     './src/coffee/register'
+    news:         './src/coffee/news'
+    news_detail:  './src/coffee/news_detail'
+    supply:       './src/coffee/supply'
+    caigou:       './src/coffee/caigou'
+    hangqing:     './src/coffee/hangqing'
 
   output:
-    path: path.join(__dirname, 'dist')
-    publicPath: 'dist/'
+    path: path.join(__dirname, 'src')
+    publicPath: 'src/'
     filename: '[name].js'
     chunkFilename: '[chunkhash].js'
 
@@ -35,10 +35,10 @@ module.exports =
         test: /\.coffee$/
         loader: 'coffee-loader'
       }
-      {
-        test: /\.scss$/,
-        loader: "style-loader!sass-loader?outputStyle=expanded&includePaths[]=./bower_components/foundation/scss/"
-      }
+      # {
+      #   test: /\.scss$/,
+      #   loader: "style-loader!sass-loader?outputStyle=expanded&includePaths[]=./bower_components/foundation/scss/"
+      # }
       {
         # required to write 'require('./style.css')'
         test: /\.css$/
@@ -64,6 +64,6 @@ module.exports =
 
   resolve:
     extensions: ['', '.webpack.js', '.web.js', '.coffee', '.js', '.scss']
-    modulesDirectories: ['src', 'src/js', 'web_modules', 'bower_components', 'node_modules']
+    modulesDirectories: ['src', 'src/coffee', 'web_modules', 'bower_components', 'node_modules']
 
   plugins: []
