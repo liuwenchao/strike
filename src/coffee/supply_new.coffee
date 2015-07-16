@@ -13,6 +13,8 @@ form =
 
 address1 = ko.observableArray()
 address2 = ko.observableArray()
+form.pay_address_one.subscribe ->
+  refreshAddressTwo()
 
 $.get 'http://test.search.zhaomw.cn/city/_search?size=100&q=parent_id:0', (data)->
   for city in data.hits.hits
@@ -44,4 +46,3 @@ ko.applyBindings
   save: save
   address1: address1
   address2: address2
-  refreshAddressTwo: refreshAddressTwo

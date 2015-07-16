@@ -1,5 +1,6 @@
 $ = require 'jquery'
 ko = require 'knockout'
+parameters = require 'parameters'
 
 account =
   username: ko.observable()
