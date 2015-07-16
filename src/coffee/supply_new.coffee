@@ -37,7 +37,8 @@ save = ->
     xhrFields:
       withCredentials: true
     url: parameters.api.host+'/supplies'
-    data: ko.toJS(form)
+    data: ko.toJSON(form)
+    contentType: 'application/json'
     success: -> window.alert '发布成功'
     # window.location.href='index.html'
 
