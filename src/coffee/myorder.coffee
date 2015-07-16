@@ -22,8 +22,8 @@ $.ajax
         company_name: caigou.member_info
         pingming: caigou.variety[0]?.cate_name
         addtime: new Date caigou.add_time*1000
-        staff: caigou.operate_staff_id
-        tel: caigou.operate_staff_id
+        staff: caigou.operate_staff?.staff_truename
+        tel: caigou.operate_staff?.staff_mobile
 $.ajax
   type: 'get'
   xhrFields:
