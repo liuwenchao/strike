@@ -23,7 +23,6 @@
 </head>
 
 <body>
-
   <div class="article-page fake-body">
     <div class="main-header">
       <a class="left" href="javascript:void (0)" onclick="window.history.back()">
@@ -40,7 +39,6 @@
     </div>
     <div class="list-wrap">
       <ul data-bind="foreach: records">
-        <!--内容输出-->
         <a href="#" data-bind="attr: { href: 'news_detail.html?id='+id}">
           <li>
             <span class="title">
@@ -48,11 +46,7 @@
               <span data-bind="text: title"></span>
             <span class="desc" data-bind="text: summary"></span>
             <span class="time">发布时间：
-              <span data-bind="text: addtime.getFullYear()"></span>
-              <span>-</span>
-              <span data-bind="text: addtime.getMonth()"></span>
-              <span>-</span>
-              <span data-bind="text: addtime.getDate()"></span>
+              <span data-bind="text: addtime.toISOString().substr(0,10)"></span>
             </span>
           </li>
         </a>
@@ -65,6 +59,6 @@
       <img src="images/bottomlogo.png">
     </p>
   </footer>
-  <script type="text/javascript" src="/news.js"></script>
+  <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
