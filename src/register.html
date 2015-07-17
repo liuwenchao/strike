@@ -41,26 +41,27 @@
           <input type="text"
             class="l-input49"
             required
-            data-bind="value: account.username"
+            name="username"
             placeholder="请输入您的姓名">
         </div>
         <div class="input-wrap mt20">
           <input type="tel"
             class=" l-input49"
             required
+            name="mobile"
+            id="mobile"
             pattern="1[0-9]{10}"
-            data-bind="value: account.mobile"
             placeholder="请输入手机号码">
           <div class="clearfix w90 mt10">
             <a href="javascript:;"
               class="get l-btn45"
-              data-bind="click: verify">
+              data-bind="click: verify($('#mobile').val())">
               获取校验码
             </a>
             <input type="text"
               required
+              name="sms"
               class="num l-input44"
-              data-bind="value: account.sms"
               placeholder="请输入短信校验码">
           </div>
         </div>
@@ -71,7 +72,6 @@
           <input type="password"
             required
             name="password"
-            data-bind="value: account.password"
             class="password l-input49"
             placeholder="请输入登录密码">
         </div>
@@ -79,7 +79,6 @@
           <input type="password"
             required
             name="repasswd"
-            data-bind="value: account.repasswd"
             class="password l-input49"
             placeholder="请输入登录密码">
         </div>
@@ -101,6 +100,6 @@
       <img src="images/bottomlogo.png">
     </p>
   </footer>
-  <script type="text/javascript" src="/register.js"></script>
+  <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

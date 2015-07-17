@@ -98,9 +98,50 @@ logout = ->
   document.cookie = "PHPSESSID=; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain=.zhaomw.cn; path=/"
   window.location.href = '/'
 
+register = (form) ->
+  if form.password.value == form.repasswd.value
+    $.ajax
+      type: 'post'
+      xhrFields:
+        withCredentials: true
+      contentType: 'application/json'
+      url: parameters.api.host+'/members.json'
+      data: JSON.stringify
+        username: form.username.value
+        mobile:   form.mobile.value
+        sms:      form.sms.value
+        password: form.password.value
+      success: -> window.location.href='register_ok.html'
+      error: (error) ->
+        switch error.status
+          when 400 then window.alert '验证码错误或者已经过期！'
+          when 409 then window.alert '手机号码已经注册，请直接登录或者找回密码！'
+          when 500 then window.alert '注册失败，请联系我们！'
+          else
+            window.alert error.statusText
+  else
+    window.alert '两次密码不一样！'
+
+verify = (mobile) ->
+  if mobile and mobile.length == 11
+    $.ajax
+      type: 'post'
+      xhrFields:
+        withCredentials: true
+      url: parameters.api.host+'/messages.json'
+      data:
+        mobile: mobile
+        tpl: 'mcode'
+      success: -> window.alert '验证码已经发送您的手机，请查收！'
+      # success: (data) -> window.alert data.content
+  else
+    window.alert '请输入正确的手机号码！'
+
 module.exports =
   profile: profile
   load: load
   save: save
   login: login
   logout: logout
+  register: register
+  verify: verify
