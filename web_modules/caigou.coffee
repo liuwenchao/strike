@@ -16,6 +16,7 @@ Model = ->
   status: ko.observable()
 
 records = ko.observableArray()
+mine = ko.observableArray()
 
 fill = (data, model) ->
   model = new Model() if not model
@@ -52,8 +53,17 @@ list = ->
     for record in data.hits.hits
       records.push fill record._source
 
-mine = ->
-
+listMine = ->
+  $.ajax
+    type: 'get'
+    xhrFields:
+      withCredentials: true
+    url: parameters.api.host + '/caigous'
+    data:
+      limit: 10
+    success: (data) ->
+      for record in data
+        mine.push fill record
 
 more = (from) ->
   $.get parameters.search.host + '/caigou/_search?size=10&q=!ifhide&from='+from, (data) ->
@@ -62,6 +72,8 @@ more = (from) ->
 
 module.exports =
   records: records
-  create: create
-  list: list
-  more: more
+  mine:    mine
+  create:  create
+  list:    list
+  listMine: listMine
+  more:    more

@@ -4,29 +4,29 @@ parameters = require 'parameters'
 
 Model = ->
   id: ko.observable()
-  pinming_one: ko.observable()
-  pay_type: ko.observable()
-  pay_address_one: ko.observable()
-  pay_address_two: ko.observable()
-  pay_price: ko.observable()
-  pay_weight: ko.observable()
-  operate_staff_id: 0
+  pingming: ko.observable()
+  price: ko.observable()
+  weight: ko.observable()
+  rezhi: ko.observable()
+  isquhuo: ko.observable()
+  address: ko.observable()
+  addtime: ko.observable()
+  company_name: ko.observable()
 
 records = ko.observableArray()
+mine = ko.observableArray()
 
 fill = (data, model) ->
   model = new Model() if not model
-  model.id data.supply_id
-  model.price data.standard_price_money
-  model.weight data.standard_ton
-  model.rezhi data.standard_div_content?.rezhi_value
-  model.company_name data.member_info
-  model.pinming data.variety[0]?.cate_name
+  model.id  data.supply_id
+  model.pingming data.variety[0]?.cate_name
+  model.price data.pay_price
+  model.weight data.jiaoge_weight
+  model.rezhi data.dwfrl_u10_value
+  model.isquhuo data.isqihuo
+  model.address data.jiaoge_address
   model.addtime new Date data.add_time*1000
-  model.staff data.operate_staff?.staff_truename
-  model.tel data.operate_staff?.staff_mobile
-  model.address data.standard_address
-  model.status '交易成功'
+  model.company_name data.member.company?.company_name
   model
 
 create = (form) ->
@@ -51,6 +51,18 @@ list = ->
     for record in data.hits.hits
       records.push fill record._source
 
+listMine = ->
+  $.ajax
+    type: 'get'
+    xhrFields:
+      withCredentials: true
+    url: parameters.api.host + '/supplies'
+    data:
+      limit: 10
+    success: (data) ->
+      for record in data
+        mine.push fill record
+
 more = (from) ->
   $.get params.search.host + '/supply/_search?size=10&q=!ifhide&from='+from, (data) ->
     for record in data.hits.hits
@@ -58,6 +70,8 @@ more = (from) ->
 
 module.exports =
   records: records
+  mine: mine
   create: create
   list: list
+  listMine: listMine
   more: more

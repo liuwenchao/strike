@@ -73,8 +73,8 @@
             <span>意向价格：</span>
             <span class="color-y" data-bind="text: price">430</span>元/吨
             <span class="t03">发布时间：
-              <span data-bind="text: addtime.toISOString().substr(5,5)"></span>
-              <span data-bind="text: addtime.toISOString().substr(11,5)"></span>
+              <span data-bind="text: addtime().toISOString().substr(5,5)"></span>
+              <span data-bind="text: addtime().toISOString().substr(11,5)"></span>
             </span>
           </p>
           <p>
@@ -94,9 +94,9 @@
           登录我们的网站，上传excel文档，或联系我们的交易员代您挂货，找煤网竭诚为您服务！
         </div>
         <div class="dingdan-nav">
-            <span class="selected" data-bind="click: all_caigou">全部</span>
-            <span data-bind="click: checked_caigou">挂牌中</span>
-            <span data-bind="click: unchecked_caigou">未审核</span>
+            <span class="selected">全部</span>
+            <span>挂牌中</span>
+            <span>未审核</span>
             <span style="width: 12rem; text-align: right;">
               <a href="supply_new.html">快捷委托</a>
             </span>
@@ -119,9 +119,7 @@
                 <span class="color-9"> 交割地：</span>
                 <span data-bind="text:address"></span>
                 <span class="row-right color-9">
-                  <span data-bind="text: addtime.getFullYear()"></span>年
-                  <span data-bind="text: addtime.getMonth()"></span>月
-                  <span data-bind="text: addtime.getDate()"></span>日
+                  <span data-bind="text: addtime().toISOString().substr(0,10)"></span>
                 </span>
               </p>
             </a>
@@ -135,7 +133,7 @@
       <img src="images/bottomlogo.png">
     </p>
   </footer>
-  <script type="text/javascript" src="/myorder.js"></script>
+  <script type="text/javascript" src="app.js"></script>
 </body>
 
 </html>

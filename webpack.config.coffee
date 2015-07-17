@@ -15,7 +15,6 @@ module.exports =
 
   entry:
     app:          './src/coffee/app'
-    myorder:      './src/coffee/myorder'
     profile:      './src/coffee/profile'
 
   output:

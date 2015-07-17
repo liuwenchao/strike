@@ -23,8 +23,11 @@ switch route
       area_list: address.area_list
       city_list: address.city_list
   when 'myorder'
-    news.list()
-    ko.applyBindings news
+    caigou.listMine()
+    supply.listMine()
+    ko.applyBindings
+      caigous:  caigou.mine
+      supplies: supply.mine
   when 'orders'
     caigou.list()
     ko.applyBindings
