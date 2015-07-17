@@ -1,21 +1,18 @@
 $ = require 'jquery'
 ko = require 'knockout'
-params = require 'parameters'
+parameters = require 'parameters'
 
 Model = ->
   id: ko.observable()
-  price: ko.observable()
-  weight: ko.observable()
-  rezhi: ko.observable()
-  company_name: ko.observable()
-  pingming: ko.observable()
-  addtime: ko.observable()
-  staff: ko.observable()
-  tel: ko.observable()
-  address: ko.observable()
-  status: ko.observable()
+  pinming_one: ko.observable()
+  pay_type: ko.observable()
+  pay_address_one: ko.observable()
+  pay_address_two: ko.observable()
+  pay_price: ko.observable()
+  pay_weight: ko.observable()
+  operate_staff_id: 0
 
-records  = ko.observableArray()
+records = ko.observableArray()
 
 fill = (data, model) ->
   model = new Model() if not model
@@ -30,6 +27,24 @@ fill = (data, model) ->
   model.tel data.operate_staff?.staff_mobile
   model.address data.standard_address
   model.status '交易成功'
+  model
+
+create = (form) ->
+  $.ajax
+    type: 'post'
+    xhrFields:
+      withCredentials: true
+    url: parameters.api.host+'/supplies'
+    data: JSON.stringify
+      pinming_one: form.pinming_one.value
+      pay_type: form.pay_type.value
+      pay_address_one: form.pay_address_one.value
+      pay_address_two: form.pay_address_two.value
+      pay_price: form.pay_price.value
+      pay_weight: form.pay_weight.value
+    contentType: 'application/json'
+    success: -> window.alert '发布成功'
+    # window.location.href='index.html'
 
 list = ->
   $.ajax
@@ -51,7 +66,8 @@ more = (from) ->
       for record in data.hits.hits
         records.push fill record._source
 
-ko.applyBindings
+module.exports =
   records: records
+  create: create
   list: list
   more: more
