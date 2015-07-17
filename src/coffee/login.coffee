@@ -6,12 +6,6 @@ account =
   username: ko.observable()
   password: ko.observable()
 
-success = ->
-  window.location.href='index.html'
-
-failure = ->
-  window.alert '用户名或者密码错误！'
-
 login = ->
   $.ajax
     type: 'post'
@@ -22,8 +16,8 @@ login = ->
       _username: account.username()
       _password: account.password()
       _format: 'json'
-    success: success
-    error: failure
+    success: -> window.location.href='index.html'
+    error:   -> window.alert '用户名或者密码错误！'
 
 ko.applyBindings
   account: account

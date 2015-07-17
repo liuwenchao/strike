@@ -80,6 +80,19 @@ save = ->
     success: -> window.alert '保存成功'
     error:   -> window.location.href='index.html'
 
+login = (form) ->
+  $.ajax
+    type: 'post'
+    xhrFields:
+      withCredentials: true
+    url: parameters.account.host+'/login'
+    data:
+      _username: form.username.value
+      _password: form.password.value
+      _format: 'json'
+    success: -> window.location.href='/'
+    error:   -> window.alert '用户名或者密码错误！'
+
 logout = ->
   profile.isLoggedin false
   document.cookie = "PHPSESSID=; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain=.zhaomw.cn; path=/"
@@ -89,4 +102,5 @@ module.exports =
   profile: profile
   load: load
   save: save
+  login: login
   logout: logout

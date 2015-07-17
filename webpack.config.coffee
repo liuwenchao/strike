@@ -15,10 +15,6 @@ module.exports =
 
   entry:
     app:          './src/coffee/app'
-    index:        './src/coffee/index'
-    login:        './src/coffee/login'
-    register:     './src/coffee/register'
-    news:         './src/coffee/news'
     news_detail:  './src/coffee/news_detail'
     supply:       './src/coffee/supply'
     supply_new:   './src/coffee/supply_new'
