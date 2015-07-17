@@ -15,14 +15,21 @@ $.get params.search.host + '/site_chip/_search?size=5'
     records.push record
     for child in hangqing._source.content
       if child.field_one
-        child =
+        c =
           title: child.field_one
           weight: child.field_two
           frl: child.field_three
           price: child.field_four
           fudong: child.field_five
-        child.upordown = if child.field_six = '0' then '-' else if child.field_six > 0 then 'up' else 'dw'
-        record.children.push child
+        if child.field_six == '+1'
+          c.upordown = 'up'
+          c.fudong = "+#{child.field_five}"
+        else if child.field_six == '0'
+          c.upordown = ''
+        else
+          c.upordown = 'up'
+          c.fudong = "-#{child.field_five}"
+        record.children.push c
 
 module.exports =
   records: records

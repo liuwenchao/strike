@@ -20,13 +20,13 @@
 
   <link href="css/zm.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/quotation.css" rel="stylesheet">
 </head>
 
 <body>
-
-  <div class="article-page fake-body">
+  <div class="quotation-page" style="min-height: 667px; box-sizing: border-box; padding-bottom: 70px;">
     <div class="main-header">
-      <a class="left" href="javascript:void (0)" onclick="window.history.back()">
+      <a class="left" href="javascript:window.history.back();">
         <span class="back-btn"></span>
       </a>
       <span class="center">
@@ -34,30 +34,20 @@
       </span>
       <a class="right" href="javascript:void (0)" style="visibility: hidden"></a>
     </div>
-
-    <div data-bind="foreach: records">
-      <div class="list-top">
-        <span data-bind="text: title"></span>
-        <span>-</span>
-        <span data-bind="text: addtime.getFullYear()"></span>
-        <span>-</span>
-        <span data-bind="text: addtime.getMonth()"></span>
-        <span>-</span>
-        <span data-bind="text: addtime.getDate()"></span>
-      </div>
-      <div class="list-wrap">
-        <ul data-bind="foreach: children">
-          <a href="#" data-bind="attr: { href: url">
-            <li>
-              <span data-bind="text: title"></span>
-              <span data-bind="text: frl"></span>Kcal
-              <span data-bind="text: price"></span>
-              <span data-bind="text: upordown"></span>
-              <span data-bind="text: fudong"></span>
-            </li>
-          </a>
-        </ul>
-      </div>
+    <div class="list-wrap">
+      <ul data-bind="foreach: records">
+        <li class="bb1">
+          <span class="name title" data-bind="text: title">秦皇岛挂牌价</span>
+          <span data-bind="text: addtime.toISOString().substr(0,10)"></span>
+        </li>
+        <!-- ko foreach: children -->
+        <li class="bb1">
+          <span class="name ellipsis" data-bind="text: title"></span>
+          <span class="price" data-bind="text: frl+'Kcal'"></span>
+          <span class="arrow ellipsis" data-bind="text: fudong, css: upordown"></span>
+        </li>
+        <!-- /ko -->
+      </ul>
     </div>
   </div>
 
@@ -68,4 +58,5 @@
   </footer>
   <script type="text/javascript" src="app.js"></script>
 </body>
+
 </html>
