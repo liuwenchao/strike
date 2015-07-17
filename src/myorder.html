@@ -73,14 +73,8 @@
             <span>意向价格：</span>
             <span class="color-y" data-bind="text: price">430</span>元/吨
             <span class="t03">发布时间：
-              <span data-bind="text: addtime.getMonth()"></span>
-              <span>-</span>
-              <span data-bind="text: addtime.getDate()"></span>
-              <span data-bind="text: addtime.getHour()"></span>
-              <span>:</span>
-              <span data-bind="text: addtime.getMinute()"></span>
-              <span>:</span>
-              <span data-bind="text: addtime.getSecond()"></span>
+              <span data-bind="text: addtime.toISOString().substr(5,5)"></span>
+              <span data-bind="text: addtime.toISOString().substr(11,5)"></span>
             </span>
           </p>
           <p>
