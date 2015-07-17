@@ -1,11 +1,11 @@
-$ = require 'jquery'
-ko = require 'knockout'
-account = require 'account'
-news = require 'news'
-hangqing = require 'hangqing'
-caigou = require 'caigou'
-supply = require 'supply'
-address = require 'address'
+$           = require 'jquery'
+ko          = require 'knockout'
+account     = require 'account'
+news        = require 'news'
+hangqing    = require 'hangqing'
+caigou      = require 'caigou'
+supply      = require 'supply'
+address     = require 'address'
 
 route = window.location.pathname.substr(1,window.location.pathname.lastIndexOf('.')-1)
 
@@ -26,7 +26,7 @@ switch route
     caigou.listMine()
     supply.listMine()
     ko.applyBindings
-      caigous:  caigou.mine
+      caigous: caigou.mine
       supplies: supply.mine
   when 'orders'
     caigou.list()
