@@ -744,7 +744,9 @@ a.zm4row:active {
   background: #3093ed
 }
 .main-header .title {
-  font-size: 1.8rem
+  font-size: 1.8rem;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .main-header .back-btn {
   width: 1.8rem;
