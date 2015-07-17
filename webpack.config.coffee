@@ -15,7 +15,6 @@ module.exports =
 
   entry:
     app:          './src/coffee/app'
-    profile:      './src/coffee/profile'
 
   output:
     path: path.join(__dirname, 'src')

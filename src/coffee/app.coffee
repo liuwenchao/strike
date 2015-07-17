@@ -33,6 +33,15 @@ switch route
     ko.applyBindings
       records: caigou.records
       more: caigou.more
+  when 'profile'
+    account.load ->
+      account.address.area(account.profile.area())
+    account.address.listArea ->
+      account.profile.area(account.address.area())
+    ko.applyBindings
+      profile: account.profile
+      address: account.address
+      save: account.save
   when 'news'
     news.list()
     ko.applyBindings news

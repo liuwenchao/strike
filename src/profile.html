@@ -105,13 +105,13 @@
             <span class="title">地区：</span>
             <span class="content">
               <select class="l-input49" style="width: 49%; display: inline;"
-                name="address_one"
-                data-bind="value: profile.area, options: address1, optionsText: 'name', optionsValue: 'id'"
+                data-bind="value: address.area, options: address.area_list, optionsText: 'name', optionsValue: 'id'"
                 required>
               </select>
               <select class="l-input49" style="width: 49%; display: inline;"
-                data-bind="value: profile.city_name, options: address2"
-                name="address_two" required>
+                name="city_name"
+                data-bind="value: profile.city_name, options: address.city_list, optionsText: 'name', optionsValue: 'name', valueAllowUnset: true"
+                required>
                 <option value="">请选择</option>
               </select>
             </span>
@@ -133,7 +133,7 @@
       <img src="images/bottomlogo.png">
     </p>
   </footer>
-  <script type="text/javascript" src="profile.js"></script>
+  <script type="text/javascript" src="app.js"></script>
 </body>
 
 </html>

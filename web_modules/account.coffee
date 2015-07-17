@@ -1,6 +1,7 @@
 $ = require 'jquery'
 ko = require 'knockout'
 parameters = require 'parameters'
+address = require 'address'
 
 profile =
   member_id: ko.observable()
@@ -33,11 +34,12 @@ fillProfile = (data)->
   profile.email data.email
   profile.purpose_company_type data.purposeCompanyType
   profile.city data.cityName
+  profile.city_name data.cityName
   profile.address data.address
   if data.cityName
     $.get parameters.search.host+'/city/_search?size=1&q=city_name:'+data.cityName, (found)->
       if found.hits.hits.length > 0
-        profile.area found.hits.hits[0]._source.parent_id
+        address.area found.hits.hits[0]._source.parent_id
 
 load = (callback, errorCallback)->
   $.ajax
@@ -52,13 +54,25 @@ load = (callback, errorCallback)->
     error:
       errorCallback() if errorCallback
 
-save = ->
+save = (form)->
+  profile.city_name form.city_name.selectedOptions[0].text
   $.ajax
     type: 'PUT'
     xhrFields:
       withCredentials: true
     url: parameters.api.host+'/members/'+profile.member_id()
-    data: ko.toJSON profile
+    data: JSON.stringify
+      username: profile.username()
+      truename: profile.truename()
+      mobile: profile.mobile()
+      purpose_company: profile.purpose_company()
+      telephone: profile.telephone()
+      fax: profile.fax()
+      qq: profile.qq()
+      email: profile.email()
+      purpose_company_type: profile.purpose_company_type()
+      city_name: profile.city_name()
+      address: profile.address()
     contentType: 'application/json'
     success: -> window.alert '保存成功'
     error:   -> window.location.href='index.html'
@@ -122,6 +136,7 @@ verify = (mobile) ->
 
 module.exports =
   profile: profile
+  address: address
   load: load
   save: save
   login: login
