@@ -2,23 +2,6 @@ $ = require 'jquery'
 ko = require 'knockout'
 parameters = require 'parameters'
 
-# Model = ->
-#   member_id: ko.observable()
-#   username: ko.observable()
-#   truename: ko.observable()
-#   mobile: ko.observable()
-#   purpose_company: ko.observable()
-#   telephone: ko.observable()
-#   fax: ko.observable()
-#   qq: ko.observable()
-#   email: ko.observable()
-#   purpose_company_type: ko.observable()
-#   area: ko.observable()
-#   city: ko.observable()
-#   city_name: ko.observable()
-#   address: ko.observable()
-#
-
 profile =
   member_id: ko.observable()
   username: ko.observable()

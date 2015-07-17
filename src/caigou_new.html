@@ -39,7 +39,7 @@
       <div class="info-wrap">
         <p class="w90">煤种</p>
         <select class="l-input49"
-          data-bind="value: form.standard_cate_one"
+          name="standard_cate_one"
           required>
           <option value="">请选择</option>
           <option value="1">烟煤</option>
@@ -50,13 +50,12 @@
 
         <p class="w90">化验指标</p>
         <textarea class="l-input49"
-          data-bind="value: form.caigou_content"
           name="caigou_content"></textarea>
 
         <p class="w90">意向价格（元/吨）</p>
         <input
           type="number"
-          data-bind="value: form.pay_price"
+          name="pay_price"
           class="l-input49"
           placeholder="价格"
           required>
@@ -65,14 +64,14 @@
         <input
           type="number"
           class="l-input49"
-          data-bind="value: form.pay_weight"
+          name="pay_weight"
           required>
 
         <button class="send l-btn49">委&nbsp;&nbsp;托</button>
       </div>
     </div>
   </form>
-  <script type="text/javascript" src="/caigou_new.js"></script>
+  <script type="text/javascript" src="app.js"></script>
 
 </body>
 </html>

@@ -15,10 +15,7 @@ module.exports =
 
   entry:
     app:          './src/coffee/app'
-    supply:       './src/coffee/supply'
     supply_new:   './src/coffee/supply_new'
-    caigou:       './src/coffee/caigou'
-    caigou_new:   './src/coffee/caigou_new'
     myorder:      './src/coffee/myorder'
     orders:       './src/coffee/orders'
     profile:      './src/coffee/profile'
