@@ -37,51 +37,28 @@
     </div>
 
     <div class="list-wrap clearfix pr" style="padding-bottom: 70px;">
-
-      <ul class="bgfff pr" id="hotTradeListUl">
-
+      <ul class="bgfff pr" data-bind="foreach: records">
         <li class="bigrow bb1 pad0515 row1">
           <p class="fz15 c-333 ellipsis pr smrow">
-            <span class="mr05">ABS</span>
-            <span class="mr05">121H</span>
-            <span>1.000吨</span>
-            <span class="time fr fz12 c-999 pa">18:03</span>
+            <span class="mr05" data-bind="text: pingming"></span>
+            <span class="mr05" data-bind="text: rezhi"></span>kcal
+            <span data-bind="text: weight">1.000</span>吨
+            <span class="time fr fz12 c-999 pa">
+              <span data-bind="text: addtime.toTimeString().substr(0,5)"></span>
+            </span>
           </p>
           <p class="c-999 ellipsis smrow smrow2">
-            <span class="mr05">宁波LG甬兴</span>
-            <span>佛山</span>
-
+            <span class="mr05" data-bind="text: company_name"></span>
+            <span data-bind="text: address"></span>
           </p>
           <p class="ellipsis smrow">
-            <span class="price fz16 c-ff7700">￥10700.00
+            <span class="price fz16 c-ff7700">
+              <span>￥</span>
+              <span data-bind="text: price"></span>
               <span class="fz13">元/吨</span>
             </span>
-
             <span class="fr">
-              <span class="so">待卖家确认库存</span>
-            </span>
-          </p>
-        </li>
-
-        <li class="bigrow bb1 pad0515 row2">
-          <p class="fz15 c-333 ellipsis pr smrow">
-            <span class="mr05">HDPE</span>
-            <span class="mr05">5301AA</span>
-            <span>7.000吨</span>
-            <span class="time fr fz12 c-999 pa">19:36</span>
-          </p>
-          <p class="c-999 ellipsis smrow smrow2">
-            <span class="mr05">上海赛科</span>
-            <span>上海宝山</span>
-
-          </p>
-          <p class="ellipsis smrow">
-            <span class="price fz16 c-ff7700">￥11000.00
-              <span class="fz13">元/吨</span>
-            </span>
-
-            <span class="fr">
-              <span class="c-blue so">交易成功</span>
+              <span class="so" data-bind="text:status"></span>
             </span>
           </p>
         </li>

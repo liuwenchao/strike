@@ -10,6 +10,7 @@ form =
   pay_address_two: ko.observable()
   pay_price: ko.observable()
   pay_weight: ko.observable()
+  operate_staff_id: 0
 
 address1 = ko.observableArray()
 address2 = ko.observableArray()

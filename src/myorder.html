@@ -73,9 +73,14 @@
             <span>意向价格：</span>
             <span class="color-y" data-bind="text: price">430</span>元/吨
             <span class="t03">发布时间：
-              <span data-bind="text: addtime.getFullYear()"></span>年
-              <span data-bind="text: addtime.getMonth()"></span>月
-              <span data-bind="text: addtime.getDate()"></span>日
+              <span data-bind="text: addtime.getMonth()"></span>
+              <span>-</span>
+              <span data-bind="text: addtime.getDate()"></span>
+              <span data-bind="text: addtime.getHour()"></span>
+              <span>:</span>
+              <span data-bind="text: addtime.getMinute()"></span>
+              <span>:</span>
+              <span data-bind="text: addtime.getSecond()"></span>
             </span>
           </p>
           <p>
@@ -98,7 +103,9 @@
             <span class="selected" data-bind="click: all_caigou">全部</span>
             <span data-bind="click: checked_caigou">挂牌中</span>
             <span data-bind="click: unchecked_caigou">未审核</span>
-            <span style="width: 12rem; text-align: right;">快捷委托</span>
+            <span style="width: 12rem; text-align: right;">
+              <a href="supply_new.html">快捷委托</a>
+            </span>
         </div>
 
         <div class="pro-wrap">
