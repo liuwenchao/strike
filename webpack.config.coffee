@@ -14,6 +14,7 @@ module.exports =
   cache: true
 
   entry:
+    app:          './src/coffee/app'
     index:        './src/coffee/index'
     login:        './src/coffee/login'
     register:     './src/coffee/register'

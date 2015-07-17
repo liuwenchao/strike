@@ -42,29 +42,22 @@ $.ajax
     withCredentials: true
   url: parameters.account.host+'/?_format=json'
   success: (data) ->
-      profile.truename data.truename
-      profile.mobile data.mobile
-      profile.purpose_company data.purposeCompany
-      profile.telephone data.telephone
-      profile.fax data.fax
-      profile.qq data.qq
-      profile.email data.email
-      profile.purpose_company_type data.purposeCompanyType
-      profile.city data.cityName
-      profile.address data.address
-      if data.cityName
-        $.get parameters.search.host+'/city/_search?size=1&q=city_name:'+data.cityName, (found)->
-          if found.hits.hits.length > 0
-            profile.area found.hits.hits[0]._source.parent_id
-
-$.ajax
-  type: 'GET'
-  xhrFields:
-    withCredentials: true
-  url: parameters.account.host+'/?_format=json'
-  success: (data) ->
     profile.member_id data.memberId
-  fail: ->
+    profile.truename data.truename
+    profile.mobile data.mobile
+    profile.purpose_company data.purposeCompany
+    profile.telephone data.telephone
+    profile.fax data.fax
+    profile.qq data.qq
+    profile.email data.email
+    profile.purpose_company_type data.purposeCompanyType
+    profile.city data.cityName
+    profile.address data.address
+    if data.cityName
+      $.get parameters.search.host+'/city/_search?size=1&q=city_name:'+data.cityName, (found)->
+        if found.hits.hits.length > 0
+          profile.area found.hits.hits[0]._source.parent_id
+  error: ->
     window.location.href = '/'
 
 save = ->

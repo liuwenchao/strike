@@ -120,17 +120,17 @@
 
     <div class="index-nav zm-wraps mt10 mb10">
       <a class="item br1"
-        data-bind="ifnot: isLoggedin"
+        data-bind="ifnot: profile.isLoggedin"
         href="login.html">登录</a>
       <a class="item"
-        data-bind="ifnot: isLoggedin"
+        data-bind="ifnot: profile.isLoggedin"
         href="register.html">注册</a>
 
       <a class="item br1 log-name"
-        data-bind="visible: isLoggedin, text: name"></a>
+        data-bind="visible: profile.isLoggedin, text: profile.name"></a>
       <a class="item"
         href="login.html"
-        data-bind="visible: isLoggedin, click: logout">退出</a>
+        data-bind="visible: profile.isLoggedin, click: logout">退出</a>
       <a class="go-top" href="suggest.html">意见反馈 </a>
     </div>
   </div>
@@ -140,7 +140,7 @@
       <img src="images/bottomlogo.png">
     </p>
   </footer>
-  <script type="text/javascript" src="/index.js"></script>
+  <script type="text/javascript" src="app.js"></script>
 </body>
 
 </html>
