@@ -295,12 +295,15 @@
   text-align: right;
 }
 .gerenxinxi ul li .content {
-  width: 14rem;
+  width: 20rem;
   display: block;
   float: left;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.gerenxinxi ul li .content input {
+  width: 100%;
 }
 .gerenxinxi ul li .jiantou {
   display: block;

@@ -17,7 +17,7 @@ address2 = ko.observableArray()
 form.pay_address_one.subscribe ->
   refreshAddressTwo()
 
-$.get 'http://test.search.zhaomw.cn/city/_search?size=100&q=parent_id:0', (data)->
+$.get parameters.search.host+'/city/_search?size=100&q=parent_id:0', (data)->
   for city in data.hits.hits
     address1.push
       id: city._source.city_id
@@ -25,7 +25,7 @@ $.get 'http://test.search.zhaomw.cn/city/_search?size=100&q=parent_id:0', (data)
 
 refreshAddressTwo = ->
   if form.pay_address_one()
-    $.get 'http://test.search.zhaomw.cn/city/_search?size=100&q=parent_id:'+form.pay_address_one(), (data)->
+    $.get parameters.search.host+'/city/_search?size=100&q=parent_id:'+form.pay_address_one(), (data)->
       address2.removeAll()
       for city in data.hits.hits
         address2.push

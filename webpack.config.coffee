@@ -26,6 +26,7 @@ module.exports =
     hangqing:     './src/coffee/hangqing'
     myorder:      './src/coffee/myorder'
     orders:       './src/coffee/orders'
+    profile:      './src/coffee/profile'
 
   output:
     path: path.join(__dirname, 'src')
