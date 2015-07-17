@@ -24,5 +24,5 @@ $.get params.search.host + '/site_chip/_search?size=5'
         child.upordown = if child.field_six = '0' then '-' else if child.field_six > 0 then 'up' else 'dw'
         record.children.push child
 
-ko.applyBindings
+module.exports =
   records: records

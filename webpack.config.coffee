@@ -15,14 +15,10 @@ module.exports =
 
   entry:
     app:          './src/coffee/app'
-    news_detail:  './src/coffee/news_detail'
     supply:       './src/coffee/supply'
     supply_new:   './src/coffee/supply_new'
     caigou:       './src/coffee/caigou'
     caigou_new:   './src/coffee/caigou_new'
-    hangqing:     './src/coffee/hangqing'
-    myorder:      './src/coffee/myorder'
-    orders:       './src/coffee/orders'
     profile:      './src/coffee/profile'
 
   output:
