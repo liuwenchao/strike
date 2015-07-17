@@ -22,6 +22,14 @@ switch route
       area: address.area
       area_list: address.area_list
       city_list: address.city_list
+  when 'myorder'
+    news.list()
+    ko.applyBindings news
+  when 'orders'
+    caigou.list()
+    ko.applyBindings
+      records: caigou.records
+      more: caigou.more
   when 'news'
     news.list()
     ko.applyBindings news

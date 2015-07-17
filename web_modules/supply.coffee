@@ -47,24 +47,14 @@ create = (form) ->
     # window.location.href='index.html'
 
 list = ->
-  $.ajax
-    type: 'get'
-    url: params.search.host + '/supply/_search?size=10&q=!ifhide'
-    data:
-      limit: 10
-    success: (data) ->
-      for record in data.hits.hits
-        records.push fill record._source
+  $.get params.search.host + '/supply/_search?size=10&q=!ifhide', (data) ->
+    for record in data.hits.hits
+      records.push fill record._source
 
 more = (from) ->
-  $.ajax
-    type: 'get'
-    url: params.search.host + '/supply/_search?size=10&q=!ifhide&from='+from
-    data:
-      limit: 10
-    success: (data) ->
-      for record in data.hits.hits
-        records.push fill record._source
+  $.get params.search.host + '/supply/_search?size=10&q=!ifhide&from='+from, (data) ->
+    for record in data.hits.hits
+      records.push fill record._source
 
 module.exports =
   records: records

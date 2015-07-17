@@ -24,7 +24,7 @@ fill = (data, model) ->
   model.weight data.standard_ton
   model.rezhi data.standard_div_content?.rezhi_value
   model.company_name data.member_info
-  model.pinming data.variety[0]?.cate_name
+  model.pingming data.variety[0]?.cate_name
   model.addtime new Date data.add_time*1000
   model.staff data.operate_staff?.staff_truename
   model.tel data.operate_staff?.staff_mobile
@@ -48,24 +48,17 @@ create = (form) ->
     # window.location.href='index.html'
 
 list = ->
-  $.ajax
-    type: 'get'
-    url: params.search.host + '/caigou/_search?size=10&q=!ifhide'
-    data:
-      limit: 10
-    success: (data) ->
-      for record in data.hits.hits
-        records.push fill record._source
+  $.get parameters.search.host + '/caigou/_search?size=10&q=!ifhide', (data) ->
+    for record in data.hits.hits
+      records.push fill record._source
+
+mine = ->
+
 
 more = (from) ->
-  $.ajax
-    type: 'get'
-    url: params.search.host + '/caigou/_search?size=10&q=!ifhide&from='+from
-    data:
-      limit: 10
-    success: (data) ->
-      for record in data.hits.hits
-        records.push fill record._source
+  $.get parameters.search.host + '/caigou/_search?size=10&q=!ifhide&from='+from, (data) ->
+    for record in data.hits.hits
+      records.push fill record._source
 
 module.exports =
   records: records
