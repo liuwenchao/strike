@@ -34,10 +34,13 @@ switch route
       records: caigou.records
       more: caigou.more
   when 'profile'
-    account.load ->
-      account.address.area(account.profile.area())
+    successCallback = -> account.address.area(account.profile.area())
+    errorCallback = -> window.location.href='/'
+    account.load successCallback, errorCallback
+
     account.address.listArea ->
       account.profile.area(account.address.area())
+
     ko.applyBindings
       profile: account.profile
       address: account.address
