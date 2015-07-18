@@ -51,7 +51,7 @@ load = (callback, errorCallback)->
       fillProfile data
       profile.isLoggedin true
       callback() if callback
-    error:
+    error: ->
       errorCallback() if errorCallback
 
 save = (form)->
