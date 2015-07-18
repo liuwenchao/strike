@@ -55,7 +55,7 @@
           <div class="clearfix w90 mt10">
             <a href="javascript:;"
               class="get l-btn45"
-              data-bind="click: verify($('#mobile').val())">
+              data-bind="click: verify.bind($data, $('#mobile').val())">
               获取校验码
             </a>
             <input type="text"

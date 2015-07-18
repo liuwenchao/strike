@@ -35,7 +35,7 @@ switch route
       more: caigou.more
   when 'profile'
     successCallback = -> account.address.area(account.profile.area())
-    errorCallback = -> window.location.href='/'
+    errorCallback   = -> window.location.href='/'
     account.load successCallback, errorCallback
 
     account.address.listArea ->
