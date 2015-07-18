@@ -7,13 +7,12 @@ Model = ->
   title: ko.observable()
   summary: ko.observable()
   content: ko.observable()
-  addtime: ko.observable()
+  addtime: ko.observable(new Date())
 
 records = ko.observableArray()
 
 fill = (data, model) ->
-  if not model
-    model = new Model()
+  model = new Model() if not model
   model.id data.news_id
   model.title data.title.substr 0,12
   model.summary data.summary
