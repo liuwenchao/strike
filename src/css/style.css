@@ -276,11 +276,11 @@
   margin: 0 auto;
 }
 .gerenxinxi ul li {
-  height: 4rem;
+  height: 4.1rem;
   font-size: 1.5rem;
   line-height: 4rem;
   padding-left: 2rem;
-  padding-right: 2rem;
+  /*padding-right: 2rem;*/
 }
 .gerenxinxi ul li.color1 {
   background: #FFF;
@@ -295,7 +295,7 @@
   text-align: right;
 }
 .gerenxinxi ul li .content {
-  width: 20rem;
+  width: 23.3rem;
   display: block;
   float: left;
   overflow: hidden;
