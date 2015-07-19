@@ -44,9 +44,14 @@ gulp.task 'clean', del.bind null, ['dist']
 gulp.task 'build', ['webpack:build'], ->
   revAll = new RevAll()
   gulp.src 'src/**'
+  .pipe $.if '*.css', $.csso()
+  .pipe $.size
+    title: 'styles'
   .pipe $.if '*.html', $.minifyHtml
     empty: true
     spare: true
+  .pipe $.size
+    title: 'html'
   .pipe revAll.revision()
   .pipe gulp.dest 'dist'
 
