@@ -39,7 +39,12 @@ gulp.task 'webpack-dev-server', (callback) ->
 gulp.task 'clean', del.bind null, ['dist']
 
 gulp.task 'build', ['webpack:build'], ->
-  revAll = new $.revAll()
+  revAll = new $.revAll
+    dontRenameFile: [
+      /^\/favicon.ico$/g
+      /^\/index.html/g
+      /^\/robots.txt/g
+    ]
   gulp.src 'src/**'
   .pipe $.if 'src/images/*'
   , $.changed 'dist/images'
