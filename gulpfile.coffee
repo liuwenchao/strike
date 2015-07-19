@@ -1,14 +1,16 @@
 # See example gulpfile.js for file system development build:
 # https://github.com/webpack/webpack-with-common-libs/blob/master/gulpfile.js
 
-gulp = require 'gulp'
+del               = require 'del'
 
-del  = require 'del'
-gutil = require 'gulp-util'
-RevAll = require 'gulp-rev-all'
-webpack = require 'webpack'
-WebpackDevServer = require 'webpack-dev-server'
-webpackConfig = require './webpack.config.coffee'
+gulp              = require 'gulp'
+$                 = require('gulp-load-plugins')();
+gutil             = require 'gulp-util'
+RevAll            = require 'gulp-rev-all'
+
+webpack           = require 'webpack'
+WebpackDevServer  = require 'webpack-dev-server'
+webpackConfig     = require './webpack.config.coffee'
 
 
 # Default task
@@ -42,17 +44,19 @@ gulp.task 'clean', del.bind null, ['dist']
 gulp.task 'build', ['webpack:build'], ->
   revAll = new RevAll()
   gulp.src 'src/**'
+  .pipe $.if '*.html', $.minifyHtml
+    empty: true
+    spare: true
   .pipe revAll.revision()
   .pipe gulp.dest 'dist'
 
 gulp.task 'webpack:build', (callback) ->
-
-  # modify some webpack config options
   conf = Object.create webpackConfig
   conf.plugins = conf.plugins.concat new webpack.DefinePlugin
     'process.env':
       NODE_ENV: JSON.stringify('production')
-  , new webpack.optimize.DedupePlugin(), new webpack.optimize.UglifyJsPlugin()
+  , new webpack.optimize.DedupePlugin()
+  , new webpack.optimize.UglifyJsPlugin()
 
   # run webpack
   webpack conf, (err, stats) ->
