@@ -2,7 +2,10 @@
 # https://github.com/webpack/webpack-with-common-libs/blob/master/gulpfile.js
 
 gulp = require 'gulp'
+
+del  = require 'del'
 gutil = require 'gulp-util'
+RevAll = require 'gulp-rev-all'
 webpack = require 'webpack'
 WebpackDevServer = require 'webpack-dev-server'
 webpackConfig = require './webpack.config.coffee'
@@ -34,7 +37,14 @@ gulp.task 'webpack-dev-server', (callback) ->
 ############################################################
 # Production build
 ############################################################
+gulp.task 'clean', del.bind null, ['dist']
+
 gulp.task 'build', ['webpack:build'], ->
+  revAll = new RevAll()
+  gulp.src 'src/**'
+  .pipe revAll.revision()
+  .pipe gulp.dest 'dist'
+
 gulp.task 'webpack:build', (callback) ->
 
   # modify some webpack config options

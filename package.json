@@ -28,15 +28,18 @@
   "dependencies": {},
   "optionalDependencies": {},
   "devDependencies": {
-    "gulp": "*",
-    "gulp-util": "*",
-    "coffee-script": "*",
-    "webpack": "*",
-    "webpack-dev-server": "*",
-    "style-loader": "*",
     "coffee-loader": "*",
-    "script-loader": "*",
+    "coffee-script": "*",
+    "del": "^1.2.0",
+    "gulp": "*",
+    "gulp-concat": "^2.6.0",
+    "gulp-rev-all": "^0.8.21",
+    "gulp-util": "*",
+    "node-sass": "*",
     "sass-loader": "*",
-    "node-sass": "*"
+    "script-loader": "*",
+    "style-loader": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
   }
 }
