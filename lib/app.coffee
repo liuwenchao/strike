@@ -10,6 +10,9 @@ address     = require 'address'
 route = window.location.pathname.substr(1,window.location.pathname.indexOf('.')-1)
 
 switch route
+  when 'home'
+    account.load()
+    ko.applyBindings account
   when 'register'
     ko.applyBindings account
   when 'caigou_new'
@@ -54,6 +57,4 @@ switch route
     ko.applyBindings hangqing
   when 'oauth'
     #
-  else # fall back to index
-    account.load()
-    ko.applyBindings account
+  else
