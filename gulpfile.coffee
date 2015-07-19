@@ -10,18 +10,6 @@ webpack           = require 'webpack'
 WebpackDevServer  = require 'webpack-dev-server'
 webpackConfig     = require './webpack.config.coffee'
 
-AUTOPREFIXER_BROWSERS = [
-  'ie >= 10'
-  'ie_mob >= 10'
-  'ff >= 30'
-  'chrome >= 34'
-  'safari >= 7'
-  'opera >= 23'
-  'ios >= 7'
-  'android >= 4.4'
-  'bb >= 10'
-]
-
 # Default task
 gulp.task 'default', ['webpack-dev-server'], ->
 
@@ -56,12 +44,22 @@ gulp.task 'build', ['webpack:build'], ->
   .pipe $.if 'src/images/*'
   , $.changed 'dist/images'
   , $.cache $.imagemin
-      progressive: true,
+      progressive: true
       interlaced: true
   .pipe $.if '*.css'
-  , $.autoprefixer
-    browsers: AUTOPREFIXER_BROWSERS
   , $.csso()
+  # , $.autoprefixer
+  #   browsers: [
+  #     'ie >= 10'
+  #     'ie_mob >= 10'
+  #     'ff >= 30'
+  #     'chrome >= 34'
+  #     'safari >= 7'
+  #     'opera >= 23'
+  #     'ios >= 7'
+  #     'android >= 4.4'
+  #     'bb >= 10'
+  #   ]
   .pipe $.if '*.html', $.minifyHtml
     empty: true
     spare: true
