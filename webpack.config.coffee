@@ -14,7 +14,7 @@ module.exports =
   cache: true
 
   entry:
-    app:          './src/coffee/app'
+    app:          './lib/app'
 
   output:
     path: path.join(__dirname, 'src')
