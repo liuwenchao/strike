@@ -52,6 +52,8 @@ switch route
     ko.applyBindings news.load window.location.search.substr 4
   when 'hangqing'
     ko.applyBindings hangqing
+  when 'oauth'
+    #
   else # fall back to index
     account.load()
     ko.applyBindings account
