@@ -55,6 +55,11 @@ gulp.task 'clean', del.bind null, ['dist']
 gulp.task 'build', ['webpack:build'], ->
   revAll = new RevAll()
   gulp.src 'src/**'
+  .pipe $.if 'src/images/*'
+  , $.changed 'dist/images'
+  , $.cache $.imagemin
+      progressive: true,
+      interlaced: true
   .pipe $.if '*.css'
   , $.autoprefixer
     browsers: AUTOPREFIXER_BROWSERS
