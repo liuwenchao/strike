@@ -7,7 +7,7 @@ caigou      = require 'caigou'
 supply      = require 'supply'
 address     = require 'address'
 
-route = window.location.pathname.substr(1,window.location.pathname.lastIndexOf('.')-1)
+route = window.location.pathname.substr(1,window.location.pathname.indexOf('.')-1)
 
 switch route
   when 'register'
