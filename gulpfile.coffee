@@ -12,6 +12,17 @@ webpack           = require 'webpack'
 WebpackDevServer  = require 'webpack-dev-server'
 webpackConfig     = require './webpack.config.coffee'
 
+AUTOPREFIXER_BROWSERS = [
+  'ie >= 10'
+  'ie_mob >= 10'
+  'ff >= 30'
+  'chrome >= 34'
+  'safari >= 7'
+  'opera >= 23'
+  'ios >= 7'
+  'android >= 4.4'
+  'bb >= 10'
+]
 
 # Default task
 gulp.task 'default', ['webpack-dev-server'], ->
@@ -44,14 +55,13 @@ gulp.task 'clean', del.bind null, ['dist']
 gulp.task 'build', ['webpack:build'], ->
   revAll = new RevAll()
   gulp.src 'src/**'
-  .pipe $.if '*.css', $.csso()
-  .pipe $.size
-    title: 'styles'
+  .pipe $.if '*.css'
+  , $.autoprefixer
+    browsers: AUTOPREFIXER_BROWSERS
+  , $.csso()
   .pipe $.if '*.html', $.minifyHtml
     empty: true
     spare: true
-  .pipe $.size
-    title: 'html'
   .pipe revAll.revision()
   .pipe gulp.dest 'dist'
 

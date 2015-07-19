@@ -32,6 +32,7 @@
     "coffee-script": "*",
     "del": "^1.2.0",
     "gulp": "*",
+    "gulp-autoprefixer": "^2.3.1",
     "gulp-concat": "^2.6.0",
     "gulp-csso": "^1.0.0",
     "gulp-if": "^1.2.5",
