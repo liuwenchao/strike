@@ -71,6 +71,10 @@ gulp.task 'build', ['webpack:build'], ->
   .pipe $.if '*.js', $.uglify()
   .pipe revAll.revision()
   .pipe gulp.dest 'dist'
+  .pipe revAll.manifestFile()
+  .pipe gulp.dest 'dist'
+  .pipe revAll.versionFile()
+  .pipe gulp.dest 'dist'
 
 gulp.task 'webpack:build', (callback) ->
   conf = Object.create webpackConfig
