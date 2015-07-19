@@ -5,8 +5,6 @@ del               = require 'del'
 
 gulp              = require 'gulp'
 $                 = require('gulp-load-plugins')();
-gutil             = require 'gulp-util'
-RevAll            = require 'gulp-rev-all'
 
 webpack           = require 'webpack'
 WebpackDevServer  = require 'webpack-dev-server'
@@ -43,8 +41,8 @@ gulp.task 'webpack-dev-server', (callback) ->
     stats:
       colors: true
   .listen 8080, 'dev.wx.zhaomw.cn', (err) ->
-    throw new gutil.PluginError('webpack-dev-server', err) if err
-    gutil.log '[webpack-dev-server]', 'http://localhost:8080/webpack-dev-server/index.html'
+    throw new $.util.PluginError('webpack-dev-server', err) if err
+    $.util.log '[webpack-dev-server]', 'http://localhost:8080/webpack-dev-server/index.html'
 
 
 ############################################################
@@ -53,7 +51,7 @@ gulp.task 'webpack-dev-server', (callback) ->
 gulp.task 'clean', del.bind null, ['dist']
 
 gulp.task 'build', ['webpack:build'], ->
-  revAll = new RevAll()
+  revAll = new $.revAll()
   gulp.src 'src/**'
   .pipe $.if 'src/images/*'
   , $.changed 'dist/images'
@@ -67,6 +65,7 @@ gulp.task 'build', ['webpack:build'], ->
   .pipe $.if '*.html', $.minifyHtml
     empty: true
     spare: true
+  .pipe $.if '*.js', $.uglify()
   .pipe revAll.revision()
   .pipe gulp.dest 'dist'
 
@@ -80,6 +79,6 @@ gulp.task 'webpack:build', (callback) ->
 
   # run webpack
   webpack conf, (err, stats) ->
-    throw new gutil.PluginError('webpack:build', err) if err
-    gutil.log '[webpack:build]', stats.toString colors: true
+    throw new $.util.PluginError('webpack:build', err) if err
+    $.util.log '[webpack:build]', stats.toString colors: true
     callback()
