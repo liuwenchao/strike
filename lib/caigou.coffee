@@ -15,14 +15,17 @@ Model = ->
   address: ko.observable()
   status: ko.observable()
 
-records = ko.observableArray()
-mine = ko.observableArray()
+result =
+  size: 10
+  more: ko.observable(false)
+  from: ko.observable(0)
+  rows: ko.observableArray()
 
 fill = (data, model) ->
   model = new Model() if not model
   model.id data.caigou_id
-  model.price data.standard_price_money
-  model.weight data.standard_ton
+  model.price data.standard_price_money || data.pay_price
+  model.weight data.standard_ton || data.pay_weight
   model.rezhi data.standard_div_content?.rezhi_value
   model.company_name data.member_info
   model.pingming data.variety[0]?.cate_name
@@ -48,32 +51,34 @@ create = (form) ->
     success: -> window.alert '发布成功'
     # window.location.href='index.html'
 
-list = ->
-  $.get parameters.search.host + '/caigou/_search?size=10&q=!ifhide', (data) ->
+list = (from)->
+  $.get parameters.search.host + '/caigou/_search',
+    size: result.size
+    from: from
+    q: '!ifhide'
+  , (data) ->
+    result.more from+result.size
     for record in data.hits.hits
-      records.push fill record._source
+      result.rows.push fill record._source
 
-listMine = ->
+listMine = (from = 0, filter)->
   $.ajax
     type: 'get'
     xhrFields:
       withCredentials: true
     url: parameters.api.host + '/caigous'
     data:
-      limit: 10
+      start: from
+      limit: result.size
+      q: filter
     success: (data) ->
+      result.rows.removeAll() if from == 0
+      result.more from+result.size
       for record in data
-        mine.push fill record
-
-more = (from) ->
-  $.get parameters.search.host + '/caigou/_search?size=10&q=!ifhide&from='+from, (data) ->
-    for record in data.hits.hits
-      records.push fill record._source
+        result.rows.push fill record
 
 module.exports =
-  records: records
-  mine:    mine
+  result:  result
   create:  create
   list:    list
   listMine: listMine
-  more:    more

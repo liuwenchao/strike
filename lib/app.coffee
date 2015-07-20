@@ -29,13 +29,12 @@ switch route
     caigou.listMine()
     supply.listMine()
     ko.applyBindings
-      caigous: caigou.mine
+      caigou: caigou
       supplies: supply.mine
   when 'orders'
     caigou.list()
     ko.applyBindings
-      records: caigou.records
-      more: caigou.more
+      result: caigou.result
   when 'profile'
     successCallback = -> account.address.area(account.profile.area())
     errorCallback   = -> window.location.href='/'

@@ -52,14 +52,30 @@
     <!--我的采购 内容-->
     <div class="all-type mall-items">
       <div class="dingdan-nav">
-        <span class="selected">全部</span>
-        <span>未审核</span>
-        <span>待报价</span>
-        <span>已报价</span>
-        <span class="noborder">已成交</span>
+        <span data-bind="click: caigou.listMine" class="selected"
+          onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
+          全部
+        </span>
+        <span data-bind="click: caigou.listMine.bind($data, 0, 'ifcheck:0')"
+          onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
+          未审核
+        </span>
+        <span data-bind="click: caigou.listMine.bind($data, 0, 'progress:40000')"
+          onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
+          待报价
+        </span>
+        <span data-bind="click: caigou.listMine.bind($data, 0, 'progress:50000')"
+          onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
+          已报价
+        </span>
+        <span data-bind="click: caigou.listMine.bind($data, 0, 'progress:90000')"
+          onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');"
+          class="noborder">
+          已成交
+        </span>
       </div>
 
-      <ul class="wdcg-content" data-bind="foreach: caigous">
+      <ul class="wdcg-content" data-bind="foreach: caigou.result.rows">
         <li>
           <p>
             <span class="t01">求购</span>
@@ -114,7 +130,7 @@
               </p>
 
               <p class="clearfix">
-                <span class="color-9" data-bind="text:company_name">山西世德：</span>
+                <span class="color-9" data-bind="text:company_name"></span>
                 <span data-bind="text:weight"></span>吨
                 <span class="color-9"> 交割地：</span>
                 <span data-bind="text:address"></span>
