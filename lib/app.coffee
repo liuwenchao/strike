@@ -24,7 +24,7 @@ switch route
       area_list: address.area_list
       city_list: address.city_list
   when 'supplies'
-    supply.result.q location.search.substr 3
+    supply.result.q decodeURIComponent(location.search).substr 3
     supply.list()
     ko.applyBindings supply
   when 'supply'

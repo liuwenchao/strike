@@ -106,12 +106,12 @@ fill = (data, model) ->
   model.weight data.jiaoge_weight
   model.rezhi data.dwfrl_u10_value
   model.isqihuo data.isqihuo
-  model.address data.jiaoge_address
+  model.address data.jiaoge_address || ''
   model.addtime new Date data.add_time*1000
-  model.company_name data.member.company?.company_name
-  model.member_name data.member.truename
-  model.member_title data.member.job
-  model.telephone data.member.telephone
+  model.company_name data.member?.company?.company_name || ''
+  model.member_name data.member?.truename
+  model.member_title data.member?.job
+  model.telephone data.member?.telephone
   model.zhibiao_more data.zhibiao_more
   model.dwfrl_cell data.dwfrl_cell
   model.dwfrl_u10_value data.dwfrl_u10_value
@@ -200,10 +200,14 @@ result =
   from: ko.observable(0)
   rows: ko.observableArray()
   sort: ko.observable()
-  total: ko.observable()
+  total: ko.observable(0)
+  currentPage: ko.pureComputed ->
+    (Math.floor result.from()/result.size)+1
+  pageCount: ko.pureComputed ->
+    (Math.floor result.total()/result.size)
   filter: ko.observableArray(['!ifhide'])
 
-create = (form) ->
+create = (form)->
   $.ajax
     type: 'post'
     xhrFields:
@@ -233,12 +237,12 @@ load = (id) ->
 list = ->
   q = result.q()
   $.get parameters.search.host + '/supply/_search',
-    # q: if q then '(variety.cate_name:'+q+' OR paihao:'+q+') AND !ifhide' else '!ifhide'
-    q: '!ifhide'
+    q: if q then '(variety.cate_name:'+q+' OR paihao:'+q+') AND !ifhide' else '!ifhide'
     from: result.from()
     sort: result.sort()
     size: result.size
   , (data) ->
+    result.total data.hits.total
     result.rows.removeAll() if result.from() == 0
     result.more result.from()+result.size
     for record in data.hits.hits
@@ -259,6 +263,10 @@ listMine = (from = 0, filter)->
       for record in data
         result.rows.push fill record
 
+
+# conduct search when sort or from is changed
+result.sort.subscribe -> list()
+result.from.subscribe -> list()
 module.exports =
   result:  result
   create:  create

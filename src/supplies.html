@@ -24,7 +24,7 @@
 
 <body>
   <div class="market-page fake-body" style="box-sizing: border-box; padding-bottom: 117px;">
-    <form method="get" action="">
+    <form method="get" action=".">
       <div class="main-header bb1">
         <a class="backwrap" href="javascript:history.back();"><i class="backicon icon"></i> </a>
         <span class="center-wrap">
@@ -34,23 +34,31 @@
             data-bind="value: result.q"
             placeholder="请输入品名或牌号">
         </span>
-        <a class="right zmboxb borar2" href="javascript:void(0)"><i class="icon"></i></a>
+        <a class="right zmboxb borar2" href="javascript:void(0)">
+          <i class="icon"></i>
+        </a>
       </div>
     </form>
 
     <div class="result-wrap">
       <div class="new-array-wrap clearfix">
         <input type="hidden" name="orderBy" value="null">
-        <a href="javascript:;" class="item selected" flag="DEFAULT">
+        <a href="javascript:;" class="item selected"
+          data-bind="click: result.sort.bind($data, '')"
+          onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           <span class="name">默认</span>
         </a>
-        <a href="javascript:;" class="item" flag="price">
+        <a href="javascript:;" class="item" flag="price"
+          data-bind="click: result.sort.bind($data, result.sort() === 'pay_price:desc' ? 'pay_price:asc' : 'pay_price:desc')"
+          onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           <span class="name">价格</span><i class="arrow"></i>
         </a>
-        <a href="javascript:;" class="item" flag="weight">
+        <a href="javascript:;" class="item" flag="weight"
+          data-bind="click: result.sort.bind($data, result.sort() === 'jiaoge_weight:desc' ? 'jiaoge_weight:asc' : 'jiaoge_weight:desc')"
+          onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           <span class="name">数量</span><i class="arrow"></i>
         </a>
-        <a href="javascript:goToMarketSelect();" class="item">
+        <a href="javascript:;" class="item">
           <span class="name">筛选</span>
         </a>
       </div>
@@ -88,19 +96,14 @@
 
       <div class="page-wrap-out">
         <div class="list-foot">
-          <input name="offset" value="0" type="hidden">
-          <input name="rows" value="15" type="hidden">
-          <input name="pageCount" value="591" type="hidden">
-          <input name="pageIndex" value="1" type="hidden">
-
           <p>共找到
-            <span class="num" data-bind="text: result.total">8865</span>条产品信息</p>
+            <span class="num" data-bind="text: result.total"></span>条产品信息</p>
           <p class="page-wrap" >
-            <a href="javascript:void(0)" class="small">首页</a>
-            <a href="javascript:void(0);" class="big disabled">上一页</a>
-            <span>1/591</span>
-            <a href="javascript:void(0);" class="big">下一页</a>
-            <a href="javascript:void(0);" class="small">尾页</a>
+            <a href="javascript:;" class="small">首页</a>
+            <a href="javascript:;" class="big disabled">上一页</a>
+            <span><span data-bind="text: result.currentPage"></span>/<span data-bind="text: result.pageCount"></span></span>
+            <a href="javascript:;" class="big">下一页</a>
+            <a href="javascript:;" class="small">尾页</a>
           </p>
         </div>
       </div>
