@@ -27,6 +27,19 @@ switch route
     supply.result.q decodeURIComponent(location.search).substr 3
     supply.list()
     ko.applyBindings supply
+  when 'advanced'
+    params = {}
+    for param in decodeURIComponent(location.search).substr(1).split('&')
+      params[param.split('=')[0]] = param.split('=')[1]
+    search =
+      q: ko.observable(params.q)
+      isqihuo: ko.observable(params.isqihuo)
+      variety:
+        cate_name: ko.observable(params['variety.cate_name'])
+      paihao: ko.observable(params.paihao)
+      company_name: ko.observable(params.company)
+      cangku: ko.observable(params.cangku)
+    ko.applyBindings search
   when 'supply'
     ko.applyBindings supply.load location.search.substr 4
   when 'myorder'

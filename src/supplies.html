@@ -24,7 +24,7 @@
 
 <body>
   <div class="market-page fake-body" style="box-sizing: border-box; padding-bottom: 117px;">
-    <form method="get" action=".">
+    <form method="get" action="">
       <div class="main-header bb1">
         <a class="backwrap" href="javascript:history.back();"><i class="backicon icon"></i> </a>
         <span class="center-wrap">
@@ -58,7 +58,7 @@
           onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           <span class="name">数量</span><i class="arrow"></i>
         </a>
-        <a href="javascript:;" class="item">
+        <a href="javascript:;" class="item" data-bind="attr: {href: 'advanced.html?q='+result.q()}">
           <span class="name">筛选</span>
         </a>
       </div>
