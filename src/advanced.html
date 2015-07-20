@@ -52,10 +52,9 @@
         <div class="select-list mt10 bt1">
           <a class="clearfix" href="javascript:;">
             <span class="left">品种</span>
-            <select name="variety.cate_name" data-bind="value: variety.cate_name">
+            <select name="variety.cate_name"
+              data-bind="value: variety.cate_name, options: pinming, optionsCaption:'全部', optionsText: 'name', optionsValue: 'name', valueAllowUnset: true">
               <option value="">全部</option>
-              <option>动力煤</option>
-              <option>炼焦煤</option>
             </select>
           </a>
           <a class="clearfix" href="javascript:;">

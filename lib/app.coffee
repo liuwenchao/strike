@@ -6,6 +6,7 @@ hangqing    = require 'hangqing'
 caigou      = require 'caigou'
 supply      = require 'supply'
 address     = require 'address'
+variety     = require 'variety'
 
 route = window.location.pathname.substr(1,window.location.pathname.indexOf('.')-1)
 
@@ -28,6 +29,7 @@ switch route
     supply.list()
     ko.applyBindings supply
   when 'advanced'
+    variety.list()
     params = {}
     for param in decodeURIComponent(location.search).substr(1).split('&')
       params[param.split('=')[0]] = param.split('=')[1]
@@ -39,6 +41,7 @@ switch route
       paihao: ko.observable(params.paihao)
       company_name: ko.observable(params.company)
       cangku: ko.observable(params.cangku)
+      pinming: variety.result
     ko.applyBindings search
   when 'supply'
     ko.applyBindings supply.load location.search.substr 4
