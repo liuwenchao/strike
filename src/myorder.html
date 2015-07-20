@@ -110,16 +110,25 @@
           登录我们的网站，上传excel文档，或联系我们的交易员代您挂货，找煤网竭诚为您服务！
         </div>
         <div class="dingdan-nav">
-            <span class="selected">全部</span>
-            <span>挂牌中</span>
-            <span>未审核</span>
+            <span class="selected" data-bind="click: caigou.listMine.bind($data, 0, 'ifcheck:0')"
+              onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
+              全部
+            </span>
+            <span data-bind="click: caigou.listMine.bind($data, 0, 'ifcheck:0')"
+              onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
+              挂牌中
+            </span>
+            <span data-bind="click: caigou.listMine.bind($data, 0, 'ifcheck:0')"
+              onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
+              未审核
+            </span>
             <span style="width: 12rem; text-align: right;">
               <a href="supply_new.html">快捷委托</a>
             </span>
         </div>
 
         <div class="pro-wrap">
-          <div class="inner-list hidden" style="display: block;" data-bind="foreach: supplies">
+          <div class="inner-list hidden" style="display: block;" data-bind="foreach: supply.result.rows">
             <a href="javascript:void(0)" class="inner-row showKuaisuPricePrice" priceidcode="943292917410">
               <p class="clearfix">
                 <span class="name c-blue" data-bind="text:pingming"></span>

@@ -24,34 +24,32 @@
 
 <body>
   <div class="index-search-page fake-body" style="box-sizing: border-box; padding-bottom: 117px;">
-    <form method="get" action="">
+    <form method="get" action="supplies.html" id="search">
       <div class="main-header bb1">
         <a class="backwrap" href="javascript:history.back();"><i class="backicon icon"></i> </a>
         <span class="center-wrap">
-          <input id="keyWordName" name="keyWord" class="search zmboxb" value="" type="text" placeholder="请输入品名或牌号">
+          <input name="q" class="search zmboxb" type="text" placeholder="请输入品名或牌号">
         </span>
-        <a class="right zmboxb borar2" href="javascript:void(0)" id="searchKeyWord"><i class="icon"></i></a>
+        <a class="right zmboxb borar2" href="javascript:void(0)" onclick="document.querySelector('#search').submit()"><i class="icon"></i></a>
       </div>
     </form>
 
-    <!--搜索关键词-->
-    <div id="item-wrap" class="item-wrap bbbt1 mt10 clearfix">
+    <div class="item-wrap bbbt1 mt10 clearfix">
       <p class="title">热门搜索</p>
-      <span class="item"><a href="/supply_list.html?keyWord=动力煤">动力煤</a></span>
-      <span class="item"><a href="/supply_list.html?keyWord=炼焦煤">炼焦煤</a></span>
-      <span class="item"><a href="/supply_list.html?keyWord=神华">神华</a></span>
-      <span class="item"><a href="/supply_list.html?keyWord=神混1">神混1</a></span>
-      <span class="item"><a href="/supply_list.html?keyWord=伊泰">伊泰</a></span>
-      <span class="item"><a href="/supply_list.html?keyWord=蒙煤">蒙煤</a></span>
-      <span class="item"><a href="/supply_list.html?keyWord=中煤">中煤</a></span>
+      <span class="item"><a href="/supplies.html?q=动力煤">动力煤</a></span>
+      <span class="item"><a href="/supplies.html?q=炼焦煤">炼焦煤</a></span>
+      <span class="item"><a href="/supplies.html?q=神华">神华</a></span>
+      <span class="item"><a href="/supplies.html?q=神混1">神混1</a></span>
+      <span class="item"><a href="/supplies.html?q=伊泰">伊泰</a></span>
+      <span class="item"><a href="/supplies.html?q=蒙煤">蒙煤</a></span>
+      <span class="item"><a href="/supplies.html?q=中煤">中煤</a></span>
     </div>
 
-    <footer class="zm-wraps" id="zmMobileAllFooter">
+    <footer class="zm-wraps">
       <p>
         <img src="images/bottomlogo.png">
       </p>
     </footer>
-
   </div>
 </body>
 </html>

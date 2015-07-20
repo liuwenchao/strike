@@ -20,8 +20,6 @@
 
   <link href="css/zm.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
-  <script type="text/javascript" src="js/index_search.js"></script>
 </head>
 
 <body>
@@ -30,27 +28,26 @@
       <div class="main-header bb1">
         <a class="backwrap" href="javascript:history.back();"><i class="backicon icon"></i> </a>
         <span class="center-wrap">
-          <input id="keyWordName" name="keyWord" class="search zmboxb" value="" type="text" placeholder="请输入品名或牌号">
+          <input name="q"
+            class="search zmboxb"
+            type="text"
+            data-bind="value: result.q"
+            placeholder="请输入品名或牌号">
         </span>
-        <a class="right zmboxb borar2" href="javascript:void(0)" id="searchKeyWord"><i class="icon"></i></a>
+        <a class="right zmboxb borar2" href="javascript:void(0)"><i class="icon"></i></a>
       </div>
     </form>
 
-
-
-    <div class="result-wrap" id="prices">
-
-
-      <div class="new-array-wrap clearfix" id="orderByWarp">
-
-        <input type="hidden" id="orderByStatus" name="orderBy" value="null">
-        <a href="javascript:void(0)" class="item selected" flag="DEFAULT">
+    <div class="result-wrap">
+      <div class="new-array-wrap clearfix">
+        <input type="hidden" name="orderBy" value="null">
+        <a href="javascript:;" class="item selected" flag="DEFAULT">
           <span class="name">默认</span>
         </a>
-        <a href="javascript:void(0)" id="price" class="item" flag="price">
+        <a href="javascript:;" class="item" flag="price">
           <span class="name">价格</span><i class="arrow"></i>
         </a>
-        <a href="javascript:void(0)" id="weight" class="item" flag="weight">
+        <a href="javascript:;" class="item" flag="weight">
           <span class="name">数量</span><i class="arrow"></i>
         </a>
         <a href="javascript:goToMarketSelect();" class="item">
@@ -58,120 +55,64 @@
         </a>
       </div>
 
-      <!-- <div class="market-list clearfix " id="list_price"></div> -->
-
       <div class="market-list-new clearfix">
-
-
-
-
         <div class="pro-wrap">
-
-
-          <div class="inner-list hidden" style="display: block;">
-
-            <!--内容输出-->
-            <a href="javascript:void(0)" class="inner-row showKuaisuPricePrice" priceidcode="943292917410">
+          <div class="inner-list hidden"
+            style="display: block;"
+            data-bind="foreach: result.rows">
+            <a href="javascript:;"
+              data-bind="attr: { href: 'supply.html?id='+id()}"
+              class="inner-row showKuaisuPricePrice">
               <p class="clearfix">
                 <span class="name c-blue">自营商城</span>
-                <span class="zhiying">5500</span>
-                <span class="zhiying">kcal</span><i class="f-c cash"></i>
-                <span class="row-right price orange">￥10950.0元/吨</span>
+                <span class="zhiying" data-bind="text: rezhi"></span>
+                <span class="zhiying">kcal</span>
+                <i class="f-c cash" data-bind="visible: !isqihuo()"></i>
+                <span class="row-right price orange">￥
+                  <span data-bind="text: price"></span>
+                元/吨</span>
               </p>
 
               <p class="clearfix">
-                <span class="color-9">山西世德：</span>40.0吨
-                <span class="color-9"> 交割地：</span>上海&nbsp;&nbsp;
-                <span class="row-right color-9">17天前</span>
+                <span class="color-9" data-bind="text: company_name().substr(0, 4)"></span>
+                <span data-bind="text: weight"></span>
+                <span>吨</span>
+                <span class="color-9"> 交割地：</span>
+                <span data-bind="text: address().substr(0, 5)"></span>
+                <span class="row-right color-9" data-bind="text: addtime().toISOString().substr(0,10)"></span>
               </p>
             </a>
-            <a href="javascript:void(0)" class="inner-row showKuaisuPricePrice" priceidcode="943292917410">
-              <p class="clearfix">
-                <span class="name c-blue">自营商城</span>
-                <span class="zhiying">5500</span>
-                <span class="zhiying">kcal</span><i class="f-c cash"></i>
-                <span class="row-right price orange">￥10950.0元/吨</span>
-              </p>
-
-              <p class="clearfix">
-                <span class="color-9">山西世德：</span>40.0吨
-                <span class="color-9"> 交割地：</span>上海&nbsp;&nbsp;
-                <span class="row-right color-9">17天前</span>
-              </p>
-            </a>
-            <a href="javascript:void(0)" class="inner-row showKuaisuPricePrice" priceidcode="943292917410">
-              <p class="clearfix">
-                <span class="name c-blue">自营商城</span>
-                <span class="zhiying">5500</span>
-                <span class="zhiying">kcal</span><i class="f-c cash"></i>
-                <span class="row-right price orange">￥10950.0元/吨</span>
-              </p>
-
-              <p class="clearfix">
-                <span class="color-9">山西世德：</span>40.0吨
-                <span class="color-9"> 交割地：</span>上海&nbsp;&nbsp;
-                <span class="row-right color-9">17天前</span>
-              </p>
-            </a>
-
-
-
-            <div></div>
           </div>
         </div>
-
-
       </div>
 
-
-
-
-
-      <!-- 分页区 -->
       <div class="page-wrap-out">
         <div class="list-foot">
-          <input name="offset" id="offset" value="0" type="hidden">
-          <input name="rows" id="rows" value="15" type="hidden">
-          <input name="pageCount" id="pageCount" value="591" type="hidden">
-          <input name="pageIndex" id="pageIndex" value="1" type="hidden">
+          <input name="offset" value="0" type="hidden">
+          <input name="rows" value="15" type="hidden">
+          <input name="pageCount" value="591" type="hidden">
+          <input name="pageIndex" value="1" type="hidden">
 
           <p>共找到
-            <span class="num" id="total-count">8865</span>条产品信息</p>
-          <p class="page-wrap" id="pageConntrol">
-            <a href="javascript:void(0)" class="small" id="firstPage">首页</a>
-            <a href="javascript:void(0);" class="big disabled" id="prePage">上一页</a>
+            <span class="num" data-bind="text: result.total">8865</span>条产品信息</p>
+          <p class="page-wrap" >
+            <a href="javascript:void(0)" class="small">首页</a>
+            <a href="javascript:void(0);" class="big disabled">上一页</a>
             <span>1/591</span>
-            <a href="javascript:void(0);" class="big" id="nextPage">下一页</a>
-            <a href="javascript:void(0);" class="small" id="lastPage">尾页</a>
+            <a href="javascript:void(0);" class="big">下一页</a>
+            <a href="javascript:void(0);" class="small">尾页</a>
           </p>
         </div>
       </div>
 
-
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
-    <footer class="zm-wraps" id="zmMobileAllFooter">
-
+    <footer class="zm-wraps">
       <p>
         <img src="images/bottomlogo.png">
       </p>
     </footer>
-
   </div>
-
+  <script type="text/javascript" src="app.js"></script>
 </body>
 
 </html>

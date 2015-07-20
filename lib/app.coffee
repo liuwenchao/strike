@@ -13,8 +13,6 @@ switch route
   when 'home'
     account.load()
     ko.applyBindings account
-  when 'register'
-    ko.applyBindings account
   when 'caigou_new'
     ko.applyBindings
       save: caigou.create
@@ -25,20 +23,27 @@ switch route
       area: address.area
       area_list: address.area_list
       city_list: address.city_list
+  when 'supplies'
+    supply.result.q location.search.substr 3
+    supply.list()
+    ko.applyBindings supply
+  when 'supply'
+    ko.applyBindings supply.load location.search.substr 4
   when 'myorder'
     caigou.listMine()
     supply.listMine()
     ko.applyBindings
       caigou: caigou
-      supplies: supply.mine
+      supply: supply
   when 'orders'
     caigou.list()
     ko.applyBindings
       result: caigou.result
   when 'profile'
-    successCallback = -> account.address.area(account.profile.area())
-    errorCallback   = -> window.location.href='/'
-    account.load successCallback, errorCallback
+    account.load ->
+      account.address.area(account.profile.area())
+    , ->
+      window.location.href='/'
 
     account.address.listArea ->
       account.profile.area(account.address.area())
@@ -54,6 +59,8 @@ switch route
     ko.applyBindings news.load window.location.search.substr 4
   when 'hangqing'
     ko.applyBindings hangqing
+  when 'register'
+    ko.applyBindings account
   when 'oauth'
     #
   else

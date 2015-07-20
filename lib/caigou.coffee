@@ -57,6 +57,7 @@ list = (from)->
     from: from
     q: '!ifhide'
   , (data) ->
+    result.rows.removeAll() if from == 0
     result.more from+result.size
     for record in data.hits.hits
       result.rows.push fill record._source
