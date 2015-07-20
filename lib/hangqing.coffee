@@ -27,7 +27,7 @@ $.get params.search.host + '/site_chip/_search?size=5'
         else if child.field_six == '0'
           c.upordown = ''
         else
-          c.upordown = 'up'
+          c.upordown = 'down'
           c.fudong = "-#{child.field_five}"
         record.children.push c
 
