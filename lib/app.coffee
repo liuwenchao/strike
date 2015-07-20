@@ -24,8 +24,18 @@ switch route
       area: address.area
       area_list: address.area_list
       city_list: address.city_list
+  when 'caigous'
+    params = {}
+    for param in decodeURIComponent(location.search).substr(1).split('&')
+      params[param.split('=')[0]] = param.split('=')[1]
+    caigou.result.q params.q
+    caigou.list()
+    ko.applyBindings caigou
   when 'supplies'
-    supply.result.q decodeURIComponent(location.search).substr 3
+    params = {}
+    for param in decodeURIComponent(location.search).substr(1).split('&')
+      params[param.split('=')[0]] = param.split('=')[1]
+    supply.result.q params.q
     supply.list()
     ko.applyBindings supply
   when 'advanced'

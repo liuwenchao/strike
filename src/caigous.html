@@ -21,8 +21,6 @@
   <link href="css/zm.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link href="css/purpose.css" rel="stylesheet">
-  <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
-  <script type="text/javascript" src="js/index_search.js"></script>
 </head>
 
 <body>
@@ -31,91 +29,63 @@
       <div class="main-header bb1">
         <a class="backwrap" href="javascript:history.back();"><i class="backicon icon"></i> </a>
         <span class="center-wrap">
-          <input id="keyWordName" name="keyWord" class="search zmboxb" value="" type="text" placeholder="请输入品名或牌号">
+          <input name="q" class="search zmboxb" value="" type="text" placeholder="请输入品名或牌号">
         </span>
-        <a class="right zmboxb borar2" href="javascript:void(0)" id="searchKeyWord"><i class="icon"></i></a>
+        <a class="right zmboxb borar2" href="javascript:void(0)"><i class="icon"></i></a>
       </div>
     </form>
 
     <div class="result-wrap">
-      <div class="purpose-list clearfix">
+      <div class="purpose-list clearfix" data-bind="foreach: result.rows">
 
 
         <div class="pro-wrap ks-wraps">
-          <p class="content fz15">
+          <p class="content fz15" data-bind="text: content">
             求购 38.500吨 HDPE EX5
           </p>
 
           <p class="ellipsis fz12">
-            <span class="factory">厂家：伊朗石化</span>
+            <span class="factory">厂家：
+              <span data-bind="text: company_name"></span>
+            </span>
           </p>
 
           <p class="ellipsis fz12">
             <span class="city fl halfrow">
               配送地址：
-
+              <span data-bind="text: address"></span>
             </span>
             <span class="fr price halfrow ">意向价格：
-              <span class="c-ff7700"> 元/吨</span>
+              <span class="c-ff7700">
+                <span data-bind="text: price"></span>
+                元/吨</span>
             </span>
           </p>
 
           <p class="ellipsis fz12">
-            <span class="person c-ff7700 halfrow fl">交易员：陈丹</span>
-            <span class="time halfrow c-999 fr">2015-07-10 16:37:03</span>
+            <span class="person c-ff7700 halfrow fl">交易员：
+              <span data-bind="text: staff"></span>
+            </span>
+            <span class="time halfrow c-999 fr">
+              <span data-bind="text: addtime().toISOString().substr(0,10)"></span>
+              <span data-bind="text: addtime().toISOString().substr(11,8)"></span>
+            </span>
           </p>
 
-          <p class="btn-wrap clearfix" id="">
+          <p class="btn-wrap clearfix">
             <label style="display: none;">46393</label>
-
-            <a class="buy" href="javascript:void(0)">&nbsp;
-									等待交易
-								</a>
-            <a class="tel" href="javascript:void(0)">电话联系</a>
-
+            <a class="buy" href="javascript:;"
+              data-bind="css: {disabled: progress()>60000}">&nbsp;
+              等待交易
+            </a>
+            <a class="tel" href="javascript:;"
+              data-bind="css: {disabled: progress()>60000}, attr: {href: 'tel:'+tel()}">
+              电话联系
+            </a>
           </p>
         </div>
-
-        <div class="pro-wrap ks-wraps">
-          <p class="content fz15">
-            求购 20.000吨 PVC DG-800
-          </p>
-
-          <p class="ellipsis fz12">
-            <span class="factory">厂家：天津大沽</span>
-          </p>
-
-          <p class="ellipsis fz12">
-            <span class="city fl halfrow">
-              配送方式： 自提
-            </span>
-            <span class="fr price halfrow ">意向价格：
-              <span class="c-ff7700"> 5820.00元/吨</span>
-            </span>
-          </p>
-
-          <p class="ellipsis fz12">
-            <span class="person c-ff7700 halfrow fl">交易员：欧秋红</span>
-            <span class="time halfrow c-999 fr">2015-07-10 16:14:27</span>
-          </p>
-
-          <p class="btn-wrap clearfix" id="">
-            <label style="display: none;">46390</label>
-
-
-
-            <a class="buy disabled" href="javascript:void(0)">&nbsp;
-									交易完成
-								</a>
-            <a class="tel disabled" href="javascript:void(0)">电话联系</a>
-
-          </p>
-        </div>
-
-
-
-
-        <!-- 分页区 -->
+      </div>
+      <div>
         <div class="page-wrap-out">
           <div class="list-foot">
             <input name="start" id="start" value="0" type="hidden">
@@ -134,24 +104,14 @@
             </p>
           </div>
         </div>
-
-
       </div>
-
     </div>
-
-
-
-
     <footer class="zm-wraps" id="zmMobileAllFooter">
-
       <p>
         <img src="images/bottomlogo.png">
       </p>
     </footer>
-
   </div>
-
+  <script type="text/javascript" src="app.js"></script>
 </body>
-
 </html>
