@@ -68,6 +68,7 @@ gulp.task 'build', ['webpack:build'], ->
   .pipe $.if '*.html', $.minifyHtml
     empty: true
     spare: true
+    comments: true
   .pipe $.if '*.js', $.uglify()
   .pipe revAll.revision()
   .pipe gulp.dest 'dist'
