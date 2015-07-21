@@ -20,8 +20,6 @@
 
   <link href="css/zm.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
-  <script type="text/javascript" src="js/index_search.js"></script>
 </head>
 
 <body>
@@ -37,45 +35,58 @@
       <a class="right" href="javascript:void (0)" style="visibility: hidden"></a>
     </div>
 
-
-    <div class="first-step mt15">
-      <div class="input-wrap mt20">
-        <input type="text" id="phone" class=" l-input49" placeholder="请输入手机号码">
-        <div class="clearfix w90 mt10">
-          <a href="javascript:void(0)" class="get l-btn45" id="regBtnGetCode">获取校验码</a>
-          <input type="text" id="validCode" name="validCode" class="num l-input44" placeholder="请输入短信校验码">
+    <form data-bind="submit: reset">
+      <div class="first-step mt15">
+        <div class="input-wrap mt20">
+          <input type="tel" class=" l-input49"
+            required
+            name="mobile"
+            id="mobile"
+            pattern="1[0-9]{10}"
+            placeholder="请输入手机号码">
+          <div class="clearfix w90 mt10">
+            <a href="javascript:;"
+              class="get l-btn45"
+              data-bind="click: verify.bind($data, $('#mobile').val(), 'czcode')">
+              获取校验码
+            </a>
+            <input type="text"
+              name="sms"
+              required
+              class="num l-input44"
+              placeholder="请输入短信校验码">
+          </div>
         </div>
       </div>
 
-
-    </div>
-
-    <div class="second-step">
-      <div class="input-wrap mt20">
-        <input id="password" type="password" class="password l-input49" placeholder="请输入登录密码">
+      <div class="second-step">
+        <div class="input-wrap mt20">
+          <input type="password"
+            required
+            name="password"
+            class="password l-input49"
+            placeholder="请输入登录密码">
+        </div>
+        <div class="input-wrap mt20">
+          <input type="password"
+            name="repasswd"
+            required
+            class="password l-input49"
+            placeholder="请输入登录密码">
+        </div>
       </div>
-      <div class="input-wrap mt20">
-        <input id="password" type="password" class="password l-input49" placeholder="请输入登录密码">
-      </div>
 
-    </div>
-
-
-
-    <a id="butRegister" href="javaScript:void(0)" class="next l-btn49">提&nbsp;&nbsp;交</a>
-
-    <div id="textac" class="textac mt20">
-      <p id="tips" class="tips hidden" style="display: none;">手机号码不能为空</p>
-    </div>
-
-
+      <button
+        class="next l-btn49">
+        提&nbsp;&nbsp;交
+      </button>
+    </form>
   </div>
-  <footer class="zm-wraps" id="zmMobileAllFooter">
-
+  <footer class="zm-wraps">
     <p>
       <img src="images/bottomlogo.png">
     </p>
   </footer>
+  <script type="text/javascript" src="app.js"></script>
 </body>
-
 </html>

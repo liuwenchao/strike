@@ -79,6 +79,8 @@ switch route
     ko.applyBindings account
   when 'register'
     ko.applyBindings account
+  when 'forget'
+    ko.applyBindings account
   when 'oauth'
     #
   else

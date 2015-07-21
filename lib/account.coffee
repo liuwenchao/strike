@@ -96,6 +96,9 @@ logout = ->
   window.location.href = '/'
 
 register = (form) ->
+  if form.mobile.length == 0 or from.username.length == 0 or form.sms.length == 0 or form.password.length == 0
+    window.alert '所有字段都必填'
+    return
   if form.password.value == form.repasswd.value
     $.ajax
       type: 'post'
@@ -119,7 +122,31 @@ register = (form) ->
   else
     window.alert '两次密码不一样！'
 
-verify = (mobile) ->
+resetPassword = (form) ->
+  if form.mobile.length == 0 or form.sms.length == 0 or form.password.length == 0
+    window.alert '所有字段都必填'
+    return
+  if form.password.value == form.repasswd.value
+    $.ajax
+      type: 'PATCH'
+      xhrFields:
+        withCredentials: true
+      contentType: 'application/json'
+      url: parameters.api.host+'/members/'+form.mobile.value+'.json'
+      data: JSON.stringify
+        sms:      form.sms.value
+        password: form.password.value
+      success: -> window.location.href='register_ok.html'
+      error: (error) ->
+        switch error.status
+          when 400 then window.alert '验证码错误或者已经过期！'
+          when 500 then window.alert '修改失败，请联系我们！'
+          else
+            window.alert error.statusText
+  else
+    window.alert '两次密码不一样！'
+
+verify = (mobile, template='mcode') ->
   if mobile and mobile.length == 11
     $.ajax
       type: 'post'
@@ -128,9 +155,8 @@ verify = (mobile) ->
       url: parameters.api.host+'/messages.json'
       data:
         mobile: mobile
-        tpl: 'mcode'
+        tpl:    template
       success: -> window.alert '验证码已经发送您的手机，请查收！'
-      # success: (data) -> window.alert data.content
   else
     window.alert '请输入正确的手机号码！'
 
@@ -142,4 +168,5 @@ module.exports =
   login: login
   logout: logout
   register: register
+  reset: resetPassword
   verify: verify
