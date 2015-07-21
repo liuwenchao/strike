@@ -52,7 +52,7 @@ load = (callback, errorCallback)->
       profile.isLoggedin true
       callback() if callback
     error: ->
-      errorCallback() if errorCallback
+      if errorCallback then errorCallback() else window.location.href='login.html'
 
 save = (form)->
   profile.city_name form.city_name.selectedOptions[0].text

@@ -60,8 +60,7 @@ create = (form) ->
       pay_price: form.pay_price.value
       pay_weight: form.pay_weight.value
     contentType: 'application/json'
-    success: -> window.alert '发布成功'
-    # window.location.href='index.html'
+    success: -> window.location.href='myorder.html'
 
 list = (from)->
   q = result.q()
@@ -92,6 +91,7 @@ listMine = (from = 0, filter)->
       result.more from+result.size
       for record in data
         result.rows.push fill record
+    error: -> window.location='login.html'
 
 module.exports =
   result:  result

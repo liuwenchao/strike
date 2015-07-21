@@ -12,12 +12,14 @@ route = window.location.pathname.substr(1,window.location.pathname.indexOf('.')-
 
 switch route
   when 'home'
-    account.load()
+    account.load false, ->
     ko.applyBindings account
   when 'caigou_new'
+    account.load()
     ko.applyBindings
       save: caigou.create
   when 'supply_new'
+    account.load()
     address.listArea()
     ko.applyBindings
       save: supply.create
