@@ -41,7 +41,7 @@ fill = (data, model) ->
   model.company_name data.member?.company?.company_name
   model.pingming data.variety[0]?.cate_name
   model.addtime new Date data.add_time*1000
-  model.staff data.operate_staff?.staff_truename
+  model.staff data.operate_staff?.staff_truename || ''
   model.tel data.operate_staff?.staff_mobile
   model.address data.standard_address
   model.progress data.progress
@@ -84,7 +84,7 @@ listMine = (from = 0, filter)->
     url: parameters.api.host + '/caigous'
     data:
       start: from
-      limit: result.size
+      limit: 100
       q: filter
     success: (data) ->
       result.rows.removeAll() if from == 0

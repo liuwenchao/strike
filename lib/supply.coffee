@@ -66,7 +66,8 @@ listMine = (from = 0, filter)->
     url: parameters.api.host + '/supplies'
     data:
       start: from
-      limit: result.size
+      limit: 100
+      q: filter
     success: (data) ->
       result.rows.removeAll() if from == 0
       result.more from+result.size

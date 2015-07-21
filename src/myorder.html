@@ -52,7 +52,7 @@
     <!--我的采购 内容-->
     <div class="all-type mall-items">
       <div class="dingdan-nav">
-        <span data-bind="click: caigou.listMine" class="selected"
+        <span data-bind="click: caigou.listMine.bind($data, 0, '')" class="selected"
           onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           全部
         </span>
@@ -83,7 +83,7 @@
             <span data-bind="text: pingming"></span>
           </p>
           <p>
-            <span data-bind="text: company_name"></span>
+            <span class="t02" data-bind="text: company_name"></span>
           </p>
           <p>
             <span>意向价格：</span>
@@ -94,10 +94,9 @@
             </span>
           </p>
           <p>
-            <span class="color-y">跟进交易员：
-              <span data-bind="text:staff">王小川</span>
+            <span class="color-y" data-bind="text:'跟进交易员：'+staff()">
             </span>
-            <a href="tel:123" data-bind="attr: {href: 'tel:'+tel}">【拨号联系】</a>
+            <a href="tel:" data-bind="attr: {href: 'tel:'+tel()}">【拨号联系】</a>
           </p>
         </li>
       </ul>
@@ -110,15 +109,15 @@
           登录我们的网站，上传excel文档，或联系我们的交易员代您挂货，找煤网竭诚为您服务！
         </div>
         <div class="dingdan-nav">
-            <span class="selected" data-bind="click: caigou.listMine.bind($data, 0, 'ifcheck:0')"
+            <span class="selected" data-bind="click: supply.listMine.bind($data, 0, '')"
               onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
               全部
             </span>
-            <span data-bind="click: caigou.listMine.bind($data, 0, 'ifcheck:0')"
+            <span data-bind="click: supply.listMine.bind($data, 0, 'ifguapai:1')"
               onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
               挂牌中
             </span>
-            <span data-bind="click: caigou.listMine.bind($data, 0, 'ifcheck:0')"
+            <span data-bind="click: supply.listMine.bind($data, 0, 'ifcheck:0')"
               onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
               未审核
             </span>
