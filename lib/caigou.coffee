@@ -66,13 +66,13 @@ create = (form) ->
 list = (from)->
   q = result.q()
   $.get parameters.search.host + '/caigou/_search',
-    q: if q then '(variety.cate_name:'+q+' OR paihao:'+q+') AND !ifhide' else '!ifhide'
+    q: if q then '(variety.cate_name:'+q+' OR paihao:'+q+') AND !ifhide AND !ifclose' else '!ifhide AND !ifclose'
     from: result.from()
     sort: result.sort()
     size: result.size
   , (data) ->
     result.total data.hits.total
-    result.rows.removeAll() if result.from() == 0
+    result.rows.removeAll()# if result.from() == 0
     result.more result.from()+result.size
     for record in data.hits.hits
       result.rows.push fill record._source
