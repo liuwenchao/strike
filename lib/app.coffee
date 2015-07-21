@@ -85,6 +85,8 @@ switch route
     ko.applyBindings news.load window.location.search.substr 4
   when 'hangqing'
     ko.applyBindings hangqing
+  when 'login'
+    ko.applyBindings account
   when 'register'
     ko.applyBindings account
   when 'oauth'
