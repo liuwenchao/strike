@@ -19,17 +19,27 @@ Model = ->
 
 result =
   q: ko.observable()
-  size: 10
+  size: 5
   more: ko.observable(false)
   from: ko.observable(0)
   rows: ko.observableArray()
   sort: ko.observable()
   total: ko.observable(0)
-  currentPage: ko.pureComputed ->
-    (Math.floor result.from()/result.size)+1
-  pageCount: ko.pureComputed ->
-    (Math.floor result.total()/result.size)
-  filter: ko.observableArray(['!ifhide'])
+  currentPage: ko.pureComputed -> (Math.ceil result.from()/result.size)+1
+  pageCount:   ko.pureComputed -> Math.ceil result.total()/result.size
+  pageUp    : -> result.from if result.from() == 0 then 0 else (result.currentPage()-2)*result.size
+  pageDown  : -> result.from result.currentPage()*result.size
+  pageFirst : -> result.from 0
+  pageLast  : -> result.from (result.pageCount()-1)*result.size
+  isFirstPage : ko.pureComputed -> result.from() <= 0
+  isLastPage  : ko.pureComputed -> result.from() + result.size >= result.total()
+
+
+# conduct search when sort or from is changed
+result.sort.subscribe ->
+  result.from 0
+  list()
+result.from.subscribe -> list()
 
 fill = (data, model) ->
   model = new Model() if not model
@@ -63,7 +73,7 @@ create = (form) ->
     # success: -> window.location.href='myorder.html'
     success: -> window.alet '发布成功！'
 
-list = (from)->
+list = ->
   q = result.q()
   $.get parameters.search.host + '/caigou/_search',
     q: if q then '(variety.cate_name:'+q+' OR paihao:'+q+') AND !ifhide AND !ifclose' else '!ifhide AND !ifclose'

@@ -29,7 +29,11 @@
       <div class="main-header bb1">
         <a class="backwrap" href="javascript:history.back();"><i class="backicon icon"></i> </a>
         <span class="center-wrap">
-          <input name="q" class="search zmboxb" value="" type="text" placeholder="请输入品名或牌号">
+          <input name="q"
+            class="search zmboxb"
+            data-bind="value: result.q"
+            type="text"
+            placeholder="请输入品名或牌号">
         </span>
         <a class="right zmboxb borar2" href="javascript:void(0)"><i class="icon"></i></a>
       </div>
@@ -88,19 +92,18 @@
       <div>
         <div class="page-wrap-out">
           <div class="list-foot">
-            <input name="start" id="start" value="0" type="hidden">
-            <input name="limit" id="limit" value="8" type="hidden">
-            <input name="totalPage" id="totalPage" value="48" type="hidden">
-            <input name="pageIndex" id="pageIndex" value="1" type="hidden">
-
             <p>共找到
-              <span class="num" id="total-count">382</span>条产品信息</p>
-            <p class="page-wrap" id="pageConntrol">
-              <a href="javascript:void(0)" class="small" id="firstPage">首页</a>
-              <a href="javascript:void(0);" class="big" id="prePage">上一页</a>
-              <span>1/48</span>
-              <a href="javascript:void(0);" class="big" id="nextPage">下一页</a>
-              <a href="javascript:void(0);" class="small" id="lastPage">尾页</a>
+              <span class="num" data-bind="text: result.total"></span>条产品信息</p>
+            <p class="page-wrap" >
+              <a href="javascript:;" class="small" data-bind="click: result.pageFirst, css: {disabled: result.isFirstPage}">首页</a>
+              <a href="javascript:;" class="big"   data-bind="click: result.pageUp,    css: {disabled: result.isFirstPage}">上一页</a>
+              <span>
+                <span data-bind="text: result.currentPage"></span>
+                /
+                <span data-bind="text: result.pageCount"></span>
+              </span>
+              <a href="javascript:;" class="big"   data-bind="click: result.pageDown, css: {disabled: result.isLastPage}">下一页</a>
+              <a href="javascript:;" class="small" data-bind="click: result.pageLast, css: {disabled: result.isLastPage}">尾页</a>
             </p>
           </div>
         </div>
