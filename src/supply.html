@@ -89,7 +89,8 @@
       </div>
     </div>
     <div class="btn-wrap">
-      <a class="buy fll" href="javascript:;" data-bind="attr: {href: 'caigou_new.html?pinming='+pinming_one()}">立即下单</a>
+      <a class="buy fll" href="javascript:;" data-bind="visible: progress() != 90000, attr: {href: 'caigou_new.html?pinming='+pinming_one()}">立即下单</a>
+      <a class="buy fll" href="javascript:;" data-bind="visible: progress() == 90000">已成交</a>
       <a class="talk flr" href="javascript:;" data-bind="attr: {href: 'tel:'+telephone()}">委托洽谈</a>
     </div>
   </div>

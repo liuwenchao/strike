@@ -95,6 +95,7 @@ Model = ->
   qsf_cell: ko.observable()
   qsf_unit: ko.observable()
   qsf_value: ko.observable()
+  progress: ko.observable()
   order: order
   send:  send
 
@@ -191,6 +192,7 @@ fill = (data, model) ->
   model.qsf_cell data.qsf_cell
   model.qsf_unit data.qsf_unit
   model.qsf_value data.qsf_value
+  model.progress data.progress
   model
 
 order = (id) ->
