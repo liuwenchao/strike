@@ -18,7 +18,7 @@ Model.to_string = ->
     query = ['!ifhide']
     query.push '(variety.cate_name:'+Model.q()+' OR paihao:'+Model.q()+')' if Model.q()
     query.push 'isqihuo:'+Model.isqihuo()           if Model.isqihuo()
-    query.push 'variety.cate_name:'+Model.pinming() if Model.pinming()
+    query.push 'pinming_one:'+Model.pinming() if Model.pinming()
     query.push 'paihao:'+Model.paihao()             if Model.paihao()
     query.push 'member_info:'+Model.paihao()        if Model.company()
     query.push 'jiaoge_address:'+Model.cangku()     if Model.cangku()
