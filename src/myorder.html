@@ -80,7 +80,7 @@
           <p>
             <span class="t01">求购</span>
             <span data-bind="text: weight"></span>吨
-            <span data-bind="text: pingming"></span>
+            <span data-bind="text: pinming"></span>
           </p>
           <p>
             <span class="t02" data-bind="text: company_name"></span>
@@ -96,7 +96,12 @@
           <p>
             <span class="color-y" data-bind="text:'跟进交易员：'+staff()">
             </span>
-            <a href="tel:" data-bind="attr: {href: 'tel:'+tel()}">【拨号联系】</a>
+            <a href="tel:" data-bind="if: progress() < 50000, attr: {href: 'tel:'+tel()}">【拨号联系】</a>
+            <span
+              class="color-y"
+              data-bind="if: progress() === 70000, attr: {href: 'tel:'+tel()}">
+              已成交
+            </span>
           </p>
         </li>
       </ul>
@@ -128,9 +133,10 @@
 
         <div class="pro-wrap">
           <div class="inner-list hidden" style="display: block;" data-bind="foreach: supply.result.rows">
-            <a href="javascript:void(0)" class="inner-row showKuaisuPricePrice" priceidcode="943292917410">
+            <a href="javascript:;" class="inner-row showKuaisuPricePrice"
+              data-bind="attr: { href: 'supply.html?id='+id()}">
               <p class="clearfix">
-                <span class="name c-blue" data-bind="text:pingming"></span>
+                <span class="name c-blue" data-bind="text:pinming"></span>
                 <span class="zhiying" data-bind="text:rezhi">5500</span>
                 <span class="zhiying">kcal</span>
                 <i class="f-c cash"></i>

@@ -18,6 +18,7 @@ switch route
   when 'caigou_new'
     account.load()
     ko.applyBindings
+      pinming: window.location.search.substr(9)
       save: caigou.create
 
   when 'supply_new'

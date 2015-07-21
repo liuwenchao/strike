@@ -4,7 +4,7 @@ parameters = require 'parameters'
 
 Model = ->
   id: ko.observable()
-  pingming: ko.observable()
+  pinming: ko.observable()
   price: ko.observable()
   weight: ko.observable()
   rezhi: ko.observable()
@@ -101,7 +101,7 @@ Model = ->
 fill = (data, model) ->
   model = new Model() if not model
   model.id  data.supply_id
-  model.pingming data.variety[0]?.cate_name
+  model.pinming data.variety[0]?.cate_name
   model.price data.pay_price
   model.weight data.jiaoge_weight
   model.rezhi data.dwfrl_u10_value

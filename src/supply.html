@@ -38,7 +38,7 @@
     <div class="info-wrap">
       <div class="title bb1">
         <p class="name">
-          <span data-bind="text: pingming"></span>
+          <span data-bind="text: pinming"></span>
           <span class="time" data-bind="text: addtime().toISOString().substr(0,10)"></span>
         </p>
       </div>
@@ -89,8 +89,8 @@
       </div>
     </div>
     <div class="btn-wrap">
-      <a class="buy fll" href="javascript:;" data-bind="click: order">立即下单</a>
-      <a class="talk flr" href="javascript:;" data-bind="click: send">委托洽谈</a>
+      <a class="buy fll" href="javascript:;" data-bind="attr: {href: 'caigou_new.html?pinming='+pinming_one()}">立即下单</a>
+      <a class="talk flr" href="javascript:;" data-bind="attr: {href: 'tel:'+telephone()}">委托洽谈</a>
     </div>
   </div>
 

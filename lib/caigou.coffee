@@ -9,7 +9,7 @@ Model = ->
   weight: ko.observable()
   rezhi: ko.observable()
   company_name: ko.observable()
-  pingming: ko.observable()
+  pinming: ko.observable()
   addtime: ko.observable()
   staff: ko.observable()
   tel: ko.observable()
@@ -39,7 +39,7 @@ fill = (data, model) ->
   model.weight data.standard_ton || data.pay_weight
   model.rezhi data.standard_div_content?.rezhi_value
   model.company_name data.member?.company?.company_name
-  model.pingming data.variety[0]?.cate_name
+  model.pinming data.variety[0]?.cate_name
   model.addtime new Date data.add_time*1000
   model.staff data.operate_staff?.staff_truename || ''
   model.tel data.operate_staff?.staff_mobile
