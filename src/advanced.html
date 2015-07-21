@@ -36,30 +36,30 @@
     </div>
 
     <form action="supplies.html">
-      <input type="hidden" name="q" data-bind="value: q">
-      <input type="hidden" name="isqihuo" data-bind="value: isqihuo">
+      <input type="hidden" name="q" data-bind="value: filter.q">
+      <input type="hidden" name="isqihuo" data-bind="value: filter.isqihuo">
       <div class="new-list mt10">
         <p class="zm4row bt1 toptype clearfix">
           <span class="type-name">产品类型：</span>
           <i class="all"
-            data-bind="css: {selected: isqihuo() == 0}"
+            data-bind="css: {selected: filter.isqihuo() == 0}, click: filter.isqihuo.bind($data, 0)"
             onclick="$(this).addClass('selected').next().removeClass('selected');" ></i>
           <i class="kuaisu"
-            data-bind="css: {selected: isqihuo() == 1}"
+            data-bind="css: {selected: filter.isqihuo() == 1}, click: filter.isqihuo.bind($data, 1)"
             onclick="$(this).addClass('selected').prev().removeClass('selected');" ></i>
         </p>
 
         <div class="select-list mt10 bt1">
           <a class="clearfix" href="javascript:;">
             <span class="left">品种</span>
-            <select name="variety.cate_name"
-              data-bind="value: variety.cate_name, options: pinming, optionsCaption:'全部', optionsText: 'name', optionsValue: 'name', valueAllowUnset: true">
+            <select name="pinming" class="l-input49"
+              data-bind="value: filter.pinming, options: pinmings, optionsCaption:'全部', optionsText:'name', optionsValue:'name', valueAllowUnset: true">
               <option value="">全部</option>
             </select>
           </a>
           <a class="clearfix" href="javascript:;">
             <span class="left">牌号</span>
-            <select name="paihao" data-bind="value: paihao">
+            <select name="paihao" data-bind="value: filter.paihao" class="l-input49">
               <option value="">全部</option>
               <option>神混1</option>
               <option>神华</option>
@@ -70,24 +70,24 @@
           </a>
           <a class="clearfix" href="javascript:;">
             <span class="left">厂商</span>
-            <select name="company_name" data-bind="value: company_name">
+            <select name="company" data-bind="value: filter.company" class="l-input49">
               <option value="">全部</option>
-              <option>全部</option>
-              <option>全部</option>
-              <option>全部</option>
-              <option>全部</option>
-              <option>全部</option>
+              <option>陕西煤炭</option>
+              <option>山东华典</option>
+              <option>鹰泰商贸</option>
+              <option>世康能源</option>
+              <option>陕西鲲鹏</option>
             </select>
           </a>
           <a class="clearfix" href="javascript:;">
             <span class="left">仓库</span>
-            <select name="cangku" data-bind="value: cangku">
+            <select name="cangku" data-bind="value: filter.cangku" class="l-input49">
               <option value="">全部</option>
-              <option>全部</option>
-              <option>全部</option>
-              <option>全部</option>
-              <option>全部</option>
-              <option>全部</option>
+              <option>红石峡</option>
+              <option>曹妃甸</option>
+              <option>鄂尔多斯弓家塔</option>
+              <option>江苏如皋港</option>
+              <option>黄骅港</option>
             </select>
           </a>
         </div>

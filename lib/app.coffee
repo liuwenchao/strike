@@ -36,23 +36,14 @@ switch route
     for param in decodeURIComponent(location.search).substr(1).split('&')
       params[param.split('=')[0]] = param.split('=')[1]
     supply.result.q params.q
+
     supply.list()
     ko.applyBindings supply
   when 'advanced'
     variety.list()
-    params = {}
-    for param in decodeURIComponent(location.search).substr(1).split('&')
-      params[param.split('=')[0]] = param.split('=')[1]
-    search =
-      q: ko.observable(params.q)
-      isqihuo: ko.observable(params.isqihuo)
-      variety:
-        cate_name: ko.observable(params['variety.cate_name'])
-      paihao: ko.observable(params.paihao)
-      company_name: ko.observable(params.company)
-      cangku: ko.observable(params.cangku)
-      pinming: variety.result
-    ko.applyBindings search
+    ko.applyBindings
+      filter: supply.result.filter
+      pinmings: variety.result
   when 'supply'
     ko.applyBindings supply.load location.search.substr 4
   when 'myorder'
@@ -68,8 +59,7 @@ switch route
   when 'profile'
     account.load ->
       account.address.area(account.profile.area())
-    , ->
-      window.location.href='/'
+    , -> window.location.href='/'
 
     account.address.listArea ->
       account.profile.area(account.address.area())
