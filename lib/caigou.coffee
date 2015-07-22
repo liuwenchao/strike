@@ -70,8 +70,7 @@ create = (form) ->
       pay_price: form.pay_price.value
       pay_weight: form.pay_weight.value
     contentType: 'application/json'
-    # success: -> window.location.href='myorder.html'
-    success: -> window.alet '发布成功！'
+    success: -> window.location.href='myorder.html'
 
 list = ->
   q = result.q()
