@@ -96,7 +96,7 @@ logout = ->
   window.location.href = '/'
 
 register = (form) ->
-  if form.mobile.length == 0 or from.username.length == 0 or form.sms.length == 0 or form.password.length == 0
+  if form.mobile.value.length == 0 or form.username.value.length == 0 or form.sms.value.length == 0 or form.password.value.length == 0
     window.alert '所有字段都必填'
     return
   if form.password.value == form.repasswd.value
@@ -146,12 +146,10 @@ resetPassword = (form) ->
   else
     window.alert '两次密码不一样！'
 
-verify = (mobile, template='mcode') ->
+verify = (mobile, template) ->
   if mobile and mobile.length == 11
     $.ajax
       type: 'post'
-      xhrFields:
-        withCredentials: true
       url: parameters.api.host+'/messages.json'
       data:
         mobile: mobile
