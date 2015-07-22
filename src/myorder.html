@@ -142,10 +142,10 @@
               </p>
 
               <p class="clearfix">
-                <span class="color-9" data-bind="text:company_name"></span>
+                <span class="color-9" data-bind="text:company_name().substr(0,4)"></span>
                 <span data-bind="text:weight"></span>吨
                 <span class="color-9"> 交割地：</span>
-                <span data-bind="text:address"></span>
+                <span data-bind="text:address().substr(0,4)"></span>
                 <span class="row-right color-9">
                   <span data-bind="text: addtime().toISOString().substr(0,10)"></span>
                 </span>
@@ -156,7 +156,7 @@
       </div>
     </div>
   </div>
-  <footer class="zm-wraps" id="zmMobileAllFooter">
+  <footer class="zm-wraps">
     <p>
       <a href="/"><img src="images/bottomlogo.png"></a>
     </p>
