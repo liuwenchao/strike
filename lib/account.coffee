@@ -150,6 +150,8 @@ verify = (mobile, template) ->
   if mobile and mobile.length == 11
     $.ajax
       type: 'post'
+      xhrFields:
+        withCredentials: true
       url: parameters.api.host+'/messages.json'
       data:
         mobile: mobile
