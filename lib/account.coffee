@@ -76,7 +76,7 @@ save = (form)->
       address: profile.address()
     contentType: 'application/json'
     success: -> window.alert '保存成功'
-    error:   -> window.location.href='index.html'
+    error:   -> window.location.href='/'
 
 login = (form) ->
   $.ajax

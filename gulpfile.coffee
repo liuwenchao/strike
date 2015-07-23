@@ -42,7 +42,6 @@ gulp.task 'build', ['webpack:build'], ->
   revAll = new $.revAll
     dontRenameFile: [
       /^\/favicon.ico$/g
-      /^\/index.html/g
       /^\/oauth.html/g
       /^\/robots.txt/g
     ]

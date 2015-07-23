@@ -30,7 +30,7 @@ if ($code = $_GET('code')) {
   $json = get_json("https://api.weixin.qq.com/sns/oauth2/access_token?appid=$APP_ID&secret=$APP_SC&code=$code&grant_type=authorization_code");
   if ($json['openid']) {
     post_json("http://test.account.zhaomw.cn/login", array("weixin_id" => $json->openid, "_format" => "json"));
-    http_redirect('index.html?r=register', array('weixin_id'=>$json['openid']), true, HTTP_REDIRECT_PERM);
+    http_redirect('/?r=register', array('weixin_id'=>$json['openid']), true, HTTP_REDIRECT_PERM);
   }
 }
 http_redirect('/');
