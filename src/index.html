@@ -1,1 +1,16 @@
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript">
+var redirect = '/';
+var query = decodeURIComponent(location.search);
+var length = query.indexOf('&') > -1 ? query.indexOf('&')-3 : undefined;
+switch (query.substr(3, length)) {
+  case "register":  redirect = 'register.html'; break;
+  case "hangqing":  redirect = 'hangqing.html'; break;
+  case "news":      redirect = 'news.html';     break;
+  case "profile":   redirect = 'profile.html';  break;
+  case "help":      redirect = 'help.html';     break;
+  case "caigous":   redirect = 'caigous.html';  break;
+  case "supplies":  redirect = 'supplies.html'; break;
+  default:          redirect = 'home.html';
+}
+window.location.href = redirect+window.location.search;
+</script>

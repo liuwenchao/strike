@@ -42,8 +42,9 @@ gulp.task 'build', ['webpack:build'], ->
   revAll = new $.revAll
     dontRenameFile: [
       /^\/favicon.ico$/g
+      /^\/index.html/g
       /^\/oauth.html/g
-      /^\/robots.txt/g
+      /^\/robots.txt$/g
     ]
   gulp.src 'src/**'
   .pipe $.if 'src/images/*'
