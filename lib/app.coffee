@@ -7,6 +7,7 @@ caigou      = require 'caigou'
 supply      = require 'supply'
 address     = require 'address'
 variety     = require 'variety'
+keyword     = require 'keyword'
 
 route = window.location.pathname.substr(1,window.location.pathname.indexOf('.')-1)
 
@@ -46,6 +47,10 @@ switch route
 
     supply.list()
     ko.applyBindings supply
+
+  when 'search'
+    keyword.list()
+    ko.applyBindings keyword
 
   when 'advanced'
     variety.list()
@@ -88,6 +93,7 @@ switch route
     ko.applyBindings news.load window.location.search.substr 4
 
   when 'hangqing'
+    hangqing.list()
     ko.applyBindings hangqing
 
   when 'login'
@@ -100,5 +106,5 @@ switch route
     ko.applyBindings account
 
   when 'oauth'
-    #
+
   else

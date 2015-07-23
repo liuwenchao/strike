@@ -36,13 +36,11 @@
 
     <div class="item-wrap bbbt1 mt10 clearfix">
       <p class="title">热门搜索</p>
-      <span class="item"><a href="/supplies.html?q=动力煤">动力煤</a></span>
-      <span class="item"><a href="/supplies.html?q=炼焦煤">炼焦煤</a></span>
-      <span class="item"><a href="/supplies.html?q=神华">神华</a></span>
-      <span class="item"><a href="/supplies.html?q=神混1">神混1</a></span>
-      <span class="item"><a href="/supplies.html?q=伊泰">伊泰</a></span>
-      <span class="item"><a href="/supplies.html?q=蒙煤">蒙煤</a></span>
-      <span class="item"><a href="/supplies.html?q=中煤">中煤</a></span>
+      <div data-bind="foreach: result">
+        <span class="item">
+          <a href="javascript:;" data-bind="attr: {href: '/supplies.html?q='+name()}, text: name"></a>
+        </span>
+      </div>
     </div>
 
     <footer class="zm-wraps">
@@ -50,6 +48,7 @@
         <a href="/"><img src="images/bottomlogo.png"></a>
       </p>
     </footer>
+    <script type="text/javascript" src="app.js"></script>
   </div>
 </body>
 </html>
