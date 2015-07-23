@@ -116,4 +116,7 @@ switch route
       when 'supplies'   then 'supplies.html'
       else 'home.html'
 
+  when ""
+    window.location.href = 'index.html'
+
   else # do nothing
