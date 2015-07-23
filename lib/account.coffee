@@ -19,6 +19,7 @@ profile =
   city_name: ko.observable()
   address: ko.observable()
   isLoggedin: ko.observable(false)
+  weixin_id: ko.observable()
   name: ko.pureComputed ->
     profile.truename() || profile.username() || profile.mobile()
 
@@ -111,6 +112,7 @@ register = (form) ->
         mobile:   form.mobile.value
         sms:      form.sms.value
         password: form.password.value
+        weixin_id:form.weixin_id.value
       success: -> window.location.href='register_ok.html'
       error: (error) ->
         switch error.status

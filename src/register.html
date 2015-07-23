@@ -21,8 +21,7 @@
 </head>
 
 <body>
-  <div class="register-page fake-body"
-    >
+  <div class="register-page fake-body">
 
     <div class="main-header">
       <a class="left" href="javascript:window.history.back();">
@@ -34,6 +33,7 @@
       <a class="right" href="javascript:;" style="visibility: hidden"></a>
     </div>
     <form data-bind="submit: register">
+      <input type="hidden" name="weixin_id" data-bind="value: profile.weixin_id" />
       <div class="first-step mt15">
         <div class="input-wrap mt20">
           <input type="text"
@@ -88,7 +88,7 @@
       </button>
     </form>
   </div>
-  <footer class="zm-wraps" id="zmMobileAllFooter">
+  <footer class="zm-wraps">
     <p>
       <a href="/"><img src="images/bottomlogo.png"></a>
     </p>

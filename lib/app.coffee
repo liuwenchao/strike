@@ -8,6 +8,7 @@ supply      = require 'supply'
 address     = require 'address'
 variety     = require 'variety'
 keyword     = require 'keyword'
+weixin      = require 'weixin'
 
 route = window.location.pathname.substr(1,window.location.pathname.indexOf('.')-1)
 
@@ -100,13 +101,14 @@ switch route
     ko.applyBindings account
 
   when 'register'
+    account.profile.weixin_id window.location.search.substr 11
     ko.applyBindings account
 
   when 'forget'
     ko.applyBindings account
 
   when 'oauth'
-    ko.applyBindings
+    weixin.load()
 
   when 'index'
     window.location.href = switch decodeURIComponent(location.search).substr(3)
