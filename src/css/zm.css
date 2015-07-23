@@ -512,7 +512,8 @@ a.l-btn50:active {
 .zm-wraps {
   background: #fff;
   border-top: solid 1px #dbdbdb;
-  border-bottom: solid 1px #dbdbdb
+  border-bottom: solid 1px #dbdbdb;
+  margin-top: 1rem;
 }
 .hidden {
   display: none
