@@ -106,5 +106,15 @@ switch route
     ko.applyBindings account
 
   when 'oauth'
+    ko.applyBindings
 
-  else
+  when 'index'
+    window.location.href = switch decodeURIComponent(location.search).substr(3)
+      when 'hangqing' then 'hangqing.html'
+      when 'news' then 'news.html'
+      when 'profile' then 'profile.html'
+      when 'help' then 'help.html'
+      when 'caigous' then 'caigous.html'
+      else 'home.html'
+
+  else # do nothing
