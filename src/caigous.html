@@ -60,9 +60,13 @@
               <span data-bind="text: address"></span>
             </span>
             <span class="fr price halfrow ">意向价格：
-              <span class="c-ff7700">
+              <span class="c-ff7700" data-bind="if: price() > 0">
                 <span data-bind="text: price"></span>
-                元/吨</span>
+                元/吨
+              </span>
+              <span class="c-ff7700" data-bind="if: price() === 0">
+                不限
+              </span>
             </span>
           </p>
 

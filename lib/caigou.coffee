@@ -4,7 +4,7 @@ parameters = require 'parameters'
 
 Model = ->
   id: ko.observable()
-  price: ko.observable()
+  price: ko.observable(0)
   content: ko.observable()
   weight: ko.observable()
   rezhi: ko.observable()
