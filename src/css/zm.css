@@ -227,6 +227,7 @@ a.l-btn50:active {
 .fake-body {
   background: #f3f3f3;
   position: relative;
+  min-height: 667px;
 }
 .fake-body.pb85 {
   padding-bottom: 8.5rem
