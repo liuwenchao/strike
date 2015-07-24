@@ -87,7 +87,7 @@ login = (form) ->
     data:
       _username: form.username.value
       _password: form.password.value
-      weixin_id:form.weixin_id.value
+      weixin_id: form.weixin_id.value
       _format: 'json'
     success: -> window.location.href='/'
     error:   -> window.alert '用户名或者密码错误！'

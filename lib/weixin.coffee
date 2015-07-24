@@ -15,7 +15,7 @@ load = ->
           type: 'post'
           xhrFields:
             withCredentials: true
-          url: parameters.account.host+'/login'
+          url: parameters.account.host+'/wx_login'
           data:
             weixin_id: data.openid
             _format: 'json'
