@@ -27,6 +27,7 @@
     </div>
 
     <form data-bind="submit: login" type="post">
+      <input type="hidden" name="weixin_id" data-bind="value: profile.weixin_id" />
       <div class="input-wrap mt10">
         <input type="text"
           required
