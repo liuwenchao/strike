@@ -43,7 +43,6 @@ gulp.task 'build', ['webpack:build'], ->
     dontRenameFile: [
       /^\/favicon.ico$/g
       /^\/index.html/g
-      /^\/oauth.html/g
       /^\/robots.txt$/g
     ]
   gulp.src 'src/**'
