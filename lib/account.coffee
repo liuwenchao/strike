@@ -23,6 +23,8 @@ profile =
   name: ko.pureComputed ->
     profile.truename() || profile.username() || profile.mobile()
 
+error = ko.observable(false)
+
 fillProfile = (data)->
   profile.member_id data.memberId
   profile.username data.username
@@ -75,7 +77,7 @@ save = (form)->
       city_name: profile.city_name()
       address: profile.address()
     contentType: 'application/json'
-    success: -> window.alert '保存成功'
+    success: -> error '保存成功'
     error:   -> window.location.href='/'
 
 login = (form) ->
@@ -90,7 +92,7 @@ login = (form) ->
       weixin_id: form.weixin_id.value
       _format: 'json'
     success: -> window.location.href='/'
-    error:   -> window.alert '用户名或者密码错误！'
+    error:   -> error '用户名或者密码错误！'
 
 logout = ->
   profile.isLoggedin false
@@ -99,7 +101,7 @@ logout = ->
 
 register = (form) ->
   if form.mobile.value.length == 0 or form.username.value.length == 0 or form.sms.value.length == 0 or form.password.value.length == 0
-    window.alert '所有字段都必填'
+    error '所有字段都必填'
     return
   if form.password.value == form.repasswd.value
     $.ajax
@@ -115,19 +117,19 @@ register = (form) ->
         password: form.password.value
         weixin_id:form.weixin_id.value
       success: -> window.location.href='register_ok.html'
-      error: (error) ->
-        switch error.status
-          when 400 then window.alert '验证码错误或者已经过期！'
-          when 409 then window.alert '手机号码已经注册，请直接登录或者找回密码！'
-          when 500 then window.alert '注册失败，请联系我们！'
+      error: (response) ->
+        switch response.status
+          when 400 then error '验证码错误或者已经过期！'
+          when 409 then error '手机号码已经注册，请直接登录或者找回密码！'
+          when 500 then error '注册失败，请联系我们！'
           else
-            window.alert error.statusText
+            error response.statusText
   else
-    window.alert '两次密码不一样！'
+    error '两次密码不一样！'
 
 resetPassword = (form) ->
   if form.mobile.length == 0 or form.sms.length == 0 or form.password.length == 0
-    window.alert '所有字段都必填'
+    error '所有字段都必填'
     return
   if form.password.value == form.repasswd.value
     $.ajax
@@ -140,14 +142,14 @@ resetPassword = (form) ->
         sms:      form.sms.value
         password: form.password.value
       success: -> window.location.href='register_ok.html'
-      error: (error) ->
-        switch error.status
-          when 400 then window.alert '验证码错误或者已经过期！'
-          when 500 then window.alert '修改失败，请联系我们！'
+      error: (response) ->
+        switch response.status
+          when 400 then error '验证码错误或者已经过期！'
+          when 500 then error '修改失败，请联系我们！'
           else
-            window.alert error.statusText
+            error response.statusText
   else
-    window.alert '两次密码不一样！'
+    error '两次密码不一样！'
 
 verify = (mobile, template) ->
   if mobile and mobile.length == 11
@@ -159,13 +161,14 @@ verify = (mobile, template) ->
       data:
         mobile: mobile
         tpl:    template
-      success: -> window.alert '验证码已经发送您的手机，请查收！'
+      success: -> error '验证码已经发送您的手机，请查收！'
   else
-    window.alert '请输入正确的手机号码！'
+    error '请输入正确的手机号码！'
 
 module.exports =
   profile: profile
   address: address
+  error: error
   load: load
   save: save
   login: login

@@ -32,6 +32,11 @@
       </span>
       <a class="right" href="javascript:;" style="visibility: hidden"></a>
     </div>
+
+    <div class="textac mt20" data-bind="if: error, click: error.bind($data, false)">
+      <a href="javascript:;" class="tips" data-bind="text: error"></a>
+    </div>
+
     <form data-bind="submit: register">
       <input type="hidden" name="weixin_id" data-bind="value: profile.weixin_id" />
       <div class="first-step mt15">
@@ -93,6 +98,7 @@
       </a>
     </form>
   </div>
+
   <footer class="zm-wraps">
     <p>
       <a href="/"><img src="images/bottomlogo.png"></a>

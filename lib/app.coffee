@@ -81,10 +81,7 @@ switch route
     account.address.listArea ->
       account.profile.area(account.address.area())
 
-    ko.applyBindings
-      profile: account.profile
-      address: account.address
-      save: account.save
+    ko.applyBindings account
 
   when 'news'
     news.list()

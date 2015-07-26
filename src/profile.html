@@ -22,6 +22,7 @@
 
 <body>
   <div class="register-page fake-body" >
+
     <form data-bind="submit: save">
       <div class="main-header">
         <a class="left" href="javascript:window.history.back();">
@@ -32,6 +33,7 @@
         </span>
         <a class="right" href="javascript:void (0)" style="visibility: hidden"></a>
       </div>
+
       <div class="gerenxinxi">
         <ul>
           <li>
@@ -128,9 +130,14 @@
           </li>
         </ul>
 
+        <div class="textac mt20" data-bind="if: error, click: error.bind($data, false)">
+          <a href="javascript:;" class="tips" data-bind="text: error"></a>
+        </div>
+
         <button class="send l-btn49">保&nbsp;&nbsp;存</button>
       </div>
     </form>
+
   </div>
   <footer class="zm-wraps" id="zmMobileAllFooter">
     <p>

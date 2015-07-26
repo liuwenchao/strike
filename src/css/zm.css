@@ -267,10 +267,10 @@ a.l-btn50:active {
   color: #fff;
   width: 28rem;
   text-align: center;
-  position: fixed;
-  top: 70%;
+  /*position: fixed;
+  top: 20%;
   left: 50%;
-  margin-left: -14.5rem;
+  margin-left: -14.5rem;*/
   display: inline-block;
   min-height: 3rem;
   line-height: 3rem;

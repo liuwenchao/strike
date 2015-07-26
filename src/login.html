@@ -26,6 +26,10 @@
       <a href="/"><img src="images/banner.png"></a>
     </div>
 
+    <div class="textac mt20" data-bind="if: error, click: error.bind($data, false)">
+      <a href="javascript:;" class="tips" data-bind="text: error"></a>
+    </div>
+
     <form data-bind="submit: login" type="post">
       <input type="hidden" name="weixin_id" data-bind="value: profile.weixin_id" />
       <div class="input-wrap mt10">
