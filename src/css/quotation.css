@@ -51,8 +51,7 @@
 }
 .area_sale .top{
   background: url("../images/area-sale-bj-1.png") no-repeat;
-  
-  width: 640px;
+  width: 100%;
   color: #fff;
 }
 .area_sale .top .logo{

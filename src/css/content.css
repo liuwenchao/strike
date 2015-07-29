@@ -56,7 +56,9 @@
 .help-article-page .left .main-content {
   padding: 1.5rem;
   border-bottom: solid 1px #dbdbdb;
-  line-height: 2rem
+  line-height: 2rem;
+    display: block;
+    overflow: hidden;
 }
 .help-article-page .left .editer {
   text-align: center;

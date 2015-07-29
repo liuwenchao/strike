@@ -10,8 +10,11 @@
   border-bottom: solid 1px #dbdbdb;
   line-height: 4rem;
   padding-left: 5.5rem;
-  font-size: 1.6rem;
-  color: #333
+  font-size: 1.4rem;
+  color: #333;
+    position: absolute;
+    right: 0.5rem;
+    color: #158ab4;
 }
 .myorder-page .all-type .icon {
   display: inline-block;
@@ -50,6 +53,7 @@
   height: 4rem;
   text-align: center;
   border-bottom: 1px solid #CCC;
+    position: relative;
 }
 .myorder-page .all-type .dingdan-nav span {
   width: 20%;

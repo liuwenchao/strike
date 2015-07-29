@@ -844,7 +844,14 @@ a.zm4row:active {
 footer {
   padding: 1rem 0;
   text-align: center;
-  max-width: 640px!important
+  max-width: 640px!important;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+footer.nofix-foot {
+    position: static;
+    bottom: 0
 }
 footer.fix-foot {
   position: fixed;
