@@ -280,14 +280,14 @@
   height: 5rem;
 }
 .nav-wrap .tdbg {
-  width: 13rem;
+  width: 14.5rem;
   ;
   float: left;
   overflow: hidden;
 }
 .nav-wrap .tdbgborder {
   border-left: 1px solid #CCC;
-  padding-left: 1rem;
+  padding-left: 2rem;
 }
 .nav-wrap .tdbg i {
   width: 4rem;
@@ -352,4 +352,136 @@
 }
 .quick-nav div.nav03 {
   background-color: #ff7802;
+}
+.index-page .area-sale{
+
+}
+.index-page .area-sale .top {
+  display: block;
+  clear: both;
+  height: 3rem;
+  line-height: 3rem;
+}
+.index-page .area-sale .name{
+  float: left;
+  height: 3rem;  
+  font-size: 1.6rem;
+  text-indent: 1.6rem;
+  color: #333
+}
+.index-page .area-sale .Htips{
+  float: right;
+  margin-right:1rem; 
+  color: #a2a2a2;
+}
+.index-page .area-sale .sale-item{ 
+  height: auto;
+  clear: both;
+  position: relative;
+  display: block;
+}
+.index-page .area-sale .sale-item .left{ 
+  width: 68%;
+  padding: 0.5rem 0 0.2rem 1.6rem;
+}
+.index-page .area-sale .sale-item .left .logo{
+  height: 2rem;
+}
+.index-page .area-sale .sale-item .left .logo img{
+  height: 2rem;
+  width: 2rem;
+  float: left;
+  margin-right: 0.5rem;
+}
+.index-page .area-sale .sale-item .left .logo .font{
+  float: left;
+}
+.index-page .area-sale .sale-item .left .title{
+  color: #a2a2a2;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+.index-page .area-sale .sale-item .left .category{
+
+}
+.index-page .area-sale .sale-item .left .category .section{
+  display: block;
+  clear: both;
+  height: 2rem;
+}
+.index-page .area-sale .sale-item .left .category .section .pm{
+  float: left;
+  margin-right:0.1rem; 
+  width: 3.8rem;
+  height: 1.8rem;
+  overflow: hidden;
+}
+.index-page .area-sale .sale-item .left .category .section .ph{
+  float: left;
+  margin-right:0.1rem; 
+  width: 4.8rem;
+  height: 1.8rem;
+  overflow: hidden;
+}
+.index-page .area-sale .sale-item .left .category .section .gk{
+  float: left;
+  margin-right:0.1rem; 
+  width: 3.8rem;
+  height: 1.8rem;
+  overflow: hidden;
+}
+.index-page .area-sale .sale-item .left .category .section .jg{
+  float: left;
+  margin-right:0.1rem; 
+  width: 4.8rem;
+  height: 1.8rem;
+  overflow: hidden;
+}
+.index-page .area-sale .sale-item .left .category .section .red{
+  color: #ff4949;
+}
+.index-page .area-sale .sale-item .right{ 
+  position: absolute;
+  right: 0rem;
+  top: 8%;
+  height: 6rem;
+  width: 30%;
+}
+.index-page .area-sale .sale-item .right .b_r{
+  height: 70%;
+  width: 1px;
+  background-color:#dfdfdf;
+  display: block;
+  float: left;
+  margin: 20% 0;
+}
+.index-page .area-sale .sale-item .right .btn-sale{
+  font-size: 1.2rem;
+  background: #f70;
+  height: 3rem;
+  display: block;
+  line-height: 3rem;
+  border-radius: .2rem;
+  width: 70%;
+  text-align: center;
+  color: #fff;
+  border: 0;
+  margin:0.5rem auto; 
+}
+.index-page .area-sale .sale-item .right .update p{
+  width: 70%;
+  margin:0 auto;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #b3b3b3;
+  line-height: 1.3rem;
+}
+.more{
+   margin: 0.5rem auto;
+   width: 2rem;
+}
+.more img{
+  width: 2rem;
+  height: 1.5rem;
+ 
 }
