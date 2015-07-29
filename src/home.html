@@ -56,7 +56,7 @@
           <img src="images/maimei2.png">
         </span>
         <a href="caigous.html">
-          <span>卖煤</span>免费发布采购委托</a>
+          <span>卖煤</span>免费发布供应信息</a>
       </div>
     </div>
 
@@ -131,7 +131,7 @@
           <div class="update">
             <p>更新日期</p>
             <p>7月15日</p>
-          </div> 
+          </div>
         </div>
       </a>
       <a class="sale-item bb1" href="area_sale.html">
@@ -162,13 +162,13 @@
           <div class="update">
             <p>更新日期</p>
             <p>7月15日</p>
-          </div> 
+          </div>
         </div>
       </a>
       <a class="sale-item" href="area_sale.html">
         <div class="more"><img src="images/all-1.png" alt="更多"></div>
       </a>
-      
+
     </div>
         <div class="my-office zm-wraps mt10">
       <div class="name bb1">我的</div>
@@ -185,13 +185,13 @@
 
         <p class="word">免费找煤，第一手实时报价信息</p>
       </a>
-    </div>  
+    </div>
     <div class="index-nav zm-wraps mt10 mb10">
       <a class="item br1"
-        data-bind="ifnot: profile.isLoggedin"
+        data-bind="visible: !profile.isLoggedin()"
         href="login.html">登录</a>
       <a class="item"
-        data-bind="ifnot: profile.isLoggedin"
+        data-bind="visible: !profile.isLoggedin()"
         href="register.html">注册</a>
 
       <a class="item br1 log-name"

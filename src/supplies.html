@@ -22,7 +22,7 @@
 
 <body>
   <div class="market-page fake-body" style="box-sizing: border-box; padding-bottom: 117px;">
-    <form method="get" action="">
+    <form method="get" action="" id="searchForm">
       <div class="main-header bb1">
         <a class="backwrap" href="javascript:history.back();"><i class="backicon icon"></i> </a>
         <span class="center-wrap">
@@ -32,7 +32,7 @@
             data-bind="value: result.q"
             placeholder="请输入品名或牌号">
         </span>
-        <a class="right zmboxb borar2" href="javascript:void(0)">
+        <a class="right zmboxb borar2" href="javascript:;" onclick="$('#searchForm').submit();">
           <i class="icon"></i>
         </a>
       </div>
