@@ -3,6 +3,7 @@ var redirect = '/';
 var query = decodeURIComponent(location.search);
 var length = query.indexOf('&') > -1 ? query.indexOf('&')-3 : undefined;
 switch (query.substr(3, length)) {
+  case "login":     redirect = 'login.html';    break;
   case "register":  redirect = 'register.html'; break;
   case "hangqing":  redirect = 'hangqing.html'; break;
   case "news":      redirect = 'news.html';     break;
