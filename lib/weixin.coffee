@@ -22,10 +22,10 @@ load = ->
             _format: 'json'
           success: -> window.location.href='/'
           error:   ->
-            if 'login' == params.state
-              window.location.href='login.html?weixin_id='+data.openid
-            else
-              window.location.href='register.html?weixin_id='+data.openid
+            switch params.state
+              when 'login' then window.location.href='login.html?weixin_id='+data.openid
+              when 'profile' then window.location.href='profile.html?weixin_id='+data.openid
+              else window.location.href='register.html?weixin_id='+data.openid
     .fail ->
       window.location.href = '/'
 
