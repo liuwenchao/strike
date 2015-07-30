@@ -364,23 +364,23 @@
 }
 .index-page .area-sale .name{
   float: left;
-  height: 3rem;  
+  height: 3rem;
   font-size: 1.6rem;
   text-indent: 1.6rem;
   color: #333
 }
 .index-page .area-sale .Htips{
   float: right;
-  margin-right:1rem; 
+  margin-right:1rem;
   color: #a2a2a2;
 }
-.index-page .area-sale .sale-item{ 
+.index-page .area-sale .sale-item{
   height: auto;
   clear: both;
   position: relative;
   display: block;
 }
-.index-page .area-sale .sale-item .left{ 
+.index-page .area-sale .sale-item .left{
   width: 68%;
   padding: 0.5rem 0 0.2rem 1.6rem;
 }
@@ -411,28 +411,28 @@
 }
 .index-page .area-sale .sale-item .left .category .section .pm{
   float: left;
-  margin-right:0.1rem; 
+  margin-right:0.1rem;
   width: 3.8rem;
   height: 1.8rem;
   overflow: hidden;
 }
 .index-page .area-sale .sale-item .left .category .section .ph{
   float: left;
-  margin-right:0.1rem; 
+  margin-right:0.1rem;
   width: 4.8rem;
   height: 1.8rem;
   overflow: hidden;
 }
 .index-page .area-sale .sale-item .left .category .section .gk{
   float: left;
-  margin-right:0.1rem; 
-  width: 3.8rem;
+  margin-right:0.1rem;
+  width: 4rem;
   height: 1.8rem;
   overflow: hidden;
 }
 .index-page .area-sale .sale-item .left .category .section .jg{
   float: left;
-  margin-right:0.1rem; 
+  margin-right:0.1rem;
   width: 4.8rem;
   height: 1.8rem;
   overflow: hidden;
@@ -440,7 +440,7 @@
 .index-page .area-sale .sale-item .left .category .section .red{
   color: #ff4949;
 }
-.index-page .area-sale .sale-item .right{ 
+.index-page .area-sale .sale-item .right{
   position: absolute;
   right: 0rem;
   top: 8%;
@@ -466,7 +466,7 @@
   text-align: center;
   color: #fff;
   border: 0;
-  margin:0.5rem auto; 
+  margin:0.5rem auto;
 }
 .index-page .area-sale .sale-item .right .update p{
   width: 70%;
@@ -483,5 +483,5 @@
 .more img{
   width: 2rem;
   height: 1.5rem;
- 
+
 }
