@@ -14,8 +14,12 @@ route = window.location.pathname.substr(1,window.location.pathname.indexOf('.')-
 
 switch route
   when 'home'
+    supply.result.filter.company_id 61
+    supply.list()
     account.load false, ->
-    ko.applyBindings account
+    ko.applyBindings
+      account: account
+      sales: supply.result.rows
 
   when 'caigou_new'
     account.load()
@@ -107,5 +111,12 @@ switch route
 
   when 'oauth'
     weixin.load()
+
+  when 'sale'
+    supply.result.size 20
+    supply.result.filter.company_id 61
+    supply.list()
+    ko.applyBindings
+      sales: supply.result.rows
 
   else # do nothing

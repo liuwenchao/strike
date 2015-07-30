@@ -32,7 +32,7 @@
         <span class="center search">请输入牌号</span>
       </a>
 
-      <a class="right" href="profile.html">
+      <a class="right" href="account.profile.html">
         <span class="login"></span>
       </a>
     </div>
@@ -99,29 +99,23 @@
     </div>
     <div class="area-sale zm-wraps mt10">
       <div class="top bb1">
-        <div class="name">直营专区</div>
+        <div class="name">特价专区</div>
         <div class="Htips">低价煤源品质保障</div>
       </div>
 
-      <a class="sale-item bb1" href="area_sale.html">
+      <a class="sale-item bb1" href="sale.html">
         <div class="left">
           <div class="logo">
             <img src="images/company-1.png" alt="启新燃料">
             <div class="font">启新燃料</div>
           </div>
           <div class="title">主营：动力煤3000kcal-5000kcal</div>
-          <div class="category">
+          <div class="category" data-bind="foreach: sales">
             <div class="section">
-              <div class="pm">动力煤</div>
-              <div class="ph">神华石碳</div>
-              <div class="gk">乍浦港</div>
-              <div class="jg red">415.00元</div>
-            </div>
-            <div class="section">
-              <div class="pm">动力煤</div>
-              <div class="ph">神华石碳</div>
-              <div class="gk">乍浦港</div>
-              <div class="jg red">415.00元</div>
+              <div class="pm" data-bind="text: pinming"></div>
+              <div class="ph" data-bind="text: paihao() ? paihao().substr(0, 4) : ''"></div>
+              <div class="gk" data-bind="text: address() ? address().substr(0, 5) : ''"></div>
+              <div class="jg red"><span data-bind="text: price"></span>元</div>
             </div>
           </div>
         </div>
@@ -134,7 +128,7 @@
           </div>
         </div>
       </a>
-      <a class="sale-item" href="area_sale.html">
+      <a class="sale-item" href="sale.html">
         <div class="more"><img src="images/all-1.png" alt="更多"></div>
       </a>
 
@@ -157,17 +151,17 @@
     </div>
     <div class="index-nav zm-wraps mt10 mb10">
       <a class="item br1"
-        data-bind="visible: !profile.isLoggedin()"
+        data-bind="visible: !account.profile.isLoggedin()"
         href="login.html">登录</a>
       <a class="item"
-        data-bind="visible: !profile.isLoggedin()"
+        data-bind="visible: !account.profile.isLoggedin()"
         href="register.html">注册</a>
 
       <a class="item br1 log-name"
-        data-bind="visible: profile.isLoggedin, text: profile.name"></a>
+        data-bind="visible: account.profile.isLoggedin, text: account.profile.name"></a>
       <a class="item"
         href="login.html"
-        data-bind="visible: profile.isLoggedin, click: logout">退出</a>
+        data-bind="visible: account.profile.isLoggedin, click: account.logout">退出</a>
       <a class="go-top" href="suggest.html">意见反馈 </a>
     </div>
   </div>

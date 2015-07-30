@@ -97,6 +97,7 @@ Model = ->
     qsf_unit: ko.observable()
     qsf_value: ko.observable()
     progress: ko.observable()
+    paihao: ko.observable()
   model.main_zhibiao = ko.pureComputed ->
     switch model.pinming_one()
       when 1 then model.rezhi() + 'kcal'
@@ -109,6 +110,7 @@ fill = (data, model) ->
   model = new Model() if not model
   model.id  data.supply_id
   model.pinming data.variety[0]?.cate_name
+  model.paihao data.paihao
   model.price data.pay_price
   model.weight data.jiaoge_weight
   model.rezhi data.dwfrl_u10_value

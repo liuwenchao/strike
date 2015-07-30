@@ -40,8 +40,8 @@
             <div class="font">浙江启新燃料有限公司</div>
         </div>
         <div class="message">
-          <div class="name"><i class="Iname"></i> 联 系 人 ：张三</div>
-          <div class="phone"><i class="Iphone"></i>联系电话：13656654875</div>
+          <div class="name"><i class="Iname"></i> 联 系 人 ：蒋浩春</div>
+          <div class="phone"><i class="Iphone"></i>联系电话：13777008009</div>
         </div>
       </div>
       <div class="areatab">
@@ -67,51 +67,32 @@
       <div class="tit bb1">现货资源</div>
       <div class="market-list-new">
         <div class="pro-wrap">
-          <div class="inner-list hidden" style="display: block;" data-bind="foreach: result.rows">
-            <a href="supply.html?id=110" class="inner-row showKuaisuPricePrice">
+          <div class="inner-list hidden" style="display: block;" data-bind="foreach: sales">
+            <a href="supply.html?id=110"
+              data-bind="attr: { href: 'supply.html?id='+id()}"
+              class="inner-row showKuaisuPricePrice">
               <p class="clearfix">
-                <span class="name c-blue">烟煤</span>
-                <span class="zhiying">4600kcal</span>
-                <i class="f-c cash" ></i>
+                <span class="name c-blue" data-bind="text: pinming"></span>
+                <span class="zhiying" data-bind="text: main_zhibiao"></span>
+                <i class="f-c cash" data-bind="visible: !isqihuo()"></i>
                 <span class="row-right price orange">￥
-                  <span>388</span>
-                元/吨</span>
-              </p>
-              <p class="clearfix">
-                <span class="color-9">上海中煤</span>
-                <span>20000</span>
-                <span>吨</span>
-                <span class="color-9"> 交割地：</span>
-                <span> 江阴5号码</span>
-                <span class="row-right color-9">2015-06-14</span>
-              </p>
-            </a>
-          
-            <a href="supply.html?id=110" class="inner-row showKuaisuPricePrice">
-              <p class="clearfix">
-                <span class="name c-blue">烟煤</span>
-                <span class="zhiying">4600kcal</span>
-                <i class="f-c cash" ></i>
-                <span class="row-right price orange">￥
-                  <span>388</span>
+                  <span data-bind="text: price"></span>
                 元/吨</span>
               </p>
 
               <p class="clearfix">
-                <span class="color-9">上海中煤</span>
-                <span>20000</span>
+                <span class="color-9" data-bind="text: company_name().substr(0, 4)"></span>
+                <span data-bind="text: weight"></span>
                 <span>吨</span>
                 <span class="color-9"> 交割地：</span>
-                <span> 江阴5号码</span>
-                <span class="row-right color-9">2015-06-14</span>
+                <span data-bind="text: address().substr(0, 5)"></span>
+                <span class="row-right color-9" data-bind="text: addtime().toISOString().substr(0,10)"></span>
               </p>
             </a>
           </div>
         </div>
       </div>
-      
     </div>
-
   </div>
 
   <footer class="zm-wraps" id="zmMobileAllFooter">
