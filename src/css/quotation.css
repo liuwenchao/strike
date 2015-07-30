@@ -56,7 +56,7 @@
 }
 .area_sale .top .logo{
    height: 2rem;
-   padding: 1rem 0 1rem 2rem;
+   padding: 2rem 0 1rem 2rem;
 }
 .area_sale .top .logo img{
   height: 2rem;
@@ -68,7 +68,7 @@
   float:left;
 }
 .area_sale .top .message{
-  padding: 0rem 0 1rem 4rem;
+  padding: 0rem 0 1rem 2rem;
 }
 .area_sale .top .message .name{
   height: 3rem;
@@ -78,7 +78,7 @@
 }
 .area_sale .top .message .Iname{
   background: url("../images/Iname-1.png") no-repeat;
-  background-size: 1.9rem;
+  background-size: 2rem;
   height: 2rem;
   width: 2rem;
   float: left;
@@ -125,9 +125,6 @@
   padding: 1.5rem;
   display: block;
   color: #808080;
-}
-.area-con{
-  
 }
 .area-con .tit{
   height: 3rem;

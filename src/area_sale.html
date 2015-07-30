@@ -46,8 +46,10 @@
       </div>
       <div class="areatab">
         <div class="tabul">
-          <a href="#">企业介绍</a>
-          <a href="#" class="clickon">企业资料</a>
+          <a href="javascript:;" class="clickon" onclick="$(this).addClass('clickon').siblings().removeClass('clickon'); $('.tabcon .con_area').eq($(this).index()).show().siblings().hide();">
+              企业介绍</a>
+          <a href="javascript:;" onclick="$(this).addClass('clickon').siblings().removeClass('clickon'); $('.tabcon .con_area').eq($(this).index()).show().siblings().hide();">
+            企业资料</a>
         </div>
         <div class="tabcon">
         <div class="con_area">
@@ -55,9 +57,9 @@
 
           </div>
           <div class="con_area" style="display:none">
-            企业类型：综合性能源贸易型集团
-            主       营：煤炭贸易、海上散货运输、商业地产、信息科技
-            地       址：杭州市余杭区仓前街道文一西路1338号A幢3楼313
+            <p>企业类型：综合性能源贸易型集团</p>
+            <p>主       营：煤炭贸易、海上散货运输、商业地产、信息科技</p>
+            <p>地       址：杭州市余杭区仓前街道文一西路1338号A幢3楼313</p>
           </div>
         </div>
       </div>
@@ -75,7 +77,6 @@
                   <span>388</span>
                 元/吨</span>
               </p>
-
               <p class="clearfix">
                 <span class="color-9">上海中煤</span>
                 <span>20000</span>
