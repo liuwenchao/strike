@@ -82,7 +82,8 @@
   height: 2rem;
   width: 2rem;
   float: left;
-  margin-right:0.5rem; 
+  margin-right:0.5rem;
+    margin-top: -0.2rem;
 }
 .area_sale .top .message .Iphone{
   background: url("../images/Iphone-1.png") no-repeat;
@@ -91,6 +92,7 @@
   width: 2rem;
   float: left;
   margin-right:0.5rem;
+    margin-top: -0.2rem;
 }
 /*  企业介绍选项卡 */
 .areatab{
