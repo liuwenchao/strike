@@ -96,15 +96,19 @@
           <p>共找到
             <span class="num" data-bind="text: result.total"></span>条产品信息</p>
           <p class="page-wrap" >
-            <a href="javascript:;" class="small" data-bind="click: result.pageFirst, css: {disabled: result.isFirstPage}">首页</a>
-            <a href="javascript:;" class="big"   data-bind="click: result.pageUp,    css: {disabled: result.isFirstPage}">上一页</a>
+            <a href="javascript:;" class="small" onclick="window.scrollTo(0,0);"
+              data-bind="click: result.pageFirst, css: {disabled: result.isFirstPage}">首页</a>
+            <a href="javascript:;" class="big" onclick="window.scrollTo(0,0);"
+              data-bind="click: result.pageUp,    css: {disabled: result.isFirstPage}">上一页</a>
             <span>
               <span data-bind="text: result.currentPage"></span>
               /
               <span data-bind="text: result.pageCount"></span>
             </span>
-            <a href="javascript:;" class="big"   data-bind="click: result.pageDown, css: {disabled: result.isLastPage}">下一页</a>
-            <a href="javascript:;" class="small" data-bind="click: result.pageLast, css: {disabled: result.isLastPage}">尾页</a>
+            <a href="javascript:;" onclick="window.scrollTo(0,0);" class="big"
+              data-bind="click: result.pageDown, css: {disabled: result.isLastPage}">下一页</a>
+            <a href="javascript:;" class="small"
+              data-bind="click: result.pageLast, css: {disabled: result.isLastPage}">尾页</a>
           </p>
         </div>
       </div>
