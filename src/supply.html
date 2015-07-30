@@ -83,7 +83,13 @@
           <span data-bind="visible: member_title, text: '('+member_title()+')'"></span>
           <span class="orange" data-bind="text: telephone"></span>
         </p>
-        <p><a href="tel:4000656868" class="click telnum">点击拨号</a></p>
+        <p>
+          <a href="tel:4000656868"
+            class="click telnum"
+            data-bind="attr: {href: 'tel:'+telephone()}">
+            点击拨号
+          </a>
+        </p>
       </div>
     </div>
     <div class="btn-wrap">
