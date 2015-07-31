@@ -276,12 +276,13 @@
   height: 4.1rem;
   font-size: 1.5rem;
   line-height: 4rem;
-  padding-left: 2rem;
+  /*padding-left: 2rem;*/
     margin: 0.5rem 0;
   /*padding-right: 2rem;*/
 }
 .gerenxinxi ul li.color1 {
   background: #FFF;
+    padding: 0.5rem 0;
 }
 .gerenxinxi ul li.color2 {
   background: #FFF;
@@ -293,7 +294,7 @@
   text-align: right;
 }
 .gerenxinxi ul li .content {
-  width: 23.3rem;
+  width: 18rem;
   display: block;
   float: left;
   overflow: hidden;
@@ -301,7 +302,7 @@
   white-space: nowrap;
 }
 .gerenxinxi ul li .content input {
-  width: 100%;
+  width: 99%;
 }
 .gerenxinxi ul li .jiantou {
   display: block;
@@ -360,12 +361,12 @@
   text-align: center;
   font-size: 1.6rem;
   color: #333;
-  padding: 0 3.5rem 0 5rem
+  padding: 0.5rem 3.5rem 0.5rem 5rem
 }
 .market-select-page .select-list a .left {
   position: absolute;
   left: 1.5rem;
-  top: 0
+  top: 0.5rem;
 }
 .market-select-page .select-list a .center {
   color: #999
