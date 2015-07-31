@@ -6,12 +6,21 @@
 }
 .myorder-page .all-type a {
   display: block;
-  position: relative;
   border-bottom: solid 1px #dbdbdb;
   line-height: 4rem;
   padding-left: 5.5rem;
   font-size: 1.4rem;
   color: #158ab4;
+}
+.weituo{
+    display: block;
+    position: absolute;
+    right: 1rem;
+    border-bottom: solid 1px #dbdbdb;
+    line-height: 4rem;
+    padding-left: 5.5rem;
+    font-size: 1.4rem;
+    color: #158ab4;
 }
 .myorder-page .all-type .icon {
   display: inline-block;
