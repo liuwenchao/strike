@@ -16,6 +16,7 @@ Model = ->
     member_name: ko.observable()
     member_title: ko.observable()
     telephone: ko.observable()
+    mobile: ko.observable()
     zhibiao_more: ko.observable()
     qsf_value: ko.observable()
     dwfrl_cell: ko.observable()
@@ -121,6 +122,7 @@ fill = (data, model) ->
   model.member_name data.member?.truename
   model.member_title data.member?.job
   model.telephone data.member?.telephone
+  model.mobile data.member?.mobile
   model.zhibiao_more data.zhibiao_more
   model.dwfrl_cell data.dwfrl_cell
   model.dwfrl_u10_value data.dwfrl_u10_value
