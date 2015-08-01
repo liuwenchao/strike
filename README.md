@@ -26,11 +26,10 @@ npm install -g gulp webpack-dev-server bower coffee-script
 # install project dependencies
 npm install
 
-# set hosts entries
-sudo echo '127.0.0.1 dev.wx.zhaomw.cn' > /etc/hosts
-
 # open this in browser
-open http://dev.wx.zhaomw.cn:8090/webpack-dev-server/index.html
+open http://localhost:8090/webpack-dev-server/index.html
+# or 
+open http://localhost:8090/index.html
 ```
 
 # Development
