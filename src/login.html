@@ -26,7 +26,7 @@
       <a href="/"><img src="images/banner.png"></a>
     </div>
 
-    <div class="textac mt20" data-bind="if: error, click: error.bind($data, false)">
+    <div class="textac mt20" data-bind="visible: error, click: error.bind($data, false)" style="display: none;">
       <a href="javascript:;" class="tips" data-bind="text: error"></a>
     </div>
 
@@ -58,11 +58,11 @@
       </div>
     </form>
   </div>
-    <footer class="zm-wraps">
-      <p>
-        <a href="/"><img src="images/bottomlogo.png"></a>
-      </p>
-    </footer>
+  <footer class="zm-wraps">
+    <p>
+      <a href="/"><img src="images/bottomlogo.png"></a>
+    </p>
+  </footer>
 
   <script type="text/javascript" src="app.js" charset="utf-8"></script>
 </body>

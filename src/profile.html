@@ -130,7 +130,7 @@
           </li>
         </ul>
 
-        <div class="textac mt20" data-bind="if: error, click: error.bind($data, false)">
+        <div class="textac mt20" data-bind="visible: error, click: error.bind($data, false)" style="display: none;">
           <a href="javascript:;" class="tips" data-bind="text: error"></a>
         </div>
 
