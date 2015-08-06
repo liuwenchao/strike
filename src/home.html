@@ -37,9 +37,9 @@
       </a>
     </div>
 
-    <div class="index-adv">
-      <a href="/">
-        <img class="swidth" src="images/banner.png" alt="">
+    <div class="index-adv" data-bind="foreach: ads">
+      <a href="/" data-bind="attr: {href: link}">
+        <img class="swidth" src="images/banner.png" alt="" data-bind="attr: {src: picture}">
       </a>
     </div>
 

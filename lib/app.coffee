@@ -3,6 +3,7 @@ ko          = require 'knockout'
 account     = require 'account'
 news        = require 'news'
 hangqing    = require 'hangqing'
+ads         = require 'ads'
 caigou      = require 'caigou'
 supply      = require 'supply'
 address     = require 'address'
@@ -16,10 +17,12 @@ switch route
   when 'home'
     supply.result.filter.company_id 61
     supply.list()
+    ads.list()
     account.load false, ->
     ko.applyBindings
       account: account
       sales: supply.result.rows
+      ads:   ads.records
 
   when 'caigou_new'
     account.load()
