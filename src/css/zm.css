@@ -64,7 +64,7 @@ body {
   position: relative
 }
 body * {
-  max-width: 640px;
+  /*max-width: 640px;*/
   user-select: text;
   -moz-user-select: text;
   -webkit-user-select: text
