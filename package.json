@@ -49,6 +49,7 @@
     "sass-loader": "*",
     "script-loader": "*",
     "style-loader": "*",
+    "css-loader": "*",
     "webpack": "*",
     "webpack-dev-server": "*"
   }
