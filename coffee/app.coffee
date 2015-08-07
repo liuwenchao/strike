@@ -29,7 +29,7 @@ switch route
       pagination: '.swiper-pagination'
       observer: true
       autoplay: 1000
-      speed: 3000
+      speed: 1000
       # effect: 'cube'
 
   when 'caigou_new'
