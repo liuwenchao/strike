@@ -1,5 +1,6 @@
 $           = require 'jquery'
 ko          = require 'knockout'
+Swipe       = require 'swipe'
 account     = require 'account'
 news        = require 'news'
 hangqing    = require 'hangqing'
@@ -23,6 +24,13 @@ switch route
       account: account
       sales: supply.result.rows
       ads:   ads.records
+    # http://www.idangero.us/swiper/api/#
+    new Swipe '.swiper-container',
+      pagination: '.swiper-pagination'
+      observer: true
+      autoplay: 1000
+      speed: 3000
+      # effect: 'cube'
 
   when 'caigou_new'
     account.load()

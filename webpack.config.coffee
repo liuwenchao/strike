@@ -12,7 +12,7 @@ module.exports =
   cache: true
 
   entry:
-    app:          './lib/app'
+    app:          './coffee/app'
 
   output:
     path: path.join(__dirname, 'src')
@@ -38,7 +38,7 @@ module.exports =
     ]
 
   resolve:
-    extensions: ['', '.webpack.js', '.web.js', '.coffee', '.js', '.scss']
-    modulesDirectories: ['src', 'src/coffee', 'lib', 'bower_components', 'node_modules']
+    extensions: ['', '.webpack.js', '.web.js', '.coffee', '.js', '.scss', '.css']
+    modulesDirectories: ['src', 'coffee', 'lib', 'bower_components', 'node_modules']
 
   plugins: []
