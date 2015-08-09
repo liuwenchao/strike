@@ -99,6 +99,7 @@ Model = ->
     qsf_value: ko.observable()
     progress: ko.observable()
     paihao: ko.observable()
+    cangku: ko.observable()
   model.main_zhibiao = ko.pureComputed ->
     switch model.pinming_one()
       when 1 then model.rezhi() + 'kcal'

@@ -46,17 +46,22 @@
           <span class="price">￥<span data-bind="text: price"></span>元/吨</span>
           <span class="ca-fu cash" data-bind="visible: !isqihuo()"></span>
         </p>
-        <span class="item ellipsis weight">数量：<span data-bind="text: weight"></span>吨 </span>
-        <span class="item ellipsis manufacturer">生产商 ：<span class="color-9" data-bind="text: company_name()"></span></span>
-        <span class="item ellipsis originCountry">产地：<span class="color-9" data-bind="text: address"></span></span>
-        <p class="remark item">仓库：佛山</p>
+        <span class="item ellipsis weight">
+          数量：
+          <span data-bind="text: weight"></span>吨 </span>
+        <span class="item ellipsis manufacturer">
+          生产商 ：<span class="color-9" data-bind="text: company_name()"></span></span>
+        <span class="item ellipsis originCountry">
+          产地：<span class="color-9" data-bind="text: address"></span></span>
+        <p class="remark item">
+          仓库：<span class="color-9" data-bind="text: cangku"></span></p>
 
-        <div class="item2 clearfix">备注：<span class="color-9" data-bind="text: zhibiao_more"></span></div>
-        <a href="javascript:;" class="zhibiao item clearfix" onclick="$(this).next().next().toggle()">指标</a>
+        <div class="item2 clearfix">
+          备注：<span class="color-9" data-bind="text: zhibiao_more"></span></div>
 
         <div style="clear:both;margin-bottom: 1rem;"></div>
 
-        <ul class="zhibiao-wrap hidden">
+        <ul class="zhibiao-wrap">
           <li class="title">
             <span class="zhibiao01">全水分(Mt)</span>
             <span class="zhibiao02">挥发分(V)</span>
