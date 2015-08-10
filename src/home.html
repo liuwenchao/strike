@@ -134,28 +134,23 @@
           </div>
 
       </a>
-        <div class="market-list-new">
+        <div class="sale-list-new">
             <div class="pro-wrap">
                 <div class="inner-list hidden" style="display: block;" data-bind="foreach: sales">
                     <a href="supply.html?id=110"
                        data-bind="attr: { href: 'supply.html?id='+id()}"
                        class="inner-row showKuaisuPricePrice">
                         <p class="clearfix">
-                            <span class="name c-blue" data-bind="text: pinming"></span>
+                            <span class="name1 c-blue" data-bind="text: pinming"></span>
                             <span class="zhiying" data-bind="text: main_zhibiao"></span>
-                            <i class="f-c cash" data-bind="visible: !isqihuo()"></i>
+                            <span class="zhiying">
+                                <span class="color-9"> 交割地：</span>
+                            <span data-bind="text: address().substr(0, 5)"></span>
+                            </span>
+
                 <span class="row-right price orange">￥
                   <span data-bind="text: price"></span>
                 元/吨</span>
-                        </p>
-
-                        <p class="clearfix">
-                            <span class="color-9" data-bind="text: company_name().substr(0, 4)"></span>
-                            <span data-bind="text: weight"></span>
-                            <span>吨</span>
-                            <span class="color-9"> 交割地：</span>
-                            <span data-bind="text: address().substr(0, 5)"></span>
-                            <span class="row-right color-9" data-bind="text: addtime().toISOString().substr(0,10)"></span>
                         </p>
                     </a>
                 </div>

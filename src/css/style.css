@@ -710,6 +710,152 @@ body {
   background: url("../images/future_icon.png") center no-repeat;
   background-size: contain
 }
+.sale-list-new .pro-wrap .pro-row {
+    padding: 1.2rem;
+    background: #fff;
+    border-bottom: solid 1px #dbdbdb
+}
+.sale-list-new .pro-wrap .pro-row p {
+    line-height: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+.sale-list-new .pro-wrap p .product-name {
+    font-size: 1.6rem;
+    color: #000;
+    display: inline-block;
+    float: left;
+    margin-right: .25rem
+}
+.sale-list-new .pro-wrap .conrow .name {
+    color: #f4a600!important
+}
+.sale-list-new .pro-wrap p .name1 {
+    float: left;
+    max-width: 50%;
+    height: 3rem;
+    line-height: 3rem;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+.sale-list-new .pro-wrap .row-right {
+    float: right;
+    position: relative
+}
+.sale-list-new .pro-wrap .price {
+    font-size: 1.5rem;
+    height: 3rem;
+    line-height: 3rem
+}
+.sale-list-new .pro-wrap .price.orange {
+    color: #f70
+}
+.sale-list-new .pro-wrap .price.blue {
+    color: #3094ed
+}
+.sale-list-new .pro-wrap .price.green {
+    color: #6ab36d
+}
+.sale-list-new .pro-wrap .price.green:before {
+    content: "";
+    display: inline-block;
+    width: 2.2rem;
+    height: 3rem;
+    float: left;
+    background: url("../images/lowest.png") center no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    background-origin: content-box;
+    padding: .7rem 0
+}
+.sale-list-new .pro-wrap .total {
+    color: #3094ed;
+    display: inline-block;
+    padding-right: 1.6rem
+}
+.sale-list-new .pro-wrap .row-right .arrow {
+    display: inline-block;
+    position: absolute;
+    width: 1.6rem;
+    height: .8rem;
+    top: 1.2rem;
+    right: 0rem;
+    background: url("../images/down-arrow.png") center no-repeat;
+    background-size: contain
+}
+.sale-list-new .pro-wrap .row-right .arrow.up-arrow {
+    background: url("../images/up-arrow.png") center no-repeat;
+    background-size: contain
+}
+.sale-list-new .pro-wrap .inner-list {
+    position: relative;
+    background: #fff
+}
+.sale-list-new .pro-wrap .inner-list .inner-row {
+    display: block;
+    padding: .7rem .2rem .9rem .8rem;
+    border-bottom: dotted 1px #dbdbdb
+}
+.sale-list-new .pro-wrap .inner-list .inner-row:last-child {
+    border-bottom: solid 1px #dbdbdb
+}
+.sale-list-new .pro-wrap .see-more {
+    text-align: center;
+    padding: .8rem 1.2rem;
+    background: #f8f7f4;
+    position: relative;
+    z-index: 1;
+    padding-right: 6rem
+}
+.sale-list-new .pro-wrap .see-more1 {
+    text-align: center;
+    padding: .8rem 1.2rem;
+    background: #f8f7f4;
+    position: relative;
+    z-index: 1;
+    padding-right: 6rem
+}
+.sale-list-new .pro-wrap .inner-list .closeit {
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+    padding: .8rem 1.2rem;
+    color: #3094ed
+}
+.sale-list-new .pro-wrap .inner-list .closeit .fa {
+    font-size: 1.8rem!important
+}
+.sale-list-new .pro-wrap .zhiying {
+    display: inline-block;
+    height: 1.6rem;
+    margin-left: 1rem;
+    margin-right: .3rem;
+    background: url("../images/zhiying.png") center no-repeat;
+    background-size: contain;
+    float: left;
+    margin-top: .7rem
+}
+.sale-list-new .pro-wrap .cash, .sale-list-new .pro-wrap .future {
+    display: inline-block;
+    width: 3.2rem;
+    height: 1.6rem;
+    margin-left: .5rem;
+    float: left;
+    margin-top: .7rem
+}
+.sale-list-new .pro-wrap .cash {
+    background: url("../images/cash_icon.png") center no-repeat;
+    background-size: contain
+}
+.sale-list-new .pro-wrap .future {
+    background: url("../images/future_icon.png") center no-repeat;
+    background-size: contain
+}
+
 .result-wrap .list-foot {
   text-align: center;
   padding-bottom: 1.2rem
