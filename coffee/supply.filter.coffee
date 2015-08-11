@@ -21,7 +21,7 @@ Model =
   company_id: ko.observable(params.company_id)
 
 Model.to_string = ->
-    query = ['!ifhide']
+    query = ['!ifhide', 'ifcheck:1']
     query.push '(variety.cate_name:'+Model.q()+' OR paihao:'+Model.q()+')' if Model.q()
     query.push 'isqihuo:'+Model.isqihuo()           if Model.isqihuo()
     query.push 'ifsale:true'                        if Model.ifsale()

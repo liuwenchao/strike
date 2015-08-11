@@ -1,6 +1,7 @@
 $ = require 'jquery'
 ko = require 'knockout'
 parameters = require 'parameters'
+filter     = require 'caigou.filter'
 
 Model = ->
   id: ko.observable()
@@ -25,6 +26,7 @@ result =
   rows: ko.observableArray()
   sort: ko.observable('caigou_id:desc')
   total: ko.observable(0)
+  filter: filter
   currentPage: ko.pureComputed -> (Math.ceil result.from()/result.size)+1
   pageCount:   ko.pureComputed -> Math.ceil result.total()/result.size
   pageUp    : -> result.from if result.from() == 0 then 0 else (result.currentPage()-2)*result.size
@@ -75,7 +77,7 @@ create = (form) ->
 list = ->
   q = result.q()
   $.get parameters.search.host + '/caigou/_search',
-    q: if q then '(variety.cate_name:'+q+' OR paihao:'+q+') AND !ifhide AND !ifclose' else '!ifhide AND !ifclose'
+    q: filter.to_string
     from: result.from()
     sort: result.sort()
     size: result.size
