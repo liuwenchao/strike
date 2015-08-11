@@ -23,7 +23,7 @@ result =
   more: ko.observable(false)
   from: ko.observable(0)
   rows: ko.observableArray()
-  sort: ko.observable()
+  sort: ko.observable('caigou_id:desc')
   total: ko.observable(0)
   currentPage: ko.pureComputed -> (Math.ceil result.from()/result.size)+1
   pageCount:   ko.pureComputed -> Math.ceil result.total()/result.size
