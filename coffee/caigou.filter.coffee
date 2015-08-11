@@ -10,7 +10,7 @@ Model =
   q: ko.observable(params.q)
 
 Model.to_string = ->
-    query = ['!ifhide', 'ifcheck:1']
+    query = ['!ifhide', 'ifcheck:1', '!ifclose']
     query.push '(variety.cate_name:'+Model.q()+' OR paihao:'+Model.q()+')' if Model.q()
     query.join(' AND ')
 
