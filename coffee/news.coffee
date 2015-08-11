@@ -21,7 +21,7 @@ fill = (data, model) ->
   return model
 
 list = ->
-  $.get params.search.host + '/news/_search?size=10', (data) ->
+  $.get params.search.host + '/news/_search?size=10&sort=news_id:desc', (data) ->
     for news in data.hits.hits
       records.push fill news._source
 
