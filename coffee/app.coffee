@@ -124,8 +124,8 @@ switch route
     weixin.load()
 
   when 'sale'
-    supply.result.size 20
-    supply.result.filter.company_id 61
+    supply.result.size 30
+    supply.result.filter.ifsale 1
     supply.list()
     ko.applyBindings
       sales: supply.result.rows

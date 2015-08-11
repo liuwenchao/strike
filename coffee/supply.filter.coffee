@@ -9,6 +9,7 @@ for param in decodeURIComponent(location.search).substr(1).split('&')
 Model =
   q: ko.observable(params.q)
   isqihuo: ko.observable(params.isqihuo || 0)
+  ifsale:  ko.observable(params.ifsale  || 0)
   pinming: ko.observable(params.pinming)
   paihao:  ko.observable(params.paihao)
   company: ko.observable(params.company)
@@ -23,6 +24,7 @@ Model.to_string = ->
     query = ['!ifhide']
     query.push '(variety.cate_name:'+Model.q()+' OR paihao:'+Model.q()+')' if Model.q()
     query.push 'isqihuo:'+Model.isqihuo()           if Model.isqihuo()
+    query.push 'ifsale:true'                        if Model.ifsale()
     query.push 'pinming_one:'+Model.pinming()       if Model.pinming()
     query.push 'paihao:'+Model.paihao()             if Model.paihao()
     query.push 'hf_value:'+Model.hf_value()         if Model.hf_value()
