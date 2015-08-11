@@ -16,7 +16,8 @@ route = window.location.pathname.substr(1,window.location.pathname.indexOf('.')-
 
 switch route
   when 'home'
-    supply.result.filter.company_id 61
+    supply.result.size 4
+    supply.result.filter.ifsale 1
     supply.list()
     ads.list()
     account.load false, ->
