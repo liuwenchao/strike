@@ -1214,6 +1214,10 @@ body {
   background-color: #EEE;
   height: 2.5rem;
 }
+.zhibiao-wrap{
+    display: block;
+    overflow: hidden;
+}
 .zhibiao-wrap .content {
     color: #F00;
     line-height: 2.5rem;
