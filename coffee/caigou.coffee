@@ -2,21 +2,7 @@ $ = require 'jquery'
 ko = require 'knockout'
 parameters = require 'parameters'
 filter     = require 'caigou.filter'
-
-Model = ->
-  id: ko.observable()
-  price: ko.observable(0)
-  content: ko.observable()
-  weight: ko.observable()
-  rezhi: ko.observable()
-  company_name: ko.observable()
-  pinming: ko.observable()
-  addtime: ko.observable()
-  staff: ko.observable()
-  tel: ko.observable()
-  address: ko.observable()
-  status: ko.observable()
-  progress: ko.observable()
+Model = require 'caigou.model'
 
 result =
   q: ko.observable()
@@ -42,23 +28,6 @@ result.sort.subscribe ->
   result.from 0
   list()
 result.from.subscribe -> list()
-
-fill = (data, model) ->
-  model = new Model() if not model
-  model.id data.caigou_id
-  model.content data.caigou_content
-  model.price data.standard_price_money || data.pay_price
-  model.weight data.standard_ton || data.pay_weight
-  model.rezhi data.standard_div_content?.rezhi_value
-  model.company_name data.member?.company?.company_name
-  model.pinming data.variety[0]?.cate_name
-  model.addtime new Date data.add_time*1000
-  model.staff data.operate_staff?.staff_truename || ''
-  model.tel data.operate_staff?.staff_mobile
-  model.address data.standard_address
-  model.progress data.progress
-  model.status '交易成功'
-  model
 
 create = (form) ->
   $.ajax
@@ -86,7 +55,7 @@ list = ->
     result.rows.removeAll()# if result.from() == 0
     result.more result.from()+result.size
     for record in data.hits.hits
-      result.rows.push fill record._source
+      result.rows.push Model.fill record._source
 
 listMine = (from = 0, filter)->
   $.ajax
@@ -102,7 +71,7 @@ listMine = (from = 0, filter)->
       result.rows.removeAll() if from == 0
       result.more from+result.size
       for record in data
-        result.rows.push fill record
+        result.rows.push Model.fill record
     error: -> window.location='login.html'
 
 module.exports =
