@@ -1205,6 +1205,20 @@ body {
   height: 2.5rem;
   padding: 0 1rem 0 1rem;
 }
+.market-detail-page .info-wrap .zhibiao-wrap .zhibiao01 {
+  width: 33%;
+  float: left;
+}
+.market-detail-page .info-wrap .zhibiao-wrap .zhibiao02 {
+  width: 33%;
+  float: left;
+  text-align: center;
+}
+.market-detail-page .info-wrap .zhibiao-wrap .zhibiao03 {
+  width: 33%;
+  float: right;
+  text-align: right;
+}
 
 /*article-page*/
 
