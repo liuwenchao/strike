@@ -111,8 +111,9 @@ register = (form) ->
       contentType: 'application/json'
       url: parameters.api.host+'/members.json'
       data: JSON.stringify
-        username: form.username.value
+        truename: form.truename.value
         mobile:   form.mobile.value
+        username: form.mobile.value
         sms:      form.sms.value
         password: form.password.value
         weixin_id:form.weixin_id.value
