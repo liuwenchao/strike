@@ -100,7 +100,7 @@ logout = ->
   $.get parameters.account.host + '/logout?wechat=1'
 
 register = (form) ->
-  if form.mobile.value.length == 0 or form.username.value.length == 0 or form.sms.value.length == 0 or form.password.value.length == 0
+  if form.mobile.value.length == 0 or form.truename.value.length == 0 or form.sms.value.length == 0 or form.password.value.length == 0
     error '所有字段都必填'
     return
   if form.password.value == form.repasswd.value
