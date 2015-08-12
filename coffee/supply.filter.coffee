@@ -22,7 +22,15 @@ Model =
 
 Model.to_string = ->
     query = ['!ifhide', 'ifcheck:1']
-    query.push '(variety.cate_name:'+Model.q()+' OR paihao:'+Model.q()+')' if Model.q()
+    zhibiao = 'OR dwfrl_u10_value:'+Model.q() if Number.parseInt(Model.q()) > 0
+    q = [
+      '('
+      'variety.cate_name:"'+Model.q()+'"'
+      'OR jiaoge_address:"'+Model.q()+'"'
+      zhibiao
+      ')'
+    ]
+    query.push q.join ' '                           if Model.q()
     query.push 'isqihuo:'+Model.isqihuo()           if Model.isqihuo()
     query.push 'ifsale:true'                        if Model.ifsale()
     query.push 'pinming_one:'+Model.pinming()       if Model.pinming()
