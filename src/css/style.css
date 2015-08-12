@@ -1197,29 +1197,23 @@ body {
   color: #F00;
   line-height: 2.5rem;
   height: 2.5rem;
-  padding: 0 1rem 0 1rem;
+    display: block;
+    text-align: center;
+    padding: 0;
+}
+.market-detail-page .info-wrap .zhibiao-wrap .zhibiaoli {
+    width: 33%;
+    float: left;
+    padding: 0;
 }
 .market-detail-page .info-wrap .zhibiao-wrap .title {
+    display: block;
+    text-align: center;
+    padding: 0;
   line-height: 2.5rem;
   background-color: #EEE;
   height: 2.5rem;
-  padding: 0 1rem 0 1rem;
 }
-.market-detail-page .info-wrap .zhibiao-wrap .zhibiao01 {
-  width: 33%;
-  float: left;
-}
-.market-detail-page .info-wrap .zhibiao-wrap .zhibiao02 {
-  width: 33%;
-  float: left;
-  text-align: center;
-}
-.market-detail-page .info-wrap .zhibiao-wrap .zhibiao03 {
-  width: 33%;
-  float: right;
-  text-align: right;
-}
-
 /*article-page*/
 
 .article-page .list-top {
