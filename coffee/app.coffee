@@ -53,6 +53,7 @@ switch route
     for param in decodeURIComponent(location.search).substr(1).split('&')
       params[param.split('=')[0]] = param.split('=')[1]
     caigou.result.q params.q
+    caigou.result.filter.noclose true
     caigou.list()
     ko.applyBindings caigou
 

@@ -1,6 +1,7 @@
 $ = require 'jquery'
 ko = require 'knockout'
 parameters = require 'parameters'
+Zhibiao = require 'zhibiao'
 
 Model = ->
   model =
@@ -18,7 +19,6 @@ Model = ->
     telephone: ko.observable()
     mobile: ko.observable()
     zhibiao_more: ko.observable()
-    qsf_value: ko.observable()
     dwfrl_cell: ko.observable()
     dwfrl_u10_value: ko.observable()
     dwfrl_u20_value: ko.observable()
@@ -100,12 +100,65 @@ Model = ->
     progress: ko.observable()
     paihao: ko.observable()
     cangku: ko.observable()
+
   model.main_zhibiao = ko.pureComputed ->
     switch model.pinming_one()
       when 1 then model.rezhi() + 'kcal'
       when 2 then model.rezhi() + 'kcal'
       when 3 then model.rezhi() + 'kcal'
       else model.rezhi() + 'kcal'
+
+  model.all_zhibiao = ko.pureComputed ->
+    results = []
+    if model.qsf_value() then results.push
+      name: '全水分（Mt)'
+      value: model.qsf_value()
+    if model.dwfrl_u10_value()  then results.push
+      name: '低位发热量(kcal)'
+      value: model.dwfrl_u10_value()
+    if model.hff_value()  then results.push
+      name: '挥发份(%)'
+      value: model.hff_value()
+    if model.qlf_value()  then results.push
+      name: '硫分(%)'
+      value: model.qlf_value()
+    if model.hrd_value()  then results.push
+      name: '灰熔点(℃)'
+      value: model.hrd_value()
+    if model.njzs_value()  then results.push
+      name: 'G值'
+      value: model.njzs_value()
+    if model.jzchd_value()  then results.push
+      name: 'Y值'
+      value: model.jzchd_value()
+    if model.ganguo_value() then results.push
+      name: '坩埚/自由膨胀序数(CSN/FSI)'
+      value: model.ganguo_value()
+    if model.hskmzs_value() then results.push
+      name: '哈氏可磨(HGI)'
+      value: model.hskmzs_value()
+    if model.lidu_value_min() then results.push
+      name: '粒度(MM)'
+      value: model.lidu_value_min()
+    if model.gdt_value() then results.push
+      name: '固定碳(FC)'
+      value: model.gdt_value()
+    if model.jztz_value() then results.push
+      name: '焦渣特性(CRC)'
+      value: model.jztz_value()
+    if model.ksqd_value() then results.push
+      name: '抗碎强度(M40/M25)'
+      value: model.ksqd_value()
+    if model.nmqd_value() then results.push
+      name: '耐磨强度(M10)'
+      value: model.nmqd_value()
+    if model.fyhqd_value() then results.push
+      name: '反应后强度(CSR)'
+      value: model.fyhqd_value()
+    if model.jtfyx_value() then results.push
+      name: '焦炭反应性'
+      value: model.jtfyx_value()
+    results
   return model
 
 fill = (data, model) ->

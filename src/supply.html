@@ -60,31 +60,10 @@
           备注：<span class="color-9" data-bind="text: zhibiao_more"></span></div>
 
         <div style="clear:both;margin-bottom: 1rem;"></div>
-
-          <ul class="zhibiao-wrap">
+          <ul class="zhibiao-wrap" data-bind="foreach: all_zhibiao">
               <li class="zhibiaoli">
-                  <span class="title">全水分(Mt)</span>
-                  <span class="content" data-bind="text: qsf_value()+'%'"></span>
-              </li>
-              <li class="zhibiaoli">
-                  <span class="title">全水分(Mt)</span>
-                  <span class="content" data-bind="text: qsf_value()+'%'"></span>
-              </li>
-              <li class="zhibiaoli">
-                  <span class="title">全水分(Mt)</span>
-                  <span class="content" data-bind="text: qsf_value()+'%'"></span>
-              </li>
-              <li class="zhibiaoli">
-                  <span class="title">全水分(Mt)</span>
-                  <span class="content" data-bind="text: qsf_value()+'%'"></span>
-              </li>
-              <li class="zhibiaoli">
-                  <span class="title">全水分(Mt)</span>
-                  <span class="content" data-bind="text: qsf_value()+'%'"></span>
-              </li>
-              <li class="zhibiaoli">
-                  <span class="title">全水分(Mt)</span>
-                  <span class="content" data-bind="text: qsf_value()+'%'"></span>
+                  <span class="title" data-bind="text: name"></span>
+                  <span class="content" data-bind="text: value"></span>
               </li>
           </ul>
       </div>
