@@ -1214,6 +1214,29 @@ body {
   background-color: #EEE;
   height: 2.5rem;
 }
+.zhibiao-wrap .content {
+    color: #F00;
+    line-height: 2.5rem;
+    height: 2.5rem;
+    display: block;
+    text-align: center;
+    padding: 0;
+}
+.zhibiao-wrap .zhibiaoli {
+    width: 33%;
+    float: left;
+    padding: 0;
+}
+.zhibiao-wrap .title {
+    display: block;
+    text-align: center;
+    padding: 0;
+    line-height: 2.5rem;
+    background-color: #EEE;
+    height: 2.5rem;
+}
+
+
 /*article-page*/
 
 .article-page .list-top {
