@@ -28,7 +28,7 @@ error = ko.observable(false)
 fillProfile = (data)->
   profile.member_id data.memberId
   profile.username data.username
-  profile.truename data.truename
+  profile.truename data.trueName
   profile.mobile data.mobile
   profile.purpose_company data.purposeCompany
   profile.telephone data.telephone
@@ -96,8 +96,11 @@ login = (form) ->
 
 logout = ->
   profile.isLoggedin false
-  document.cookie = "PHPSESSID=; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain=.zhaomw.cn; path=/"
-  $.get parameters.account.host + '/logout?wechat=1'
+  $.ajax
+    type: 'get'
+    xhrFields:
+      withCredentials: true
+    url: parameters.account.host + '/logout?wechat=1'
 
 register = (form) ->
   if form.mobile.value.length == 0 or form.username.value.length == 0 or form.sms.value.length == 0 or form.password.value.length == 0

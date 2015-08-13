@@ -110,7 +110,7 @@ Model = ->
 
 fill = (data, model) ->
   model = new Model() if not model
-  model.id  data.supply_id
+  model.id  data.id
   model.pinming data.variety[0]?.cate_name
   model.paihao data.paihao
   model.price data.pay_price
@@ -118,7 +118,7 @@ fill = (data, model) ->
   model.rezhi data.dwfrl_u10_value
   model.isqihuo data.isqihuo
   model.address data.jiaoge_address || ''
-  model.addtime new Date data.add_time*1000
+  model.addtime data.created_time
   model.company_name data.member?.company?.company_name || ''
   model.member_name data.member?.truename
   model.member_title data.member?.job

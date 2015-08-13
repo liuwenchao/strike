@@ -53,7 +53,7 @@
           onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           全部
         </span>
-        <span data-bind="click: caigou.listMine.bind($data, 0, 'ifcheck:0')"
+        <span data-bind="click: caigou.listMine.bind($data, 0, 'status:0')"
           onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           未审核
         </span>
@@ -86,8 +86,8 @@
             <span>意向价格：</span>
             <span class="color-y" data-bind="text: price">430</span>元/吨
             <span class="t03">发布时间：
-              <span data-bind="text: addtime().toISOString().substr(5,5)"></span>
-              <span data-bind="text: addtime().toISOString().substr(11,5)"></span>
+              <span data-bind="text: addtime().substr(5,5)"></span>
+              <span data-bind="text: addtime().substr(11,5)"></span>
             </span>
           </p>
           <p>
@@ -118,7 +118,7 @@
               onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
               挂牌中
             </span>
-            <span data-bind="click: supply.listMine.bind($data, 0, 'ifcheck:0')"
+            <span data-bind="click: supply.listMine.bind($data, 0, 'status:0')"
               onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
               未审核
             </span>
@@ -143,7 +143,7 @@
                 <span class="color-9"> 交割地：</span>
                 <span data-bind="text:address().substr(0,4)"></span>
                 <span class="row-right color-9">
-                  <span data-bind="text: addtime().toISOString().substr(0,10)"></span>
+                  <span data-bind="text: addtime().substr(0,10)"></span>
                 </span>
               </p>
             </a>

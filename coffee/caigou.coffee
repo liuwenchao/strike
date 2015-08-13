@@ -43,14 +43,14 @@ result.from.subscribe -> list()
 
 fill = (data, model) ->
   model = new Model() if not model
-  model.id data.caigou_id
+  model.id data.id
   model.content data.caigou_content
   model.price data.standard_price_money || data.pay_price
   model.weight data.standard_ton || data.pay_weight
   model.rezhi data.standard_div_content?.rezhi_value
   model.company_name data.member?.company?.company_name
   model.pinming data.variety[0]?.cate_name
-  model.addtime new Date data.add_time*1000
+  model.addtime data.created_time
   model.staff data.operate_staff?.staff_truename || ''
   model.tel data.operate_staff?.staff_mobile
   model.address data.standard_address

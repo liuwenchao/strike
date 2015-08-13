@@ -4,15 +4,15 @@ params = require 'parameters'
 
 records = ko.observableArray()
 list = ->
-  $.get params.search.host + '/site_ads/_search?q=place_id:2'
+  $.get params.search.host + '/site_ads/_search?q=place_id.id:2'
   .done (data) ->
     for record in data.hits.hits
       record =
-        id: record._source.ads_id
+        id: record._source.id
         link: record._source.linkurl
         picture: record._source.pictureurl
-        place_id: record._source.place_id
-        ifcheck: record._source.ifcheck
+        place_id: record._source.place_id.id
+        ifcheck: record._source.status
       records.push record
 
 module.exports =
