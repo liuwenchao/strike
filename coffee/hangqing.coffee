@@ -8,28 +8,27 @@ list = ->
   .done (data) ->
     for hangqing in data.hits.hits
       record =
-        id: hangqing._source.chip_id
-        title: hangqing._source.chip_title
-        url: hangqing._source.chip_url
+        id: hangqing._source.id
+        title: hangqing._source.name
+        url: hangqing._source.new_url
         children: ko.observableArray()
-        addtime: new Date hangqing._source.addtime*1000
+        addtime: hangqing._source.created_time
       records.push record
-      for child in hangqing._source.content
-        if child.field_one
+      for child in hangqing._source.indices
+        if child.index_name
           c =
-            title: child.field_one
-            weight: child.field_two
-            frl: child.field_three
-            price: child.field_four
-            fudong: child.field_five
-          if child.field_six == '+1'
+            title: child.index_name
+            weight: child.weight
+            frl: 0
+            price: child.price
+            fudong: child.wave
+          if child.wave > 0
             c.upordown = 'up'
-            c.fudong = "+#{child.field_five}"
-          else if child.field_six == '0'
+            c.fudong = "+#{child.wave}"
+          else if child.field_six == 0
             c.upordown = ''
           else
             c.upordown = 'down'
-            c.fudong = "-#{child.field_five}"
           record.children.push c
 
 module.exports =

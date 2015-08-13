@@ -36,7 +36,7 @@
       <ul data-bind="foreach: records">
         <li class="bb1">
           <span class="name title" data-bind="text: title">秦皇岛挂牌价</span>
-          <span data-bind="text: addtime.toISOString().substr(0,10)"></span>
+          <span data-bind="text: addtime.substr(0,10)"></span>
         </li>
         <!-- ko foreach: children -->
         <li class="bb1">

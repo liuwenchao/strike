@@ -36,8 +36,8 @@ create = (form) ->
       withCredentials: true
     url: parameters.api.host+'/requirements'
     data: JSON.stringify
-      standard_cate_one: form.standard_cate_one.value
-      caigou_content: form.caigou_content.value
+      type1: form.standard_cate_one.value
+      content: form.caigou_content.value
       pay_price: form.pay_price.value
       pay_weight: form.pay_weight.value
     contentType: 'application/json'
