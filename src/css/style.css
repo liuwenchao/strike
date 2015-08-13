@@ -689,7 +689,6 @@ body {
   height: 1.6rem;
   margin-left: 1rem;
   margin-right: .3rem;
-  background: url("../images/zhiying.png") center no-repeat;
   background-size: contain;
   float: left;
   margin-top: .7rem
@@ -835,7 +834,6 @@ body {
     line-height: 3rem;
     margin-left: 1rem;
     margin-right: .3rem;
-    background: url("../images/zhiying.png") center no-repeat;
     background-size: contain;
     float: left;
 }

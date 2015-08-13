@@ -546,7 +546,6 @@ a.l-btn50:active {
 .zhiying {
   display: inline-block;
   height: 1.6rem;
-  background: url("../../market/assets/img/zhiying.png") center no-repeat;
   background-size: contain;
   vertical-align: middle
 }
