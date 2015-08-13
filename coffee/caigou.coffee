@@ -62,7 +62,7 @@ listMine = (from = 0, filter)->
     type: 'get'
     xhrFields:
       withCredentials: true
-    url: parameters.api.host + '/caigous'
+    url: parameters.api.host + '/requirements'
     data:
       start: from
       limit: 100

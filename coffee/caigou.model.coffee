@@ -166,7 +166,7 @@ fill = (data, model) ->
   model.rezhi data.standard_div_content?.rezhi_value
   model.company_name data.member?.company?.company_name
   model.pinming data.variety[0]?.cate_name
-  model.addtime new Date data.add_time*1000
+  model.addtime data.created_time
   model.staff data.operate_staff?.staff_truename || ''
   model.tel data.operate_staff?.staff_mobile
   model.address data.standard_address

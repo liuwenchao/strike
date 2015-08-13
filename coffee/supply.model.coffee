@@ -167,7 +167,7 @@ fill = (data, model) ->
   model.pinming data.variety[0]?.cate_name
   model.paihao data.paihao
   model.price data.pay_price
-  model.weight data.jiaoge_weight
+  model.weight data.jg_weight
   model.rezhi data.dwfrl_u10_value
   model.isqihuo data.isqihuo
   model.address data.jiaoge_address || ''
