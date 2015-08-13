@@ -45,7 +45,7 @@
               <span data-bind="text: title"></span>
             <span class="desc" data-bind="text: summary"></span>
             <span class="time">发布时间：
-              <span data-bind="text: addtime().substr(0,10)"></span>
+              <span data-bind="text: addtime().toISOString().substr(0,10)"></span>
             </span>
           </li>
         </a>

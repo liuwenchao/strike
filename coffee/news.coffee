@@ -16,8 +16,8 @@ fill = (data, model) ->
   model.id data.id
   model.title data.title.substr 0,12
   model.summary data.summary
-  model.content data.content
-  model.addtime data.created_time
+  model.content data.content?[0]?.content
+  model.addtime new Date data.created_time
   return model
 
 list = ->
