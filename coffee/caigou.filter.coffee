@@ -11,7 +11,7 @@ Model =
   noclose: ko.observable()
 
 Model.to_string = ->
-    query = ['!ifhide', 'ifcheck:1', '!ifclose']
+    query = ['!ifhide', 'status:1', '!ifclose']
     query.push '(variety.cate_name:'+Model.q()+' OR paihao:'+Model.q()+')' if Model.q()
     query.push '!progress=70000' if Model.noclose()
     query.push '!progress=90000' if Model.noclose()

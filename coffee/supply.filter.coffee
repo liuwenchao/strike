@@ -21,7 +21,7 @@ Model =
   company_id: ko.observable(params.company_id)
 
 Model.to_string = ->
-    query = ['!ifhide', 'ifcheck:1', '!ifhide']
+    query = ['!ifhide', 'status:1', '!ifhide']
     zhibiao = 'OR dwfrl_u10_value:'+Model.q() if parseInt(Model.q()) > 0
     q = [
       '('

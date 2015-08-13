@@ -10,7 +10,7 @@ result =
   more: ko.observable(false)
   from: ko.observable(0)
   rows: ko.observableArray()
-  sort: ko.observable('supply_id:desc')
+  sort: ko.observable('id:desc')
   total: ko.observable(0)
   filter: filter
   currentPage: ko.pureComputed -> (Math.ceil result.from()/result.size())+1
