@@ -26,16 +26,16 @@ profile =
 error = ko.observable(false)
 
 fillProfile = (data)->
-  profile.member_id data.memberId
-  profile.username data.username
+  profile.member_id data.id
+  profile.username data.account
   profile.truename data.trueName
   profile.mobile data.mobile
-  profile.purpose_company data.purposeCompany
+  profile.purpose_company data.purpose_company
   profile.telephone data.telephone
   profile.fax data.fax
   profile.qq data.qq
   profile.email data.email
-  profile.purpose_company_type data.purposeCompanyType
+  profile.purpose_company_type data.purpose_company_type
   profile.city data.cityName
   profile.city_name data.cityName
   profile.address data.address

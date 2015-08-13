@@ -13,8 +13,8 @@ area.subscribe (area_id)->
   listCity area_id
 
 fromJsonToModel = (data)->
-    id: data.city_id
-    name: data.city_name
+    id: data.id
+    name: data.name
 
 listArea = (callback)->
   $.get parameters.search.host + '/city/_search?size=100&q=parent_id:0', (data)->

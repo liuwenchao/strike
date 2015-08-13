@@ -34,7 +34,7 @@ create = (form) ->
     type: 'post'
     xhrFields:
       withCredentials: true
-    url: parameters.api.host+'/caigouses'
+    url: parameters.api.host+'/requirements'
     data: JSON.stringify
       standard_cate_one: form.standard_cate_one.value
       caigou_content: form.caigou_content.value

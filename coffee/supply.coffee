@@ -34,8 +34,8 @@ create = (form)->
       pay_address_one: form.pay_address_one.value
       pay_address_two: form.pay_address_two.value
       pay_price: form.pay_price.value
-      jiaoge_weight: form.jiaoge_weight.value
-      jiaoge_address: form.jiaoge_address.value
+      jg_weight: form.jiaoge_weight.value
+      jg_address_info: form.jiaoge_address.value
     contentType: 'application/json'
     success: -> window.location.href='myorder.html'
 

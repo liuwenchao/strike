@@ -11,7 +11,7 @@ list = ->
         id: record._source.id
         link: record._source.linkurl
         picture: record._source.pictureurl
-        place_id: record._source.place_id.id
+        place_id: record._source.place_id?.id
         ifcheck: record._source.status
       records.push record
 

@@ -170,7 +170,7 @@ fill = (data, model) ->
   model.weight data.jg_weight
   model.rezhi data.dwfrl_u10_value
   model.isqihuo data.isqihuo
-  model.address data.jiaoge_address || ''
+  model.address data.jg_address_info || ''
   model.addtime data.created_time
   model.company_name data.member?.company?.company_name || ''
   model.member_name data.member?.truename
@@ -208,9 +208,9 @@ fill = (data, model) ->
   model.hskmzs_cell data.hskmzs_cell
   model.hskmzs_unit data.hskmzs_unit
   model.hskmzs_value data.hskmzs_value
-  model.jiaoge_address data.jiaoge_address
+  model.jiaoge_address data.jg_address_info
   model.jiaoge_date data.jiaoge_date
-  model.jiaoge_weight data.jiaoge_weight
+  model.jiaoge_weight data.jg_weight
   model.jsldd_cell data.jsldd_cell
   model.jsldd_unit data.jsldd_unit
   model.jsldd_value data.jsldd_value
