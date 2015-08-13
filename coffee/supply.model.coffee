@@ -168,10 +168,11 @@ fill = (data, model) ->
   model.paihao data.paihao
   model.price data.pay_price
   model.weight data.jg_weight
-  model.rezhi data.dwfrl_u10_value
+  #model.rezhi data.dwfrl_u10_value
+  model.rezhi data.dwfrl_ar
   model.isqihuo data.isqihuo
   model.address data.jg_address_info || ''
-  model.addtime data.created_time
+  model.addtime new Date data.created_time
   model.company_name data.member?.company?.company_name || ''
   model.member_name data.member?.truename
   model.member_title data.member?.job

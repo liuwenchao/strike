@@ -52,7 +52,7 @@
           <span class="name">价格</span><i class="arrow"></i>
         </a>
         <a href="javascript:;" class="item" flag="weight"
-          data-bind="click: result.sort.bind($data, result.sort() === 'jiaoge_weight:desc' ? 'jiaoge_weight:asc' : 'jiaoge_weight:desc')"
+          data-bind="click: result.sort.bind($data, result.sort() === 'jg_weight:desc' ? 'jg_weight:asc' : 'jg_weight:desc')"
           onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           <span class="name">数量</span><i class="arrow"></i>
         </a>
@@ -84,7 +84,7 @@
                 <span>吨</span>
                 <span class="color-9"> 交割地：</span>
                 <span data-bind="text: address().substr(0, 5)"></span>
-                <span class="row-right color-9" data-bind="text: addtime().substr(0,10)"></span>
+                <span class="row-right color-9" data-bind="text: addtime().toISOString().substr(0,10)"></span>
               </p>
             </a>
           </div>

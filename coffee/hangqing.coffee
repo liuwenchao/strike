@@ -12,7 +12,7 @@ list = ->
         title: hangqing._source.name
         url: hangqing._source.new_url
         children: ko.observableArray()
-        addtime: hangqing._source.created_time
+        addtime: new Date hangqing._source.created_time
       records.push record
       for child in hangqing._source.indices
         if child.index_name

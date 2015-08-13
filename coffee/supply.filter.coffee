@@ -26,7 +26,7 @@ Model.to_string = ->
     q = [
       '('
       'variety.cate_name:"'+Model.q()+'"'
-      'OR jiaoge_address:"'+Model.q()+'"'
+      'OR jg_address_info:"'+Model.q()+'"'
       zhibiao
       ')'
     ]
@@ -40,7 +40,7 @@ Model.to_string = ->
     query.push 'qsf_value:'+Model.qsf_value()       if Model.qsf_value()
     query.push 'dwfrl_u10_value:'+Model.dwfrl_u10_value()  if Model.dwfrl_u10_value()
     query.push 'member_info:'+Model.paihao()        if Model.company()
-    query.push 'jiaoge_address:'+Model.cangku()     if Model.cangku()
+    query.push 'jg_address_info:'+Model.cangku()     if Model.cangku()
     query.push 'member.company_id:'+Model.company_id()   if Model.company_id()
     query.join(' AND ')
 
