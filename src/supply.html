@@ -60,19 +60,12 @@
           备注：<span class="color-9" data-bind="text: zhibiao_more"></span></div>
 
         <div style="clear:both;margin-bottom: 1rem;"></div>
-
-        <ul class="zhibiao-wrap">
-          <li class="title">
-            <span class="zhibiao01">全水分(Mt)</span>
-            <span class="zhibiao02">挥发分(V)</span>
-            <span class="zhibiao03">灰分(A)</span>
-          </li>
-          <li class="content">
-            <span class="zhibiao01" data-bind="text: qsf_value()+'%'"></span>
-            <span class="zhibiao02" data-bind="text: hff_value()+'%'"></span>
-            <span class="zhibiao03" data-bind="text: hf_value()+'%'"></span>
-          </li>
-        </ul>
+          <ul class="zhibiao-wrap" data-bind="foreach: all_zhibiao">
+              <li class="zhibiaoli">
+                  <span class="title" data-bind="text: name"></span>
+                  <span class="content" data-bind="text: value"></span>
+              </li>
+          </ul>
       </div>
     </div>
 

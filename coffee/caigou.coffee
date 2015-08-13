@@ -1,21 +1,8 @@
 $ = require 'jquery'
 ko = require 'knockout'
 parameters = require 'parameters'
-
-Model = ->
-  id: ko.observable()
-  price: ko.observable(0)
-  content: ko.observable()
-  weight: ko.observable()
-  rezhi: ko.observable()
-  company_name: ko.observable()
-  pinming: ko.observable()
-  addtime: ko.observable()
-  staff: ko.observable()
-  tel: ko.observable()
-  address: ko.observable()
-  status: ko.observable()
-  progress: ko.observable()
+filter     = require 'caigou.filter'
+Model = require 'caigou.model'
 
 result =
   q: ko.observable()
@@ -23,8 +10,9 @@ result =
   more: ko.observable(false)
   from: ko.observable(0)
   rows: ko.observableArray()
-  sort: ko.observable()
+  sort: ko.observable('caigou_id:desc')
   total: ko.observable(0)
+  filter: filter
   currentPage: ko.pureComputed -> (Math.ceil result.from()/result.size)+1
   pageCount:   ko.pureComputed -> Math.ceil result.total()/result.size
   pageUp    : -> result.from if result.from() == 0 then 0 else (result.currentPage()-2)*result.size
@@ -40,23 +28,6 @@ result.sort.subscribe ->
   result.from 0
   list()
 result.from.subscribe -> list()
-
-fill = (data, model) ->
-  model = new Model() if not model
-  model.id data.id
-  model.content data.caigou_content
-  model.price data.standard_price_money || data.pay_price
-  model.weight data.standard_ton || data.pay_weight
-  model.rezhi data.standard_div_content?.rezhi_value
-  model.company_name data.member?.company?.company_name
-  model.pinming data.variety[0]?.cate_name
-  model.addtime data.created_time
-  model.staff data.operate_staff?.staff_truename || ''
-  model.tel data.operate_staff?.staff_mobile
-  model.address data.standard_address
-  model.progress data.progress
-  model.status '交易成功'
-  model
 
 create = (form) ->
   $.ajax
@@ -75,7 +46,7 @@ create = (form) ->
 list = ->
   q = result.q()
   $.get parameters.search.host + '/caigou/_search',
-    q: if q then '(variety.cate_name:'+q+' OR paihao:'+q+') AND !ifhide AND !ifclose' else '!ifhide AND !ifclose'
+    q: filter.to_string
     from: result.from()
     sort: result.sort()
     size: result.size
@@ -84,7 +55,7 @@ list = ->
     result.rows.removeAll()# if result.from() == 0
     result.more result.from()+result.size
     for record in data.hits.hits
-      result.rows.push fill record._source
+      result.rows.push Model.fill record._source
 
 listMine = (from = 0, filter)->
   $.ajax
@@ -100,7 +71,7 @@ listMine = (from = 0, filter)->
       result.rows.removeAll() if from == 0
       result.more from+result.size
       for record in data
-        result.rows.push fill record
+        result.rows.push Model.fill record
     error: -> window.location='login.html'
 
 module.exports =

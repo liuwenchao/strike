@@ -103,7 +103,7 @@ logout = ->
     url: parameters.account.host + '/logout?wechat=1'
 
 register = (form) ->
-  if form.mobile.value.length == 0 or form.username.value.length == 0 or form.sms.value.length == 0 or form.password.value.length == 0
+  if form.mobile.value.length == 0 or form.truename.value.length == 0 or form.sms.value.length == 0 or form.password.value.length == 0
     error '所有字段都必填'
     return
   if form.password.value == form.repasswd.value
@@ -114,8 +114,9 @@ register = (form) ->
       contentType: 'application/json'
       url: parameters.api.host+'/members.json'
       data: JSON.stringify
-        username: form.username.value
+        truename: form.truename.value
         mobile:   form.mobile.value
+        username: form.mobile.value
         sms:      form.sms.value
         password: form.password.value
         weixin_id:form.weixin_id.value

@@ -16,7 +16,8 @@ route = window.location.pathname.substr(1,window.location.pathname.indexOf('.')-
 
 switch route
   when 'home'
-    supply.result.filter.company_id 61
+    supply.result.size 4
+    supply.result.filter.ifsale 1
     supply.list()
     ads.list()
     account.load false, ->
@@ -52,6 +53,7 @@ switch route
     for param in decodeURIComponent(location.search).substr(1).split('&')
       params[param.split('=')[0]] = param.split('=')[1]
     caigou.result.q params.q
+    caigou.result.filter.noclose true
     caigou.list()
     ko.applyBindings caigou
 
@@ -124,8 +126,8 @@ switch route
     weixin.load()
 
   when 'sale'
-    supply.result.size 20
-    supply.result.filter.company_id 61
+    supply.result.size 30
+    supply.result.filter.ifsale 1
     supply.list()
     ko.applyBindings
       sales: supply.result.rows

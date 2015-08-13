@@ -831,13 +831,13 @@ body {
 }
 .sale-list-new .pro-wrap .zhiying {
     display: inline-block;
-    height: 1.6rem;
+    height: 3rem;
+    line-height: 3rem;
     margin-left: 1rem;
     margin-right: .3rem;
     background: url("../images/zhiying.png") center no-repeat;
     background-size: contain;
     float: left;
-    margin-top: .7rem
 }
 .sale-list-new .pro-wrap .cash, .sale-list-new .pro-wrap .future {
     display: inline-block;
@@ -1197,28 +1197,50 @@ body {
   color: #F00;
   line-height: 2.5rem;
   height: 2.5rem;
-  padding: 0 1rem 0 1rem;
+    display: block;
+    text-align: center;
+    padding: 0;
+}
+.market-detail-page .info-wrap .zhibiao-wrap .zhibiaoli {
+    width: 33%;
+    float: left;
+    padding: 0;
 }
 .market-detail-page .info-wrap .zhibiao-wrap .title {
+    display: block;
+    text-align: center;
+    padding: 0;
   line-height: 2.5rem;
   background-color: #EEE;
   height: 2.5rem;
-  padding: 0 1rem 0 1rem;
 }
-.market-detail-page .info-wrap .zhibiao-wrap .zhibiao01 {
-  width: 33%;
-  float: left;
+.zhibiao-wrap{
+    display: block;
+    overflow: hidden;
 }
-.market-detail-page .info-wrap .zhibiao-wrap .zhibiao02 {
-  width: 33%;
-  float: left;
-  text-align: center;
+.zhibiao-wrap .content {
+    color: #F00;
+    line-height: 2.5rem;
+    height: 2.5rem;
+    display: block;
+    text-align: center;
+    padding: 0;
 }
-.market-detail-page .info-wrap .zhibiao-wrap .zhibiao03 {
-  width: 33%;
-  float: right;
-  text-align: right;
+.zhibiao-wrap .zhibiaoli {
+    width: 33%;
+    float: left;
+    padding: 0;
 }
+.zhibiao-wrap .title {
+    display: block;
+    text-align: center;
+    padding: 0;
+    line-height: 2.5rem;
+    background-color: #EEE;
+    height: 2.5rem;
+    overflow: hidden;
+}
+
 
 /*article-page*/
 
