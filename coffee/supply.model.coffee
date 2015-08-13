@@ -205,7 +205,7 @@ fill = (data, model) ->
   model.hits data.hits
   model.hrd_cell data.hrd_cell
   model.hrd_unit data.hrd_unit
-  model.hrd_value data.hrd_value
+  model.hrd_value data.hrd
   model.hskmzs_cell data.hskmzs_cell
   model.hskmzs_unit data.hskmzs_unit
   model.hskmzs_value data.hskmzs_value
@@ -236,7 +236,7 @@ fill = (data, model) ->
   model.linfen_value data.linfen_value
   model.njzs_cell data.njzs_cell
   model.njzs_unit data.njzs_unit
-  model.njzs_value data.njzs_value
+  model.njzs_value data.njzs
   model.nmqd_cell data.nmqd_cell
   model.nmqd_unit data.nmqd_unit
   model.nmqd_value data.nmqd_value

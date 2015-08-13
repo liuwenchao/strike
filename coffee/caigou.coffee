@@ -38,8 +38,9 @@ create = (form) ->
     data: JSON.stringify
       type1: form.standard_cate_one.value
       content: form.caigou_content.value
-      pay_price: form.pay_price.value
-      pay_weight: form.pay_weight.value
+      caigou:
+        pay_price: form.pay_price.value
+        pay_weight: form.pay_weight.value
     contentType: 'application/json'
     success: -> window.location.href='myorder.html'
 

@@ -161,8 +161,8 @@ fill = (data, model) ->
   model = new Model() if not model
   model.id data.caigou_id
   model.content data.caigou_content
-  model.price data.standard_price_money || data.pay_price
-  model.weight data.standard_ton || data.pay_weight
+  model.price data.standard_price_money || data.caigou?.pay_price
+  model.weight data.standard_ton || data.caigou?.pay_weight
   model.rezhi data.standard_div_content?.rezhi_value
   model.company_name data.member?.company?.company_name
   model.pinming data.variety[0]?.cate_name
