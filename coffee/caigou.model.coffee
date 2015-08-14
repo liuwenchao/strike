@@ -127,33 +127,33 @@ Model = ->
     if model.jzchd_value()  then results.push
       name: 'Y值'
       value: model.jzchd_value()
-    if model.ganguo_value() then results.push
-      name: '坩埚/自由膨胀序数(CSN/FSI)'
-      value: model.ganguo_value()
-    if model.hskmzs_value() then results.push
-      name: '哈氏可磨(HGI)'
-      value: model.hskmzs_value()
-    if model.lidu_value_min() then results.push
-      name: '粒度(MM)'
-      value: model.lidu_value_min()
-    if model.gdt_value() then results.push
-      name: '固定碳(FC)'
-      value: model.gdt_value()
-    if model.jztz_value() then results.push
-      name: '焦渣特性(CRC)'
-      value: model.jztz_value()
-    if model.ksqd_value() then results.push
-      name: '抗碎强度(M40/M25)'
-      value: model.ksqd_value()
-    if model.nmqd_value() then results.push
-      name: '耐磨强度(M10)'
-      value: model.nmqd_value()
-    if model.fyhqd_value() then results.push
-      name: '反应后强度(CSR)'
-      value: model.fyhqd_value()
-    if model.jtfyx_value() then results.push
-      name: '焦炭反应性'
-      value: model.jtfyx_value()
+    # if model.ganguo_value() then results.push
+    #   name: '坩埚/自由膨胀序数(CSN/FSI)'
+    #   value: model.ganguo_value()
+    # if model.hskmzs_value() then results.push
+    #   name: '哈氏可磨(HGI)'
+    #   value: model.hskmzs_value()
+    # if model.lidu_value_min() then results.push
+    #   name: '粒度(MM)'
+    #   value: model.lidu_value_min()
+    # if model.gdt_value() then results.push
+    #   name: '固定碳(FC)'
+    #   value: model.gdt_value()
+    # if model.jztz_value() then results.push
+    #   name: '焦渣特性(CRC)'
+    #   value: model.jztz_value()
+    # if model.ksqd_value() then results.push
+    #   name: '抗碎强度(M40/M25)'
+    #   value: model.ksqd_value()
+    # if model.nmqd_value() then results.push
+    #   name: '耐磨强度(M10)'
+    #   value: model.nmqd_value()
+    # if model.fyhqd_value() then results.push
+    #   name: '反应后强度(CSR)'
+    #   value: model.fyhqd_value()
+    # if model.jtfyx_value() then results.push
+    #   name: '焦炭反应性'
+    #   value: model.jtfyx_value()
     results
   return model
 
