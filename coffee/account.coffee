@@ -36,11 +36,11 @@ fillProfile = (data)->
   profile.qq data.qq
   profile.email data.email
   profile.purpose_company_type data.purposeCompanyType
-  profile.city data.cityName
-  profile.city_name data.cityName
+  profile.city data.companyAddressCityId
+  profile.city_name data.companyAddressCityId
   profile.address data.companyAddress
-  if data.cityName
-    $.get parameters.search.host+'/city/_search?size=1&q=city_name:'+data.cityName, (found)->
+  if data.companyAddressCityId
+    $.get parameters.search.host+'/city/_search?size=1&q=id:'+data.companyAddressCityId, (found)->
       if found.hits.hits.length > 0
         address.area found.hits.hits[0]._source.parent_id
 
@@ -58,21 +58,21 @@ load = (callback, errorCallback)->
       if errorCallback then errorCallback() else window.location.href='login.html'
 
 save = (form)->
-  profile.city_name form.city_name.selectedOptions[0].text
+  profile.city_name form.city_name.selectedOptions[0].value
   $.ajax
     type: 'PUT'
     xhrFields:
       withCredentials: true
     url: parameters.api.host+'/members/'+profile.member_id()
     data: JSON.stringify
-      username: profile.username()
-      truename: profile.truename()
+      account: profile.username()
+      true_name: profile.truename()
       mobile: profile.mobile()
       purpose_company: profile.purpose_company()
       qq: profile.qq()
       email: profile.email()
       purpose_company_type: profile.purpose_company_type()
-      city_name: profile.city_name()
+      company_address_city_id: profile.city_name()
       company_address: profile.address()
       ext:
         telephone: profile.telephone()
@@ -115,12 +115,12 @@ register = (form) ->
       contentType: 'application/json'
       url: parameters.api.host+'/members.json'
       data: JSON.stringify
-        truename: form.truename.value
-        mobile:   form.mobile.value
-        username: form.mobile.value
-        sms:      form.sms.value
-        password: form.password.value
-        weixin_id:form.weixin_id.value
+        true_name: form.truename.value
+        mobile:    form.mobile.value
+        account:   form.mobile.value
+        sms:       form.sms.value
+        password:  form.password.value
+        wx_open_id:form.weixin_id.value
       success: -> window.location.href='register_ok.html'
       error: (response) ->
         switch response.status
