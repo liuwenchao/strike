@@ -30,15 +30,15 @@ fillProfile = (data)->
   profile.username data.account
   profile.truename data.trueName
   profile.mobile data.mobile
-  profile.purpose_company data.purpose_company
-  profile.telephone data.telephone
-  profile.fax data.fax
+  profile.purpose_company data.purposeCompany
+  profile.telephone data.ext?.telephone
+  profile.fax data.ext?.fax
   profile.qq data.qq
   profile.email data.email
-  profile.purpose_company_type data.purpose_company_type
+  profile.purpose_company_type data.purposeCompanyType
   profile.city data.cityName
   profile.city_name data.cityName
-  profile.address data.address
+  profile.address data.companyAddress
   if data.cityName
     $.get parameters.search.host+'/city/_search?size=1&q=city_name:'+data.cityName, (found)->
       if found.hits.hits.length > 0
@@ -69,13 +69,14 @@ save = (form)->
       truename: profile.truename()
       mobile: profile.mobile()
       purpose_company: profile.purpose_company()
-      telephone: profile.telephone()
-      fax: profile.fax()
       qq: profile.qq()
       email: profile.email()
       purpose_company_type: profile.purpose_company_type()
       city_name: profile.city_name()
-      address: profile.address()
+      company_address: profile.address()
+      ext:
+        telephone: profile.telephone()
+        fax: profile.fax()
     contentType: 'application/json'
     success: -> error '保存成功'
     error:   -> window.location.href='/'

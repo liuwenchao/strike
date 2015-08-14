@@ -168,7 +168,6 @@ fill = (data, model) ->
   model.paihao data.paihao
   model.price data.pay_price
   model.weight data.jg_weight
-  #model.rezhi data.dwfrl_u10_value
   model.rezhi data.dwfrl_ar
   model.isqihuo data.isqihuo
   model.address data.jg_address_info || ''
@@ -185,30 +184,30 @@ fill = (data, model) ->
   model.dwfrl_unit data.dwfrl_unit
   model.fyhqd_cell data.fyhqd_cell
   model.fyhqd_unit data.fyhqd_unit
-  model.fyhqd_value data.fyhqd_value
+  model.fyhqd_value data.fyhqd
   model.ganguo_cell data.ganguo_cell
   model.ganguo_unit data.ganguo_unit
-  model.ganguo_value data.ganguo_value
+  model.ganguo_value data.ganguo
   model.gdt_cell data.gdt_cell
   model.gdt_unit data.gdt_unit
-  model.gdt_value data.gdt_value
+  model.gdt_value data.gdt_ar
   model.gwfrl_cell data.gwfrl_cell
   model.gwfrl_u10_value data.gwfrl_u10_value
   model.gwfrl_u20_value data.gwfrl_u20_value
   model.gwfrl_unit data.gwfrl_unit
   model.hf_cell data.hf_cell
   model.hf_unit data.hf_unit
-  model.hf_value data.hf_value
+  model.hf_value data.hf_ar
   model.hff_cell data.hff_cell
   model.hff_unit data.hff_unit
-  model.hff_value data.hff_value
+  model.hff_value data.hff_ar
   model.hits data.hits
   model.hrd_cell data.hrd_cell
   model.hrd_unit data.hrd_unit
   model.hrd_value data.hrd
   model.hskmzs_cell data.hskmzs_cell
   model.hskmzs_unit data.hskmzs_unit
-  model.hskmzs_value data.hskmzs_value
+  model.hskmzs_value data.hskmzs
   model.jiaoge_address data.jg_address_info
   model.jiaoge_date data.jiaoge_date
   model.jiaoge_weight data.jg_weight
@@ -217,20 +216,20 @@ fill = (data, model) ->
   model.jsldd_value data.jsldd_value
   model.jtfyx_cell data.jtfyx_cell
   model.jtfyx_unit data.jtfyx_unit
-  model.jtfyx_value data.jtfyx_value
+  model.jtfyx_value data.jtfyx
   model.jzchd_cell data.jzchd_cell
   model.jzchd_unit data.jzchd_unit
   model.jzchd_value data.jzchd_value
   model.jztz_cell data.jztz_cell
   model.jztz_unit data.jztz_unit
-  model.jztz_value data.jztz_value
+  model.jztz_value data.jztz
   model.ksqd_cell data.ksqd_cell
   model.ksqd_unit data.ksqd_unit
   model.ksqd_value data.ksqd_value
   model.lidu_cell data.lidu_cell
   model.lidu_unit data.lidu_unit
-  model.lidu_value_max data.lidu_value_max
-  model.lidu_value_min data.lidu_value_min
+  model.lidu_value_max data.lidu_max
+  model.lidu_value_min data.lidu_min
   model.linfen_cell data.linfen_cell
   model.linfen_unit data.linfen_unit
   model.linfen_value data.linfen_value
@@ -239,7 +238,7 @@ fill = (data, model) ->
   model.njzs_value data.njzs
   model.nmqd_cell data.nmqd_cell
   model.nmqd_unit data.nmqd_unit
-  model.nmqd_value data.nmqd_value
+  model.nmqd_value data.nmqd
   model.ns_cell data.ns_cell
   model.ns_unit data.ns_unit
   model.ns_value data.ns_value
@@ -253,10 +252,10 @@ fill = (data, model) ->
   model.pinming_two data.pinming_two
   model.qlf_cell data.qlf_cell
   model.qlf_unit data.qlf_unit
-  model.qlf_value data.qlf_value
+  model.qlf_value data.qlf_ar
   model.qsf_cell data.qsf_cell
   model.qsf_unit data.qsf_unit
-  model.qsf_value data.qsf_value
+  model.qsf_value data.qsf
   model.progress data.progress
   model
 
