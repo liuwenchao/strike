@@ -32,7 +32,7 @@ Model.to_string = ->
     ]
     query.push q.join ' '                           if Model.q()
     query.push 'isqihuo:'+Model.isqihuo()           if Model.isqihuo()
-    query.push 'ifsale:true'                        if Model.ifsale()
+    query.push 'is_sale:true'                       if Model.ifsale()
     query.push 'pinming_one:'+Model.pinming()       if Model.pinming()
     query.push 'paihao:'+Model.paihao()             if Model.paihao()
     query.push 'hf_value:'+Model.hf_value()         if Model.hf_value()
