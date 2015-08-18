@@ -42,19 +42,8 @@ create = (form)->
 load = (id) ->
   record = new SupplyModel.Model()
   if id
-    $.ajax
-      type: 'get'
-      url: parameters.search.host + '/supply/' + id
-      success: (data) ->
-        SupplyModel.fill data._source, record
-      error: ->
-        $.ajax
-          type: 'get'
-          xhrFields:
-            withCredentials: true
-          url: parameters.api.host + '/supplies/' + id
-          success: (data) ->
-            SupplyModel.fill data, record
+    $.get parameters.search.host + '/supply/' + id, (data) ->
+      SupplyModel.fill data._source, record
   return record
 
 list = ->
