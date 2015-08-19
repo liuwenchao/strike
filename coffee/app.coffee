@@ -133,3 +133,10 @@ switch route
       sales: supply.result.rows
 
   else # do nothing
+
+
+# baidu tracking
+hm = document.createElement("script")
+hm.src = "//hm.baidu.com/hm.js?4fd59a7769eab72a692e7ed7cc97cee8"
+s = document.getElementsByTagName("script")[0]
+s.parentNode.insertBefore hm, s
