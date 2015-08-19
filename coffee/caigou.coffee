@@ -40,6 +40,7 @@ create = (form) ->
       caigou_content: form.caigou_content.value
       pay_price: form.pay_price.value
       pay_weight: form.pay_weight.value
+      source: 'wechat'
     contentType: 'application/json'
     success: -> window.location.href='myorder.html'
 
