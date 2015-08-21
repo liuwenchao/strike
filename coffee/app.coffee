@@ -87,6 +87,7 @@ switch route
       supply: supply
 
   when 'orders'
+    caigou.result.filter.orders_only true
     caigou.list()
     ko.applyBindings
       result: caigou.result
