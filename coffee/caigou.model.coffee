@@ -104,6 +104,17 @@ Model = ->
       when 3 then model.rezhi() + 'kcal'
       else model.rezhi() + 'kcal'
 
+  model.status = ko.pureComputed ->
+    switch model.progress()
+      when 10000 then '未过滤'
+      when 20000 then '已过滤'
+      when 30000 then '已生成标准单'
+      when 40000 then '已生成标准单'
+      when 50000 then '已报价标准单'
+      when 60000 then '已报价标准单'
+      when 70000 then '已下单'
+      when 90000 then '已完成'
+
   model.all_zhibiao = ko.pureComputed ->
     results = []
     if model.qsf_value() then results.push
@@ -171,7 +182,6 @@ fill = (data, model) ->
   model.tel data.operate_staff?.staff_mobile
   model.address data.standard_address
   model.progress data.progress
-  model.status '交易成功'
   model.dwfrl_cell data.standard_div_content?.dwfrl_cell
   model.dwfrl_u10_value data.standard_div_content?.dwfrl_u10_value
   model.dwfrl_u20_value data.standard_div_content?.dwfrl_u20_value
