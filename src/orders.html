@@ -50,10 +50,13 @@
             <span data-bind="text: address"></span>
           </p>
           <p class="ellipsis smrow">
-            <span class="price fz16 c-ff7700">
+            <span class="price fz16 c-ff7700" data-bind="visible: price() > 0" style="display: none;">
               <span>￥</span>
               <span data-bind="text: price"></span>
               <span class="fz13">元/吨</span>
+            </span>
+            <span class="price fz16 c-ff7700" data-bind="visible: price() === 0" style="display: none;">
+              <span>面议</span>
             </span>
             <span class="fr">
               <span class="so" data-bind="text:status"></span>
