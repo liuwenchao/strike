@@ -175,10 +175,10 @@ fill = (data, model) ->
   model.price data.standard_price_money || data.caigou?.pay_price
   model.weight data.standard_ton || data.caigou?.pay_weight
   model.rezhi data.standard_div_content?.rezhi_value
-  model.company_name data.member?.company?.company_name
+  model.company_name data.member?.company?.name
   model.pinming data.variety[0]?.cate_name
   model.addtime data.created_time
-  model.staff data.operate_staff?.staff_truename || ''
+  model.staff data.operate_staff?.name || ''
   model.tel data.operate_staff?.staff_mobile
   model.address data.standard_address
   model.progress data.progress
