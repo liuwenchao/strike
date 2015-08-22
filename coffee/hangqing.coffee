@@ -25,7 +25,7 @@ list = ->
           if child.wave > 0
             c.upordown = 'up'
             c.fudong = "+#{child.wave}"
-          else if child.field_six == 0
+          else if child.wave == 0
             c.upordown = ''
           else
             c.upordown = 'down'
