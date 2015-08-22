@@ -172,7 +172,7 @@ fill = (data, model) ->
   model.isqihuo data.isqihuo
   model.address data.jg_address_info || ''
   model.addtime new Date data.created_time
-  model.company_name data.member?.company?.company_name || ''
+  model.company_name data.member?.company?.name || ''
   model.member_name data.member?.truename
   model.member_title data.member?.job
   model.telephone data.member?.telephone
