@@ -106,14 +106,14 @@ Model = ->
 
   model.status = ko.pureComputed ->
     switch model.progress()
-      when 10000 then '未过滤'
-      when 20000 then '已过滤'
-      when 30000 then '已生成标准单'
-      when 40000 then '已生成标准单'
-      when 50000 then '已报价标准单'
-      when 60000 then '已报价标准单'
-      when 70000 then '已下单'
-      when 90000 then '已完成'
+      when '10000' then '未过滤'
+      when '20000' then '已过滤'
+      when '30000' then '已生成标准单'
+      when '40000' then '已生成标准单'
+      when '50000' then '已报价标准单'
+      when '60000' then '已报价标准单'
+      when '70000' then '已下单'
+      when '90000' then '已完成'
 
   model.all_zhibiao = ko.pureComputed ->
     results = []
