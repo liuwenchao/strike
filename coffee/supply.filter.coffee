@@ -8,7 +8,7 @@ for param in decodeURIComponent(location.search).substr(1).split('&')
 
 Model =
   q: ko.observable(params.q)
-  isqihuo: ko.observable(params.isqihuo || 0)
+  isqihuo: ko.observable(params.isqihuo || 1)
   ifsale:  ko.observable(params.ifsale  || 0)
   pinming: ko.observable(params.pinming)
   paihao:  ko.observable(params.paihao)
@@ -31,7 +31,7 @@ Model.to_string = ->
       ')'
     ]
     query.push q.join ' '                           if Model.q()
-    query.push 'isqihuo:'+Model.isqihuo()           if Model.isqihuo()
+    query.push 'supply_type:'+Model.isqihuo()       if Model.isqihuo()
     query.push 'is_sale:true'                       if Model.ifsale()
     query.push 'pinming_one:'+Model.pinming()       if Model.pinming()
     query.push 'paihao:'+Model.paihao()             if Model.paihao()

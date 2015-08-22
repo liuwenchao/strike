@@ -169,7 +169,7 @@ fill = (data, model) ->
   model.price data.pay_price
   model.weight data.jg_weight
   model.rezhi data.dwfrl_ar
-  model.isqihuo data.isqihuo
+  model.isqihuo data.supply_type == 2
   model.address data.jg_address_info || ''
   model.addtime new Date data.created_time
   model.company_name data.member?.company?.name || ''

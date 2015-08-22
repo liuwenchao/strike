@@ -40,10 +40,10 @@
         <p class="zm4row bt1 toptype clearfix">
           <span class="type-name">产品类型：</span>
           <i class="all"
-            data-bind="css: {selected: filter.isqihuo() == 0}, click: filter.isqihuo.bind($data, 0)"
+            data-bind="css: {selected: filter.isqihuo() == 1}, click: filter.isqihuo.bind($data, 1)"
             onclick="$(this).addClass('selected').next().removeClass('selected');" ></i>
           <i class="kuaisu"
-            data-bind="css: {selected: filter.isqihuo() == 1}, click: filter.isqihuo.bind($data, 1)"
+            data-bind="css: {selected: filter.isqihuo() == 2}, click: filter.isqihuo.bind($data, 2)"
             onclick="$(this).addClass('selected').prev().removeClass('selected');" ></i>
         </p>
 
