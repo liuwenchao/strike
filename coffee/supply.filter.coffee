@@ -35,7 +35,7 @@ Model.to_string = ->
     query.push 'is_sale:true'                       if Model.ifsale()
     query.push 'pinming_one:'+Model.pinming()       if Model.pinming()
     query.push 'paihao:'+Model.paihao()             if Model.paihao()
-    query.push 'hf_value:'+Model.hf_value()         if Model.hf_value()
+    query.push 'hf_ar:'+Model.hf_value()            if Model.hf_value()
     query.push 'qlf_ar:'+Model.lf_value()           if Model.lf_value()
     query.push 'qsf:'+Model.qsf_value()             if Model.qsf_value()
     query.push 'dwfrl_ar:'+Model.dwfrl_ar()         if Model.dwfrl_u10_value()
