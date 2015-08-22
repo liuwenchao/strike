@@ -1,4 +1,6 @@
 module.exports =
+  www:
+    host: 'http://test.www.zhaomw.cn'
   api:
     host: 'http://test.api.zhaomw.cn'
   account:
