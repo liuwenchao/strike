@@ -1,4 +1,4 @@
-a$ = require 'jquery'
+$ = require 'jquery'
 ko = require 'knockout'
 params = require 'parameters'
 
