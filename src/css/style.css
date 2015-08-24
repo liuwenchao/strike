@@ -731,6 +731,7 @@ body {
 }
 .sale-list-new .pro-wrap p .name1 {
     float: left;
+    min-width: 4rem;
     max-width: 50%;
     height: 3rem;
     line-height: 3rem;
@@ -829,6 +830,7 @@ body {
     font-size: 1.8rem!important
 }
 .sale-list-new .pro-wrap .zhiying {
+    min-width: 5rem;
     display: inline-block;
     height: 3rem;
     line-height: 3rem;
