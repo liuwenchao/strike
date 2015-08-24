@@ -22,7 +22,7 @@ Model =
 
 Model.to_string = ->
     query = ['!ifhide', 'status:1']
-    zhibiao = 'OR dwfrl_u10_value:'+Model.q() if parseInt(Model.q()) > 0
+    zhibiao = 'OR dwfrl_ar:'+Model.q() if parseInt(Model.q()) > 0
     q = [
       '('
       'variety.cate_name:"'+Model.q()+'"'
