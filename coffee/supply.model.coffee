@@ -99,7 +99,16 @@ Model = ->
     qsf_value: ko.observable()
     progress: ko.observable()
     paihao: ko.observable()
-    cangku: ko.observable()
+
+  model.order_url = ko.pureComputed ->
+    zhibiao = (item.name+':'+item.value for item in model.all_zhibiao())
+    'caigou_new.html?'+$.param
+      pinming_one: model.pinming_one()
+      caigou_content: zhibiao?.join ' '
+      pay_price: model.price()
+      pay_weight: model.weight()
+      pay_address: model.jiaoge_address()
+
 
   model.main_zhibiao = ko.pureComputed ->
     switch model.pinming_one()
