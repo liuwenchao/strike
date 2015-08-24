@@ -38,7 +38,8 @@
     </form>
 
     <div class="result-wrap">
-      <div class="purpose-list clearfix" data-bind="foreach: result.rows">
+      <div class="purpose-list clearfix" style="display: none;"
+        data-bind="foreach: result.rows, visible: result.rows().length > 0">
 
 
         <div class="pro-wrap ks-wraps">

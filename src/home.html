@@ -120,7 +120,8 @@
                     价格
                   </span>
                 </p>
-                <div class="inner-list hidden" style="display: block;" data-bind="foreach: sales">
+                <div class="inner-list" style="display: none;"
+                  data-bind="foreach: sales, visible: sales().length > 0">
                   <a href="supply.html?id=110"
                      data-bind="attr: { href: 'supply.html?id='+id()}"
                      class="inner-row showKuaisuPricePrice">
