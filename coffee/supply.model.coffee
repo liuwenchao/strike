@@ -99,7 +99,16 @@ Model = ->
     qsf_value: ko.observable()
     progress: ko.observable()
     paihao: ko.observable()
-    cangku: ko.observable()
+
+  model.order_url = ko.pureComputed ->
+    zhibiao = (item.name+':'+item.value for item in model.all_zhibiao())
+    'caigou_new.html?'+$.param
+      pinming_one: model.pinming_one()
+      caigou_content: zhibiao?.join ' '
+      pay_price: model.price()
+      pay_weight: model.weight()
+      pay_address: model.jiaoge_address()
+
 
   model.main_zhibiao = ko.pureComputed ->
     switch model.pinming_one()
@@ -111,11 +120,14 @@ Model = ->
   model.all_zhibiao = ko.pureComputed ->
     results = []
     if model.qsf_value() then results.push
-      name: '全水分（Mt)'
+      name: '全水分(Mt)'
       value: model.qsf_value()
     if model.dwfrl_u10_value()  then results.push
       name: '低位发热量(kcal)'
       value: model.dwfrl_u10_value()
+    if model.hf_value()  then results.push
+      name: '灰份(%)'
+      value: model.hf_value()
     if model.hff_value()  then results.push
       name: '挥发份(%)'
       value: model.hff_value()

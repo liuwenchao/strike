@@ -47,17 +47,13 @@
           <span class="ca-fu cash" data-bind="visible: !isqihuo()"></span>
         </p>
         <span class="item ellipsis weight">
-          数量：
-          <span data-bind="text: weight"></span>吨 </span>
-        <span class="item ellipsis manufacturer">
-          生产商 ：<span class="color-9" data-bind="text: company_name()"></span></span>
-        <span class="item ellipsis originCountry">
-          产地：<span class="color-9" data-bind="text: address"></span></span>
-        <p class="remark item">
-          仓库：<span class="color-9" data-bind="text: cangku"></span></p>
-
+          数量: <span data-bind="text: weight"></span>吨 </span>
+        <span class="item ellipsis">
+          交割地: <span class="color-9" data-bind="text: jiaoge_address"></span></span>
+        <span class="item2 ellipsis">
+          货主: <span class="color-9" data-bind="text: company_name"></span></span>
         <div class="item2 clearfix">
-          备注：<span class="color-9" data-bind="text: zhibiao_more"></span></div>
+          备注: <span class="color-9" data-bind="text: zhibiao_more"></span></div>
 
         <div style="clear:both;margin-bottom: 1rem;"></div>
           <ul class="zhibiao-wrap" data-bind="foreach: all_zhibiao">
@@ -91,7 +87,7 @@
       </div>
     </div>
     <div class="btn-wrap">
-      <a class="buy" href="javascript:;" data-bind="visible: progress() != 90000, attr: {href: 'caigou_new.html?pinming='+pinming_one()}">立即下单</a>
+      <a class="buy" href="javascript:;" data-bind="visible: progress() != 90000, attr: {href: order_url}">立即下单</a>
       <a class="buy" href="javascript:;" data-bind="visible: progress() == 90000">已成交</a>
       <a class="talk" href="tel:4000656868">委托洽谈</a>
     </div>

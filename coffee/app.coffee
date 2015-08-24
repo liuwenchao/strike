@@ -35,8 +35,11 @@ switch route
 
   when 'caigou_new'
     account.load()
+    params = {}
+    for param in decodeURIComponent(location.search).substr(1).split('&')
+      params[param.split('=')[0]] = param.split('=')[1]
     ko.applyBindings
-      pinming: window.location.search.substr(9)
+      params: params
       save: caigou.create
 
   when 'supply_new'

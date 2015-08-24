@@ -35,10 +35,10 @@
       </div>
 
       <div class="info-wrap">
-        <p class="w90">煤种</p>
+        <p class="w90">煤种<i class="required">*</i></p>
         <select class="l-input49"
           name="standard_cate_one"
-          data-bind="value: pinming"
+          data-bind="value: params.pinming_one"
           required>
           <option value="">请选择</option>
           <option value="1">烟煤</option>
@@ -49,23 +49,34 @@
 
         <p class="w90">化验指标</p>
         <textarea class="l-input49"
+          data-bind="value: params.caigou_content"
           name="caigou_content"></textarea>
 
-        <p class="w90">意向价格（元/吨）</p>
+        <p class="w90">意向价格(元/吨)<i class="required">*</i></p>
         <input
           type="number"
           max="999999999999"
           name="pay_price"
           class="l-input49"
+          data-bind="value: params.pay_price"
           placeholder="价格"
           required>
 
-        <p class="w90">数量（吨）</p>
+        <p class="w90">数量(吨)<i class="required">*</i></p>
         <input
           type="number"
           max="999999999999"
           class="l-input49"
+          data-bind="value: params.pay_weight"
           name="pay_weight"
+          required>
+
+        <p class="w90">交割地<i class="required">*</i></p>
+        <input
+          type="text"
+          class="l-input49"
+          data-bind="value: params.pay_address"
+          name="pay_address"
           required>
 
         <button class="send l-btn49">委&nbsp;&nbsp;托</button>
