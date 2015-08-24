@@ -171,7 +171,7 @@ Model = ->
 fill = (data, model) ->
   model = new Model() if not model
   model.id data.caigou_id
-  model.content data.caigou_content
+  model.content data.content
   model.price data.standard_price_money || data.caigou?.pay_price
   model.weight data.standard_ton || data.caigou?.pay_weight
   model.rezhi data.standard_div_content?.rezhi_value
@@ -181,7 +181,7 @@ fill = (data, model) ->
   model.staff data.operate_staff?.name || ''
   model.tel data.operate_staff?.staff_mobile
   model.address data.standard_address
-  model.progress data.progress
+  model.progress data.progress || data.caigou?.progress
   model.dwfrl_cell data.standard_div_content?.dwfrl_cell
   model.dwfrl_u10_value data.standard_div_content?.dwfrl_u10_value
   model.dwfrl_u20_value data.standard_div_content?.dwfrl_u20_value
