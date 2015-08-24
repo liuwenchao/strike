@@ -12,7 +12,7 @@ Model = ->
     rezhi: ko.observable()
     isqihuo: ko.observable()
     address: ko.observable('')
-    addtime: ko.observable(new Date())
+    addtime: ko.observable(new Date().toISOString())
     company_name: ko.observable('')
     member_name: ko.observable()
     member_title: ko.observable()
@@ -171,7 +171,7 @@ fill = (data, model) ->
   model.rezhi data.dwfrl_ar
   model.isqihuo data.supply_type == 2
   model.address data.jg_address_info || ''
-  model.addtime new Date data.created_time
+  model.addtime data.created_time
   model.company_name data.member?.company?.name || ''
   model.member_name data.member?.truename
   model.member_title data.member?.job

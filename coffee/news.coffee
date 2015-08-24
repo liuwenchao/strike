@@ -1,4 +1,4 @@
-$ = require 'jquery'
+a$ = require 'jquery'
 ko = require 'knockout'
 params = require 'parameters'
 
@@ -7,7 +7,7 @@ Model = ->
   title: ko.observable()
   summary: ko.observable()
   content: ko.observable()
-  addtime: ko.observable(new Date())
+  addtime: ko.observable(new Date().toISOString())
 
 records = ko.observableArray()
 
@@ -17,7 +17,7 @@ fill = (data, model) ->
   model.title data.title.substr 0,12
   model.summary data.summary
   model.content data.content?[0]?.content
-  model.addtime new Date data.created_time
+  model.addtime data.created_time
   return model
 
 list = ->
