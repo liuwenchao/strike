@@ -13,7 +13,7 @@ fromJsonToModel = (data)->
     name: data.cate_name
 
 list = (callback)->
-  $.get parameters.search.host + '/variety/_search?size=100&q=parent_id:0', (data)->
+  $.get parameters.search.host + '/variety/_search?size=100&q=!parent_id', (data)->
     for d in data.hits.hits
       result.push fromJsonToModel d._source
     callback() if callback
