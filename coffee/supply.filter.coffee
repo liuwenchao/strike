@@ -76,7 +76,6 @@ Model.to_json = ->
           query: q
           fields: [ "variety.cate_name", "jg_address_info" ]
           default_operator: "AND"
-
     else
       json.query.filtered.query =
         multi_match:
@@ -85,6 +84,61 @@ Model.to_json = ->
           type: "phrase"
 
       json.query.filtered.query.multi_match.fields.push "dwfrl_ar" if parseInt(Model.q()) > 0
+
+    if Model.isqihuo()
+      json.query.filtered.filter.and.push
+        term:
+          supply_type: Model.isqihuo()
+
+    if Model.ifsale()
+      json.query.filtered.filter.and.push
+        term:
+          is_sale: true
+
+    if Model.pinming()
+      json.query.filtered.filter.and.push
+        term:
+          pinming_one: Model.pinming()
+
+    if Model.paihao()
+      json.query.filtered.filter.and.push
+        term:
+          paihao: Model.paihao()
+
+    if Model.hf_value()
+      json.query.filtered.filter.and.push
+        term:
+          hf_ar: Model.hf_value()
+
+    if Model.lf_value()
+      json.query.filtered.filter.and.push
+        term:
+          qlf_ar: Model.lf_value()
+
+    if Model.qsf_value()
+      json.query.filtered.filter.and.push
+        term:
+          qsf: Model.qsf_value()
+
+    if Model.dwfrl_u10_value()
+      json.query.filtered.filter.and.push
+        term:
+          dwfrl_ar: Model.dwfrl_u10_value()
+
+    if Model.company()
+      json.query.filtered.filter.and.push
+        term:
+          member_info: Model.company()
+
+    if Model.cangku()
+      json.query.filtered.filter.and.push
+        term:
+          jg_address_info: Model.cangku()
+
+    if Model.company_id()
+      json.query.filtered.filter.and.push
+        term:
+          "member.company_id": Model.company_id()
 
     json
 
