@@ -44,4 +44,38 @@ Model.to_string = ->
     query.push 'member.company_id:'+Model.company_id()   if Model.company_id()
     query.join(' AND ')
 
+Model.to_json = ->
+    q = Model.q().replace(/[+ ]+/, ' ')
+
+    json =
+        query:
+          filtered:
+            filter:
+              and: [{
+                bool:
+                  must_not:
+                    term:
+                      ifhide: true
+              }, {
+                term:
+                  status: 1
+              }]
+
+    if q.indexOf(' ') > 0
+      json.query.filtered.query =
+        query_string:
+          query: q
+          #fields: [ "variety.cate_name", "jg_address_info", "dwfrl_ar" ]
+          default_operator: "AND"
+    else
+      json.query.filtered.query =
+        multi_match:
+          query: q
+          fields: [ "variety.cate_name", "jg_address_info" ]
+          type: "phrase"
+
+      json.query.filtered.query.multi_match.fields.push "dwfrl_ar" if parseInt(Model.q()) > 0
+
+    json
+
 module.exports = Model
