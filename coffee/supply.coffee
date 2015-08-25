@@ -71,7 +71,7 @@ list = ->
   $.post parameters.search.host + '/supply/_search',
   JSON.stringify(q)
   , (data) ->
-    result.q result.q().replace(/[+ ]+/, ' ')
+    result.q if result.q() then result.q().replace(/[+ ]+/, ' ') else result.q()
     result.total data.hits.total
     result.rows.removeAll()# if result.from() == 0
     result.more result.from()+result.size()

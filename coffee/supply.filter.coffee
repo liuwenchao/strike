@@ -45,8 +45,6 @@ Model.to_string = ->
     query.join(' AND ')
 
 Model.to_json = ->
-    q = Model.q().replace(/[+ ]+/, ' ')
-
     json =
         query:
           filtered:
@@ -61,29 +59,32 @@ Model.to_json = ->
                   status: 1
               }]
 
-    if q.indexOf(' ') > 0
-      nums = q.match(/\d+/)
+    q = if Model.q() then Model.q().replace(/[+ ]+/, ' ') else Model.q()
 
-      if nums.length
-        q = q.replace(nums[0], '')
+    if q
+      if q.indexOf(' ') > 0
+        nums = q.match(/\d+/)
 
-        json.query.filtered.filter.and.push
-          term:
-            dwfrl_ar: nums[0]
+        if nums.length
+          q = q.replace(nums[0], '')
 
-      json.query.filtered.query =
-        query_string:
-          query: q
-          fields: [ "variety.cate_name", "jg_address_info" ]
-          default_operator: "AND"
-    else
-      json.query.filtered.query =
-        multi_match:
-          query: q
-          fields: [ "variety.cate_name", "jg_address_info" ]
-          type: "phrase"
+          json.query.filtered.filter.and.push
+            term:
+              dwfrl_ar: nums[0]
 
-      json.query.filtered.query.multi_match.fields.push "dwfrl_ar" if parseInt(Model.q()) > 0
+        json.query.filtered.query =
+          query_string:
+            query: q
+            fields: [ "variety.cate_name", "jg_address_info" ]
+            default_operator: "AND"
+      else
+        json.query.filtered.query =
+          multi_match:
+            query: q
+            fields: [ "variety.cate_name", "jg_address_info" ]
+            type: "phrase"
+
+        json.query.filtered.query.multi_match.fields.push "dwfrl_ar" if parseInt(Model.q()) > 0
 
     if Model.isqihuo()
       json.query.filtered.filter.and.push
