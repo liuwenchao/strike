@@ -9,7 +9,7 @@ parameters = require 'parameters'
 result = ko.observableArray()
 
 fromJsonToModel = (data)->
-    id: data.cate_id
+    id: data.id
     name: data.cate_name
 
 list = (callback)->
