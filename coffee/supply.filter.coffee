@@ -48,6 +48,9 @@ Model.to_json = ->
     json =
         query:
           filtered:
+            query:
+              bool:
+                must: []
             filter:
               and: [{
                 bool:
@@ -72,19 +75,19 @@ Model.to_json = ->
             term:
               dwfrl_ar: parseInt(nums[0])
 
-        json.query.filtered.query =
+        json.query.filtered.query.bool.must.push
           query_string:
             query: q
             fields: [ "variety.cate_name", "jg_address_info" ]
             default_operator: "AND"
       else
-        json.query.filtered.query =
+        json.query.filtered.query.bool.must.push
           multi_match:
             query: q
             fields: [ "variety.cate_name", "jg_address_info" ]
             type: "phrase"
 
-        json.query.filtered.query.multi_match.fields.push "dwfrl_ar" if parseInt(Model.q()) > 0
+        json.query.filtered.query.bool.must[0].multi_match.fields.push "dwfrl_ar" if parseInt(Model.q()) > 0
 
     if Model.isqihuo()
       json.query.filtered.filter.and.push
@@ -102,9 +105,11 @@ Model.to_json = ->
           pinming_one: Model.pinming()
 
     if Model.paihao()
-      json.query.filtered.filter.and.push
-        term:
-          paihao: Model.paihao()
+      json.query.filtered.query.bool.must.push
+        multi_match:
+          query: Model.paihao()
+          fields: [ "paihao" ]
+          type: "phrase"
 
     if Model.hf_value() && parseFloat(Model.hf_value())
       json.query.filtered.filter.and.push
@@ -127,19 +132,25 @@ Model.to_json = ->
           dwfrl_ar: parseInt(Model.dwfrl_u10_value())
 
     if Model.company()
-      json.query.filtered.filter.and.push
-        term:
-          member_info: Model.company()
+      json.query.filtered.query.bool.must.push
+        multi_match:
+          query: Model.company()
+          fields: [ "member_info" ]
+          type: "phrase"
 
     if Model.cangku()
-      json.query.filtered.filter.and.push
-        term:
-          jg_address_info: Model.cangku()
+      json.query.filtered.query.bool.must.push
+        multi_match:
+          query: Model.cangku()
+          fields: [ "jg_address_info" ]
+          type: "phrase"
 
     if Model.company_id()
-      json.query.filtered.filter.and.push
-        term:
-          "member.company_id": Model.company_id()
+      json.query.filtered.query.bool.must.push
+        multi_match:
+          query: Model.company_id()
+          fields: [ "member.company_id" ]
+          type: "phrase"
 
     json
 
