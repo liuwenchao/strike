@@ -65,8 +65,15 @@ Model.to_json = ->
       json.query.filtered.query =
         query_string:
           query: q
-          #fields: [ "variety.cate_name", "jg_address_info", "dwfrl_ar" ]
+          fields: [ "variety.cate_name", "jg_address_info" ]
           default_operator: "AND"
+
+      nums = q.match(/\d+/)
+
+      if nums.length
+        json.query.filtered.filter.and.push
+          term:
+            dwfrl_ar: nums[0]
     else
       json.query.filtered.query =
         multi_match:
