@@ -37,7 +37,9 @@
       </a>
     </div>
 
-    <div class="swiper-container" style="max-width:100%;margin:0 auto; margin-bottom:0px; height: 14.5rem;">
+    <div class="swiper-container"
+      style="display:none;max-width:100%;margin:0 auto; margin-bottom:0px;height: 14.5rem;"
+      data-bind="visible: ads().length>0">
         <div class="swiper-wrapper" data-bind="foreach: ads">
             <div class="swiper-slide">
               <img data-bind="attr: {src: picture}" />
