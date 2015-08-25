@@ -70,7 +70,7 @@ Model.to_json = ->
 
           json.query.filtered.filter.and.push
             term:
-              dwfrl_ar: nums[0]
+              dwfrl_ar: parseInt(nums[0])
 
         json.query.filtered.query =
           query_string:
@@ -106,25 +106,25 @@ Model.to_json = ->
         term:
           paihao: Model.paihao()
 
-    if Model.hf_value()
+    if Model.hf_value() && parseFloat(Model.hf_value())
       json.query.filtered.filter.and.push
         term:
-          hf_ar: Model.hf_value()
+          hf_ar: parseFloat(Model.hf_value())
 
-    if Model.lf_value()
+    if Model.lf_value() && parseFloat(Model.lf_value())
       json.query.filtered.filter.and.push
         term:
-          qlf_ar: Model.lf_value()
+          qlf_ar: parseFloat(Model.lf_value())
 
-    if Model.qsf_value()
+    if Model.qsf_value() && parseFloat(Model.qsf_value())
       json.query.filtered.filter.and.push
         term:
-          qsf: Model.qsf_value()
+          qsf: parseFloat(Model.qsf_value())
 
-    if Model.dwfrl_u10_value()
+    if Model.dwfrl_u10_value() && parseInt(Model.dwfrl_u10_value())
       json.query.filtered.filter.and.push
         term:
-          dwfrl_ar: Model.dwfrl_u10_value()
+          dwfrl_ar: parseInt(Model.dwfrl_u10_value())
 
     if Model.company()
       json.query.filtered.filter.and.push
