@@ -26,10 +26,6 @@
       <a href="/"><img src="images/banner.png"></a>
     </div>
 
-    <div class="textac mt20" data-bind="visible: error, click: error.bind($data, false)" style="display: none;">
-      <a href="javascript:;" class="tips" data-bind="text: error"></a>
-    </div>
-
     <form data-bind="submit: login" type="post">
       <input type="hidden" name="weixin_id" data-bind="value: profile.weixin_id" />
       <div class="input-wrap mt10">
@@ -43,6 +39,9 @@
           name="password"
           class="password l-input49"
           placeholder="请输入密码">
+        <div class="textac mt20" data-bind="visible: error, click: error.bind($data, false)" style="display: none;">
+          <a href="javascript:;" class="tips" data-bind="text: error"></a>
+        </div>
         <button
           class="l-btn49"
           type="submit">
