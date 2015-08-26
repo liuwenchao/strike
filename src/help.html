@@ -36,7 +36,7 @@
       <div class="help">
          <div class="help_box">
              <div class="help_hd">
-                 <a href="#">
+                 <a href="#" onclick="$(this).parents('.help_box').find('.help_bd').toggle();$(this).children('i').toggleClass('icon-down');">
                      <h2>我要买煤<span>买货，找货，积分</span></h2>
                      <i class="icon-up"></i>
                  </a>
@@ -49,7 +49,7 @@
          </div>
           <div class="help_box">
              <div class="help_hd">
-                 <a href="#">
+                 <a href="#" onclick="$(this).parents('.help_box').find('.help_bd').toggle();$(this).children('i').toggleClass('icon-down');">
                      <h2>我要卖煤<span>卖货，供货</span></h2>
                      <i class="icon-up"></i>
                  </a>
@@ -62,7 +62,7 @@
          </div>
           <div class="help_box">
               <div class="help_hd">
-                  <a href="#">
+                  <a href="#" onclick="$(this).parents('.help_box').find('.help_bd').toggle();$(this).children('i').toggleClass('icon-down');">
                       <h2>常见问题<span>注册，修改，合作</span></h2>
                       <i class="icon-up"></i>
                   </a>
@@ -114,10 +114,11 @@
     </div>
 
 
-  <footer class="zm-wraps" id="zmMobileAllFooter">
-    <p>
-      <a href="/"><img src="images/bottomlogo.png"></a>
-    </p>
-  </footer>
+    <footer class="zm-wraps" id="zmMobileAllFooter">
+        <p>
+          <a href="/"><img src="images/bottomlogo.png"></a>
+        </p>
+    </footer>
+    <script type="text/javascript" src="app.js" charset="utf-8"></script>
 </body>
 </html>

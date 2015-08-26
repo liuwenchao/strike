@@ -729,10 +729,13 @@ body {
 .sale-list-new .pro-wrap .conrow .name {
     color: #f4a600!important
 }
+.sale-list-new .pro-wrap p .pinming{
+    width: 5rem;
+}
 .sale-list-new .pro-wrap p .name1 {
     float: left;
-    min-width: 4rem;
-    max-width: 50%;
+    min-width: 4.5rem;
+    max-width: 5rem;
     height: 3rem;
     line-height: 3rem;
     display: inline-block;
@@ -834,10 +837,18 @@ body {
     display: inline-block;
     height: 3rem;
     line-height: 3rem;
-    /*margin-left: 1rem;
-    margin-right: .3rem;*/
+    margin-left: .5rem;
+    margin-right: .5rem;
     background-size: contain;
     float: left;
+}
+.sale-list-new .pro-wrap .zzb{
+    width: 5.5rem;
+    overflow: hidden;
+}
+.sale-list-new .pro-wrap .address{
+    width: 5.5rem;
+    overflow: hidden;
 }
 .sale-list-new .pro-wrap .cash, .sale-list-new .pro-wrap .future {
     display: inline-block;
