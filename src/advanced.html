@@ -49,44 +49,23 @@
 
         <div class="select-list mt10 bt1">
           <a class="clearfix" href="javascript:;">
-            <span class="left">煤种</span>
+            <span class="left">分类</span>
             <select name="pinming" class="l-input49"
               data-bind="value: filter.pinming, options: pinmings, optionsCaption:'全部', optionsText:'name', optionsValue:'id', valueAllowUnset: true">
               <option value="">全部</option>
             </select>
           </a>
           <a class="clearfix" href="javascript:;">
-            <span class="left">牌号</span>
-            <select name="paihao" data-bind="value: filter.paihao" class="l-input49">
-              <option value="">全部</option>
-              <option>神混1</option>
-              <option>神华</option>
-              <option>伊泰</option>
-              <option>中煤</option>
-              <option>蒙煤</option>
-            </select>
+            <span class="left">煤种</span>
+            <input name="paihao" data-bind="value: filter.paihao" class="l-input49" placeholder="例如：伊泰三"/>
           </a>
           <a class="clearfix" href="javascript:;">
             <span class="left">厂商</span>
-            <select name="company" data-bind="value: filter.company" class="l-input49">
-              <option value="">全部</option>
-              <option>陕西煤炭</option>
-              <option>山东华典</option>
-              <option>鹰泰商贸</option>
-              <option>世康能源</option>
-              <option>陕西鲲鹏</option>
-            </select>
+            <input name="company" data-bind="value: filter.company" class="l-input49" placeholder="例如：国电燃料"/>
           </a>
           <a class="clearfix" href="javascript:;">
-            <span class="left">仓库</span>
-            <select name="cangku" data-bind="value: filter.cangku" class="l-input49">
-              <option value="">全部</option>
-              <option>红石峡</option>
-              <option>曹妃甸</option>
-              <option>鄂尔多斯弓家塔</option>
-              <option>江苏如皋港</option>
-              <option>黄骅港</option>
-            </select>
+            <span class="left">港口</span>
+            <input name="cangku" data-bind="value: filter.cangku" class="l-input49" placeholder="例如：秦皇岛"/>
           </a>
           <a class="clearfix" href="javascript:;">
             <span class="left">灰分</span>

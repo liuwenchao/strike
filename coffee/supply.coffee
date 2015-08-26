@@ -58,12 +58,20 @@ load = (id) ->
   return record
 
 list = ->
-  $.get parameters.search.host + '/supply/_search',
-    q: filter.to_string()
-    from: result.from()
-    sort: result.sort()
-    size: result.size()
+  q = filter.to_json()
+
+  q.from = result.from()
+  q.size = result.size()
+
+  sort = result.sort().split(':')
+
+  q.sort = new Object
+  q.sort[sort[0]] = sort[1]
+
+  $.post parameters.search.host + '/supply/_search',
+  JSON.stringify(q)
   , (data) ->
+    result.q if result.q() then result.q().replace(/[+ ]+/, ' ') else result.q()
     result.total data.hits.total
     result.rows.removeAll()# if result.from() == 0
     result.more result.from()+result.size()

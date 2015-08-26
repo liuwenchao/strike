@@ -35,7 +35,8 @@
     </div>
 
     <div class="list-wrap clearfix pr">
-      <ul class="bgfff pr" data-bind="foreach: result.rows">
+      <ul class="bgfff pr" style="display:none;"
+        data-bind="foreach: result.rows, visible: result.rows().length > 0">
         <li class="bigrow bb1 pad0515 row1">
           <p class="fz15 c-333 ellipsis pr smrow">
             <span class="mr05" data-bind="text: pinming"></span>

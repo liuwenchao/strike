@@ -37,7 +37,8 @@
       煤炭最新资讯动态
     </div>
     <div class="list-wrap">
-      <ul data-bind="foreach: records">
+      <ul style="display: none;"
+        data-bind="foreach: records, visible: records().length > 0">
         <a href="#" data-bind="attr: { href: 'news_detail.html?id='+id()}">
           <li>
             <span class="title">

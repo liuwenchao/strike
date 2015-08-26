@@ -63,9 +63,9 @@
 
       <div class="market-list-new clearfix">
         <div class="pro-wrap">
-          <div class="inner-list hidden"
-            style="display: block;"
-            data-bind="foreach: result.rows">
+          <div class="inner-list"
+            style="display: none;"
+            data-bind="foreach: result.rows, visible: result.rows().length > 0">
             <a href="javascript:;"
               data-bind="attr: { href: 'supply.html?id='+id()}"
               class="inner-row showKuaisuPricePrice">

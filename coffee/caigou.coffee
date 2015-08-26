@@ -41,6 +41,7 @@ create = (form) ->
       caigou:
         pay_price: form.pay_price.value
         pay_weight: form.pay_weight.value
+        standard_address: form.pay_address.value
     contentType: 'application/json'
     success: -> window.location.href='myorder.html'
 

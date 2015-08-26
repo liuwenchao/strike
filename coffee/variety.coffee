@@ -9,11 +9,11 @@ parameters = require 'parameters'
 result = ko.observableArray()
 
 fromJsonToModel = (data)->
-    id: data.cate_id
+    id: data.id
     name: data.cate_name
 
 list = (callback)->
-  $.get parameters.search.host + '/variety/_search?size=100&q=parent_id:0', (data)->
+  $.get parameters.search.host + '/variety/_search?size=100&q=!parent_id', (data)->
     for d in data.hits.hits
       result.push fromJsonToModel d._source
     callback() if callback

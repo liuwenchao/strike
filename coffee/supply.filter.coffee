@@ -44,4 +44,114 @@ Model.to_string = ->
     query.push 'member.company_id:'+Model.company_id()   if Model.company_id()
     query.join(' AND ')
 
+Model.to_json = ->
+    json =
+        query:
+          filtered:
+            query:
+              bool:
+                must: []
+            filter:
+              and: [{
+                bool:
+                  must_not:
+                    term:
+                      ifhide: true
+              }, {
+                term:
+                  status: 1
+              }]
+
+    q = if Model.q() then Model.q().replace(/[+ ]+/, ' ') else Model.q()
+
+    if q
+      if q.indexOf(' ') > 0
+        nums = q.match(/\d+/)
+
+        if nums.length
+          q = q.replace(nums[0], '')
+
+          json.query.filtered.filter.and.push
+            term:
+              dwfrl_ar: parseInt(nums[0])
+
+        json.query.filtered.query.bool.must.push
+          query_string:
+            query: q
+            fields: [ "variety.cate_name", "jg_address_info" ]
+            default_operator: "AND"
+      else
+        json.query.filtered.query.bool.must.push
+          multi_match:
+            query: q
+            fields: [ "variety.cate_name", "jg_address_info" ]
+            type: "phrase"
+
+        json.query.filtered.query.bool.must[0].multi_match.fields.push "dwfrl_ar" if parseInt(Model.q()) > 0
+
+    if Model.isqihuo()
+      json.query.filtered.filter.and.push
+        term:
+          supply_type: Model.isqihuo()
+
+    if Model.ifsale()
+      json.query.filtered.filter.and.push
+        term:
+          is_sale: true
+
+    if Model.pinming()
+      json.query.filtered.filter.and.push
+        term:
+          pinming_one: Model.pinming()
+
+    if Model.paihao()
+      json.query.filtered.query.bool.must.push
+        multi_match:
+          query: Model.paihao()
+          fields: [ "paihao" ]
+          type: "phrase"
+
+    if Model.hf_value() && parseFloat(Model.hf_value())
+      json.query.filtered.filter.and.push
+        term:
+          hf_ar: parseFloat(Model.hf_value())
+
+    if Model.lf_value() && parseFloat(Model.lf_value())
+      json.query.filtered.filter.and.push
+        term:
+          qlf_ar: parseFloat(Model.lf_value())
+
+    if Model.qsf_value() && parseFloat(Model.qsf_value())
+      json.query.filtered.filter.and.push
+        term:
+          qsf: parseFloat(Model.qsf_value())
+
+    if Model.dwfrl_u10_value() && parseInt(Model.dwfrl_u10_value())
+      json.query.filtered.filter.and.push
+        term:
+          dwfrl_ar: parseInt(Model.dwfrl_u10_value())
+
+    if Model.company()
+      json.query.filtered.query.bool.must.push
+        multi_match:
+          query: Model.company()
+          fields: [ "member_info" ]
+          type: "phrase"
+
+    if Model.cangku()
+      json.query.filtered.query.bool.must.push
+        multi_match:
+          query: Model.cangku()
+          fields: [ "jg_address_info" ]
+          type: "phrase"
+
+    if Model.company_id()
+      json.query.filtered.query.bool.must.push
+        multi_match:
+          query: Model.company_id()
+          fields: [ "member.company_id" ]
+          type: "phrase"
+
+    json
+
 module.exports = Model

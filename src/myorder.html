@@ -57,7 +57,7 @@
           onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           未审核
         </span>
-        <!--span data-bind="click: caigou.listMine.bind($data, 0, 'progress:40000')"
+        <span data-bind="click: caigou.listMine.bind($data, 0, 'progress:40000')"
           onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           待报价
         </span>
@@ -69,15 +69,18 @@
           onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');"
           class="noborder">
           已成交
-        </span-->
+        </span>
       </div>
 
-      <ul class="wdcg-content" data-bind="foreach: caigou.result.rows">
+      <ul class="wdcg-content" style="display: none;"
+        data-bind="foreach: caigou.result.rows, visible: caigou.result.rows().length > 0">
         <li>
           <p>
             <span class="t01">求购</span>
             <span data-bind="text: weight"></span>吨
             <span data-bind="text: pinming"></span>
+          </p>
+          <p data-bind="text: content">
           </p>
           <p>
             <span class="t02" data-bind="text: company_name"></span>
@@ -124,7 +127,8 @@
         </div>
 
         <div class="pro-wrap">
-          <div class="inner-list hidden" style="display: block;" data-bind="foreach: supply.result.rows">
+          <div class="inner-list" style="display: none;"
+            data-bind="foreach: supply.result.rows, visible: supply.result.rows().length>0">
             <a href="javascript:;" class="inner-row showKuaisuPricePrice"
               data-bind="attr: { href: 'supply.html?id='+id()}">
               <p class="clearfix">
