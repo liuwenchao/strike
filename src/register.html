@@ -33,10 +33,6 @@
       <a class="right" href="javascript:;" style="visibility: hidden"></a>
     </div>
 
-    <div class="textac mt20" data-bind="visible: error, click: error.bind($data, false)" style="display: none;">
-      <a href="javascript:;" class="tips" data-bind="text: error"></a>
-    </div>
-
     <form data-bind="submit: register">
       <input type="hidden" name="weixin_id" data-bind="value: profile.weixin_id" />
       <div class="first-step mt15">
@@ -85,6 +81,10 @@
             class="password l-input49"
             placeholder="请输入登录密码">
         </div>
+      </div>
+
+      <div class="textac mt20" data-bind="visible: error, click: error.bind($data, false)" style="display: none;">
+        <a href="javascript:;" class="tips" data-bind="text: error"></a>
       </div>
 
       <button

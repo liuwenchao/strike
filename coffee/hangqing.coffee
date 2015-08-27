@@ -19,7 +19,7 @@ list = ->
           c =
             title: child.index_name
             weight: child.weight
-            frl: 0
+            best_price: child.best_price
             price: child.price
             fudong: child.wave
           if child.wave > 0

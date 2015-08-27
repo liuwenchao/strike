@@ -125,9 +125,9 @@ register = (form) ->
       success: -> window.location.href='register_ok.html'
       error: (response) ->
         switch response.status
-          when 400 then error '验证码错误或者已经过期！'
-          when 409 then error '手机号码已经注册，请直接登录或者找回密码！'
-          when 500 then error '注册失败，请联系我们！'
+          when 400 then error '验证码错误或者已经过期.'
+          when 409 then error '手机号码已经注册，请直接登录或者找回密码.'
+          when 500 then error '注册失败，请联系我们.'
           else
             error response.statusText
   else
