@@ -121,6 +121,7 @@ register = (form) ->
         sms:       form.sms.value
         password:  form.password.value
         wx_open_id:form.weixin_id.value
+        reg_from  :'WeChatService'
       success: -> window.location.href='register_ok.html'
       error: (response) ->
         switch response.status
