@@ -41,18 +41,18 @@
     <div class="result-wrap">
       <div class="new-array-wrap clearfix">
         <input type="hidden" name="orderBy" value="null">
-        <a href="javascript:;" class="item selected"
-          data-bind="click: result.sort.bind($data, 'supply_id:desc')"
+        <a href="javascript:;" class="item"
+          data-bind="click: result.sort.bind($data, 'supply_id:desc'), css:{selected: !result.sort() || result.sort()=== 'supply_id:desc'}"
           onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           <span class="name">默认</span>
         </a>
         <a href="javascript:;" class="item" flag="price"
-          data-bind="click: result.sort.bind($data, result.sort() === 'pay_price:desc' ? 'pay_price:asc' : 'pay_price:desc')"
+          data-bind="click: result.toggleSort.bind($data, 'pay_price'), css:{selected: result.sort() && result.sort().substr(0,3)=== 'pay'}"
           onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           <span class="name">价格</span><i class="arrow"></i>
         </a>
         <a href="javascript:;" class="item" flag="weight"
-          data-bind="click: result.sort.bind($data, result.sort() === 'jg_weight:desc' ? 'jg_weight:asc' : 'jg_weight:desc')"
+          data-bind="click: result.toggleSort.bind($data, 'jg_weight'), css:{selected: result.sort() && result.sort().substr(0,2)=== 'jg'}"
           onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           <span class="name">数量</span><i class="arrow"></i>
         </a>

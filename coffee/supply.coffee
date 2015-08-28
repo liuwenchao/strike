@@ -22,13 +22,6 @@ result =
   isFirstPage : ko.pureComputed -> result.from() <= 0
   isLastPage  : ko.pureComputed -> result.from() + result.size() >= result.total()
 
-result.from.subscribe (newValue)->
-  params = {}
-  for param in decodeURIComponent(location.search).substr(1).split('&')
-    params[param.split('=')[0]] = param.split('=')[1]
-  params.from = newValue
-  window.history.pushState params, document.title, window.location.pathname+'?'+$.param(params)
-
 create = (form)->
   $.ajax
     type: 'post'
@@ -66,6 +59,7 @@ load = (id) ->
 
 list = (params)->
   result.from params.from if params?.from
+  result.sort params.sort if params?.sort
 
   q = filter.to_json()
 
@@ -104,12 +98,36 @@ listMine = (from = 0, filter)->
         result.rows.push SupplyModel.fill record
     error: -> window.location='login.html'
 
+result.toggleSort = (column)->
+  result.from 0
+  switch column
+    when 'pay_price'
+      if result.sort() == 'pay_price:desc'
+        result.sort 'pay_price:asc'
+      else
+        result.sort 'pay_price:desc'
+    when 'jg_weight'
+      if result.sort() == 'jg_weight:desc'
+        result.sort 'jg_weight:asc'
+      else
+        result.sort 'jg_weight:desc'
+
+_push_state = (key, newValue)->
+  params = {}
+  for param in decodeURIComponent(location.search).substr(1).split('&')
+    params[param.split('=')[0]] = param.split('=')[1]
+  params[key] = newValue
+  window.history.pushState params, document.title, window.location.pathname+'?'+$.param(params)
 
 # conduct search when sort or from is changed
-result.sort.subscribe ->
-  result.from 0
+result.sort.subscribe (newValue)->
   list()
-result.from.subscribe -> list()
+  _push_state 'sort', newValue
+
+result.from.subscribe (newValue)->
+  list()
+  _push_state 'from', newValue
+
 module.exports =
   result:  result
   create:  create
