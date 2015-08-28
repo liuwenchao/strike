@@ -22,6 +22,13 @@ result =
   isFirstPage : ko.pureComputed -> result.from() <= 0
   isLastPage  : ko.pureComputed -> result.from() + result.size() >= result.total()
 
+result.from.subscribe (newValue)->
+  params = {}
+  for param in decodeURIComponent(location.search).substr(1).split('&')
+    params[param.split('=')[0]] = param.split('=')[1]
+  params.from = newValue
+  window.history.pushState params, document.title, window.location.pathname+'?'+$.param(params)
+
 create = (form)->
   $.ajax
     type: 'post'
@@ -57,7 +64,9 @@ load = (id) ->
             SupplyModel.fill data, record
   return record
 
-list = ->
+list = (params)->
+  result.from params.from if params?.from
+
   q = filter.to_json()
 
   q.from = result.from()

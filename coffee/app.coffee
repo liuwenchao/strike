@@ -67,7 +67,7 @@ switch route
       params[param.split('=')[0]] = param.split('=')[1]
     supply.result.q params.q
 
-    supply.list()
+    supply.list params
     ko.applyBindings supply
 
   when 'search'
