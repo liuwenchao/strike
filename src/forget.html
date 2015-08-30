@@ -33,10 +33,6 @@
       <a class="right" href="javascript:void (0)" style="visibility: hidden"></a>
     </div>
 
-    <div class="textac mt20" data-bind="visible: error, click: error.bind($data, false)" style="display: none;">
-      <a href="javascript:;" class="tips" data-bind="text: error"></a>
-    </div>
-
     <form data-bind="submit: reset">
       <div class="first-step mt15">
         <div class="input-wrap mt20">
@@ -76,6 +72,10 @@
             class="password l-input49"
             placeholder="请再次输入密码">
         </div>
+      </div>
+
+      <div class="textac mt20" data-bind="visible: error, click: error.bind($data, false)" style="display: none;">
+        <a href="javascript:;" class="tips" data-bind="text: error"></a>
       </div>
 
       <button
