@@ -108,19 +108,6 @@ register = (form) ->
     error '所有字段都必填'
     return
   if form.password.value == form.repasswd.value
-    countdown = 60
-    settime = ->
-      $this = $('#count')
-      if countdown is 0
-        $this.html("免费获取验证码")
-        $this.removeClass("btndisabled")
-        countdown = 60
-      else
-        $this.html(" 重新发送(" + countdown + ")")
-        $this.addClass("btndisabled")
-        countdown--
-        window.setTimeout settime, 1000
-    settime()
     $.ajax
       type: 'post'
       xhrFields:
@@ -170,11 +157,11 @@ resetPassword = (form) ->
   else
     error '两次密码不一样！'
 
-verify = (mobile, template) ->
+verify = (mobile, template, event) ->
   if mobile and mobile.length == 11
     countdown = 60
+    $this = $(event.target)
     settime = ->
-      $this = $('#count')
       if countdown is 0
         $this.html("免费获取验证码")
         $this.removeClass("btndisabled")

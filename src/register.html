@@ -53,9 +53,8 @@
             placeholder="请输入手机号码">
           <div class="clearfix w90 mt10">
             <a href="javascript:;"
-               id="count"
               class="get l-btn45"
-              data-bind="click: verify.bind($data, $('#mobile').val(), 'mcode')">
+              data-bind="click: verify.bind($data, $('#mobile').val(), 'mcode', event)">
               获取校验码
             </a>
             <input type="text"
