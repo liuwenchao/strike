@@ -57,6 +57,12 @@
               data-bind="click: verify.bind($data, $('#mobile').val(), 'mcode', event)">
               获取校验码
             </a>
+            <a href="javascript:;"
+              id="waiting"
+              style="display: none; cursor: wait;"
+              class="get l-btn45 btndisabled">
+              重新获取(60)
+            </a>
             <input type="text"
               required
               name="sms"

@@ -161,17 +161,16 @@ verify = (mobile, template, event) ->
   if mobile and mobile.length == 11
     countdown = 60
     $this = $(event.target)
-    settime = ->
+    jobId = window.setInterval ->
       if countdown is 0
-        $this.html("免费获取验证码")
-        $this.removeClass("btndisabled")
+        $this.show().next().hide()
         countdown = 60
+        window.clearInterval jobId
       else
-        $this.html(" 重新发送(" + countdown + ")")
-        $this.addClass("btndisabled")
+        $this.hide().next().show()
+        $this.next().html("重新发送(" + countdown + ")")
         countdown--
-        window.setTimeout settime, 1000
-    settime()
+    , 1000
 
     $.ajax
       type: 'post'
