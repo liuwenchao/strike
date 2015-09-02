@@ -108,6 +108,19 @@ register = (form) ->
     error '所有字段都必填'
     return
   if form.password.value == form.repasswd.value
+    countdown = 60
+    settime = ->
+      $this = $('#count')
+      if countdown is 0
+        $this.html("免费获取验证码")
+        $this.removeClass("btndisabled")
+        countdown = 60
+      else
+        $this.html(" 重新发送(" + countdown + ")")
+        $this.addClass("btndisabled")
+        countdown--
+        window.setTimeout settime, 1000
+    settime()
     $.ajax
       type: 'post'
       xhrFields:
@@ -147,7 +160,7 @@ resetPassword = (form) ->
       data: JSON.stringify
         sms:      form.sms.value
         password: form.password.value
-      success: -> window.location.href='register_ok.html'
+      success: -> window.location.href='reset_ok.html'
       error: (response) ->
         switch response.status
           when 400 then error '验证码错误或者已经过期！'
@@ -159,6 +172,20 @@ resetPassword = (form) ->
 
 verify = (mobile, template) ->
   if mobile and mobile.length == 11
+    countdown = 60
+    settime = ->
+      $this = $('#count')
+      if countdown is 0
+        $this.html("免费获取验证码")
+        $this.removeClass("btndisabled")
+        countdown = 60
+      else
+        $this.html(" 重新发送(" + countdown + ")")
+        $this.addClass("btndisabled")
+        countdown--
+        window.setTimeout settime, 1000
+    settime()
+
     $.ajax
       type: 'post'
       xhrFields:

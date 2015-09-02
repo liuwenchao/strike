@@ -229,6 +229,10 @@ select.l-input49 {
 a.l-btn50:active {
   background: #ff4500
 }
+.btndisabled{
+    background: #dbdbdb!important;
+    border: solid 1px #dbdbdb!important;
+}
 .fake-body {
   background: #f3f3f3;
   position: relative;
