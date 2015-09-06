@@ -120,7 +120,7 @@ Model = ->
   model.all_zhibiao = ko.pureComputed ->
     results = []
     if model.qsf_value() then results.push
-      name: '全水分(Mt)'
+      name: '全水份(Mt)'
       value: model.qsf_value()
     if model.dwfrl_u10_value()  then results.push
       name: '低位发热量(kcal)'
@@ -132,7 +132,7 @@ Model = ->
       name: '挥发份(%)'
       value: model.hff_value()
     if model.qlf_value()  then results.push
-      name: '硫分(%)'
+      name: '硫份(%)'
       value: model.qlf_value()
     if model.hrd_value()  then results.push
       name: '灰熔点(℃)'
