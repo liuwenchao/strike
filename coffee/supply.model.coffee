@@ -19,6 +19,7 @@ Model = ->
     telephone: ko.observable()
     mobile: ko.observable()
     zhibiao_more: ko.observable()
+    cargo_name: ko.observable()
     dwfrl_cell: ko.observable()
     dwfrl_u10_value: ko.observable()
     dwfrl_u20_value: ko.observable()
@@ -180,7 +181,7 @@ fill = (data, model) ->
   model.paihao data.paihao
   model.price data.pay_price
   model.weight data.jg_weight
-  model.rezhi data.dwfrl_ar
+  model.rezhi data.dwfrl_ar || 0
   model.isqihuo data.supply_type == 2
   model.address data.jg_address_info || ''
   model.addtime data.created_time
@@ -190,6 +191,7 @@ fill = (data, model) ->
   model.telephone data.member?.telephone
   model.mobile data.member?.mobile
   model.zhibiao_more data.zhibiao_more
+  model.cargo_name data.cargo_name
   model.dwfrl_cell data.dwfrl_cell
   model.dwfrl_u10_value data.dwfrl_u10_value
   model.dwfrl_u20_value data.dwfrl_u20_value
