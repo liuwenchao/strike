@@ -227,7 +227,23 @@
   margin-bottom: 2rem;
   color: #3093ed
 }
-.register-page .second-step {}
+.register-page .second-step {
+    position: relative;
+}
+.eye{
+    display: block;
+    position: absolute;
+    right: 2rem;
+    top: .7rem;
+    height: 50px;
+    width: 50px;
+}
+.icon-eyeclose{
+    background: url("../images/eye-closed.png") no-repeat #FFFFFF center right;
+}
+.icon-eye{
+    background: url("../images/eye.png") no-repeat #FFFFFF center right;
+}
 .register-page .third-step {
   display: none
 }
