@@ -117,6 +117,7 @@ switch route
     ko.applyBindings hangqing
 
   when 'login'
+    account.load (-> location.href='/'), ->
     account.profile.weixin_id window.location.search.substr 11
     ko.applyBindings account
 
