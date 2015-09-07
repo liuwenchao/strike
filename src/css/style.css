@@ -1331,3 +1331,5 @@ body {
   font-size: 1.3rem;
   margin-left: 0.5rem;
 }
+.loading{height: 50px;width: 50px; margin: 10px auto 0;}
+.loading img{height: 50px;width: 50px;}
