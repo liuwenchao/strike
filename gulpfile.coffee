@@ -79,7 +79,6 @@ gulp.task 'build', ['webpack:build'], ->
 
 gulp.task 'webpack:build', (callback) ->
   conf = Object.create webpackConfig
-  conf.devtool = 'source-map'
   conf.plugins = conf.plugins.concat new webpack.DefinePlugin
     'process.env':
       NODE_ENV: JSON.stringify('production')
