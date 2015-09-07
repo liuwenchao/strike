@@ -13,6 +13,7 @@ result =
   sort: ko.observable('id:desc')
   total: ko.observable(0)
   filter: filter
+  loading: ko.observable(false);
   currentPage: ko.pureComputed -> (Math.ceil result.from()/result.size())+1
   pageCount:   ko.pureComputed -> Math.ceil result.total()/result.size()
   pageUp    : -> result.from if result.from() == 0 then 0 else (result.currentPage()-2)*result.size()
@@ -58,6 +59,7 @@ load = (id) ->
   return record
 
 list = (params)->
+  result.loading true
   result.from params.from if params?.from
   result.sort params.sort if params?.sort
 
@@ -80,6 +82,7 @@ list = (params)->
     result.more result.from()+result.size()
     for record in data.hits.hits
       result.rows.push SupplyModel.fill record._source
+    result.loading false
 
 listMine = (from = 0, filter)->
   $.ajax
