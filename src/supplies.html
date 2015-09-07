@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>搜索</title>
+  <title>找煤网交易平台 - 搜索</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -21,6 +21,9 @@
 </head>
 
 <body>
+  <div style='display:none;'>
+    <img src='images/logo_wx.jpg' />
+  </div>
   <div class="market-page fake-body" style="box-sizing: border-box;">
     <form method="get" action="" id="searchForm">
       <div class="main-header bb1">
@@ -42,7 +45,7 @@
       <div class="new-array-wrap clearfix">
         <input type="hidden" name="orderBy" value="null">
         <a href="javascript:;" class="item"
-          data-bind="click: result.sort.bind($data, 'supply_id:desc'), css:{selected: !result.sort() || result.sort()=== 'supply_id:desc'}"
+          data-bind="click: result.sort.bind($data, 'id:desc'), css:{selected: !result.sort() || result.sort()=== 'id:desc'}"
           onclick="$(this).siblings().removeClass('selected'); $(this).addClass('selected');">
           <span class="name">默认</span>
         </a>
