@@ -40,12 +40,10 @@
         data-bind="foreach: records, visible: records().length > 0">
         <li class="bb1">
           <span class="name title" data-bind="text: title">秦皇岛挂牌价</span>
-          <span data-bind="text: addtime.substr(0,10)"></span>
         </li>
         <!-- ko foreach: children -->
         <li class="bb1">
           <span class="name ellipsis" data-bind="text: title"></span>
-          <!-- <span class="price" data-bind="html: best_price" style="max-width: 6rem; overflow: hidden; white-space: nowrap;"></span> -->
           <span class="price" data-bind="text: price"></span>
           <span class="arrow ellipsis" data-bind="text: fudong, css: upordown"></span>
         </li>
