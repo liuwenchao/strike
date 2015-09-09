@@ -39,18 +39,22 @@ switch route
     params = {}
     for param in decodeURIComponent(location.search).substr(1).split('&')
       params[param.split('=')[0]] = param.split('=')[1]
+    variety.list()
     ko.applyBindings
       params: params
       save: caigou.create
+      cate_list: variety.result
 
   when 'supply_new'
     account.load()
     address.listArea()
+    variety.list()
     ko.applyBindings
       save: supply.create
       area: address.area
       area_list: address.area_list
       city_list: address.city_list
+      cate_list: variety.result
 
   when 'caigous'
     params = {}

@@ -41,13 +41,9 @@
         <p class="w90">煤种<i class="required">*</i></p>
         <select class="l-input49"
           name="standard_cate_one"
-          data-bind="value: params.pinming_one"
+          data-bind="options: cate_list, optionsText: 'name', optionsValue: 'id', value: params.pinming_one"
           required>
           <option value="">请选择</option>
-          <option value="1">烟煤</option>
-          <option value="2">无烟煤</option>
-          <option value="3">焦煤/焦炭</option>
-          <option value="16">焦炭及其他</option>
         </select>
 
         <p class="w90">化验指标</p>
