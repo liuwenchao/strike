@@ -183,7 +183,7 @@ fill = (data, model) ->
   model.weight data.jg_weight
   model.rezhi data.dwfrl_ar || 0
   model.isqihuo data.supply_type == 2
-  model.address data.jg_address_info || ''
+  model.address data.jg_address_info || data.jg_city?.name || data.jg_province?.name
   model.addtime data.created_time
   model.company_name data.member?.company?.name || ''
   model.member_name data.member?.truename
