@@ -31,7 +31,7 @@ switch route
       observer: true
       autoplay: 1000
       speed: 1000
-      loop : true
+      #loop : true
       # effect: 'cube'
 
   when 'caigou_new'
