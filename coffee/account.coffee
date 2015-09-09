@@ -107,31 +107,29 @@ register = (form) ->
   if form.mobile.value.length == 0 or form.truename.value.length == 0 or form.sms.value.length == 0 or form.password.value.length == 0
     error '所有字段都必填'
     return
-  if form.password.value == form.repasswd.value
-    $.ajax
-      type: 'post'
-      xhrFields:
-        withCredentials: true
-      contentType: 'application/json'
-      url: parameters.api.host+'/members.json'
-      data: JSON.stringify
-        true_name: form.truename.value
-        mobile:    form.mobile.value
-        account:   form.mobile.value
-        sms:       form.sms.value
-        password:  form.password.value
-        wx_open_id:form.weixin_id.value
-        reg_from  :'WeChatService'
-      success: -> window.location.href='register_ok.html'
-      error: (response) ->
-        switch response.status
-          when 400 then error '验证码错误或者已经过期.'
-          when 409 then error '手机号码已经注册，请直接登录或者找回密码.'
-          when 500 then error '注册失败，请联系我们.'
-          else
-            error response.statusText
-  else
-    error '两次密码不一样！'
+  $.ajax
+    type: 'post'
+    xhrFields:
+      withCredentials: true
+    contentType: 'application/json'
+    url: parameters.api.host+'/members.json'
+    data: JSON.stringify
+      true_name: form.truename.value
+      purpose_company: form.company.value
+      mobile:    form.mobile.value
+      account:   form.mobile.value
+      sms:       form.sms.value
+      password:  form.password.value
+      wx_open_id:form.weixin_id.value
+      reg_from  :'WeChatService'
+    success: -> window.location.href='register_ok.html'
+    error: (response) ->
+      switch response.status
+        when 400 then error '验证码错误或者已经过期.'
+        when 409 then error '手机号码已经注册，请直接登录或者找回密码.'
+        when 500 then error '注册失败，请联系我们.'
+        else
+          error response.statusText
 
 resetPassword = (form) ->
   if form.mobile.length == 0 or form.sms.length == 0 or form.password.length == 0
@@ -147,7 +145,7 @@ resetPassword = (form) ->
       data: JSON.stringify
         sms:      form.sms.value
         password: form.password.value
-      success: -> window.location.href='register_ok.html'
+      success: -> window.location.href='reset_ok.html'
       error: (response) ->
         switch response.status
           when 400 then error '验证码错误或者已经过期！'
@@ -157,8 +155,21 @@ resetPassword = (form) ->
   else
     error '两次密码不一样！'
 
-verify = (mobile, template) ->
+verify = (mobile, template, event) ->
   if mobile and mobile.length == 11
+    countdown = 60
+    $this = $(event.target)
+    jobId = window.setInterval ->
+      if countdown is 0
+        $this.show().next().hide()
+        countdown = 60
+        window.clearInterval jobId
+      else
+        $this.hide().next().show()
+        $this.next().html("重新发送(" + countdown + ")")
+        countdown--
+    , 1000
+
     $.ajax
       type: 'post'
       xhrFields:

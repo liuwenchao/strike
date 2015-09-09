@@ -117,10 +117,17 @@ switch route
     ko.applyBindings hangqing
 
   when 'login'
+    account.load (-> location.href='/'), ->
     account.profile.weixin_id window.location.search.substr 11
     ko.applyBindings account
 
   when 'register'
+    window.toggleEye = (element)->
+      $(element).toggleClass('icon-eye')
+      if $(element).prev().attr('type') == 'password'
+        $(element).prev().attr('type','text')
+      else
+        $(element).prev().attr('type','password')
     account.profile.weixin_id window.location.search.substr 11
     ko.applyBindings account
 

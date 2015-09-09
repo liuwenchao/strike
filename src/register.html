@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>免费注册</title>
+  <title>找煤网交易平台 - 免费注册</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -21,6 +21,9 @@
 </head>
 
 <body>
+  <div style='display:none;'>
+    <img src='images/logo_wx.jpg' />
+  </div>
   <div class="register-page fake-body">
 
     <div class="main-header">
@@ -44,6 +47,13 @@
             placeholder="请输入您的姓名">
         </div>
         <div class="input-wrap mt20">
+          <input type="text"
+            class="l-input49"
+            required
+            name="company"
+            placeholder="请输入您的公司名字">
+        </div>
+        <div class="input-wrap mt20">
           <input type="tel"
             class=" l-input49"
             required
@@ -54,8 +64,14 @@
           <div class="clearfix w90 mt10">
             <a href="javascript:;"
               class="get l-btn45"
-              data-bind="click: verify.bind($data, $('#mobile').val(), 'mcode')">
+              data-bind="click: verify.bind($data, $('#mobile').val(), 'mcode', event)">
               获取校验码
+            </a>
+            <a href="javascript:;"
+              id="waiting"
+              style="display: none; cursor: wait;"
+              class="get l-btn45 btndisabled">
+              重新获取(60)
             </a>
             <input type="text"
               required
@@ -71,15 +87,9 @@
           <input type="password"
             required
             name="password"
-            class="password l-input49"
-            placeholder="请您输入新密码">
-        </div>
-        <div class="input-wrap mt20">
-          <input type="password"
-            required
-            name="repasswd"
-            class="password l-input49"
-            placeholder="请您再次输入新密码">
+            class="password l-input49 eyeclose"
+            placeholder="请您输入登录密码">
+          <i class="eye icon-eyeclose" onclick="toggleEye(this);"></i>
         </div>
       </div>
 
