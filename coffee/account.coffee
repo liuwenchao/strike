@@ -98,7 +98,7 @@ login = (form) ->
       weixin_id: form.weixin_id.value
       _format: 'json'
     success: -> window.location.href='/'
-    error:   (xhr) -> 
+    error:   (xhr) ->
       error '用户名或者密码错误！'
 
       if xhr.responseText.indexOf('locked') > 0
@@ -189,7 +189,6 @@ verify = (mobile, template, event) ->
       data:
         mobile: mobile
         tpl:    template
-      success: -> error '验证码已经发送您的手机，请查收！'
   else
     error '请输入正确的手机号码！'
 
