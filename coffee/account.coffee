@@ -22,8 +22,12 @@ profile =
   weixin_id: ko.observable()
   name: ko.pureComputed ->
     profile.truename() || profile.username() || profile.mobile()
+  status: ko.observable()
 
 error = ko.observable(false)
+
+if (document.referrer && document.referrer.indexOf('home.html') < 0)
+  error '请您在登录后进行操作'
 
 fillProfile = (data)->
   profile.member_id data.id
@@ -43,6 +47,7 @@ fillProfile = (data)->
     $.get parameters.search.host+'/city/_search?size=1&q=id:'+data.companyAddressCityId, (found)->
       if found.hits.hits.length > 0
         address.area found.hits.hits[0]._source.parent_id
+  profile.status data.status
 
 load = (callback, errorCallback)->
   $.ajax
