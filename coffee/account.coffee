@@ -93,7 +93,13 @@ login = (form) ->
       weixin_id: form.weixin_id.value
       _format: 'json'
     success: -> window.location.href='/'
-    error:   -> error '用户名或者密码错误！'
+    error:   (xhr) -> 
+      error '用户名或者密码错误！'
+
+      if xhr.responseText.indexOf('locked') > 0
+        error '您的帐号审核未通过，请联系客服，热线：400-065-6868'
+      if xhr.responseText.indexOf('disabled') > 0
+        error '您的帐号已删除，请联系客服，热线：400-065-6868'
 
 logout = ->
   profile.isLoggedin false
