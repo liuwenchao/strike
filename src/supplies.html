@@ -64,14 +64,8 @@
         </a>
       </div>
 
-      <div class="loading"
-        data-bind="visible: result.loading">
-          <img src="images/loading.gif" alt="loading..."/>
-      </div>
-
-    <div style="display: none;"
-      data-bind="visible: !result.loading()">
-      <div class="market-list-new clearfix">
+      <div class="market-list-new clearfix" style="display: none;"
+        data-bind="visible: result.rows().length > 0">
         <div class="pro-wrap">
           <div class="inner-list"
             data-bind="foreach: result.rows">
@@ -101,6 +95,11 @@
         </div>
       </div>
 
+      <div class="loading"
+        data-bind="visible: result.loading">
+          <img src="images/loading.gif" alt="loading..."/>
+      </div>
+
       <div class="page-wrap-out">
         <div class="list-foot">
             <button class="l-btn50"
@@ -110,7 +109,6 @@
             <p>共找到<span class="num" data-bind="text: result.total"></span>条产品信息</p>
         </div>
       </div>
-    </div>
     </div>
   </div>
     <footer class="zm-wraps">

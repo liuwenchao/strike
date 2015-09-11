@@ -59,7 +59,7 @@
                 <span data-bind="text: price"></span>
                 元/吨
               </span>
-              <span class="c-ff7700" data-bind="if: price() === 0">
+              <span class="c-ff7700" data-bind="if: price() == 0">
                 不限
               </span>
             </span>
@@ -100,15 +100,13 @@
           </p>
         </div>
       </div>
-      <div>
-        <div class="page-wrap-out">
-          <div class="list-foot">
-            <button class="l-btn50"
-              data-bind="click: result.pageDown, visible: !result.isLastPage()">
-              更&nbsp;&nbsp;多
-            </button>
-            <p>共找到<span class="num" data-bind="text: result.total"></span>条产品信息</p>
-          </div>
+      <div class="page-wrap-out">
+        <div class="list-foot">
+          <button class="l-btn50"
+            data-bind="click: result.pageDown, visible: !result.isLastPage()">
+            更&nbsp;&nbsp;多
+          </button>
+          <p>共找到<span class="num" data-bind="text: result.total"></span>条产品信息</p>
         </div>
       </div>
     </div>

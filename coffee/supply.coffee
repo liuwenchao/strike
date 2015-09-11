@@ -59,6 +59,7 @@ load = (id) ->
   return record
 
 list = (params)->
+  return if result.loading()  #prevent double listing
   result.loading true
   result.from params.from if params?.from
   result.sort params.sort if params?.sort
