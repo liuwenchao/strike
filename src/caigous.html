@@ -26,13 +26,19 @@
     <img src='images/logo_wx.jpg' />
   </div>
   <div class="purpose-page fake-body" style="box-sizing: border-box;">
-      <div class="main-header bb1">
-        <a class="backwrap" href="javascript:history.back();"><i class="backicon icon"></i> </a>
-        <span class="center-wrap">
-          采购信息
-        </span>
-      </div>
-    </form>
+    <form method="get">
+       <div class="main-header bb1">
+         <a class="backwrap" href="javascript:history.back();"><i class="backicon icon"></i> </a>
+         <span class="center-wrap">
+          <input name="q"
+            class="search zmboxb"
+            data-bind="value: result.q"
+            type="text"
+            placeholder="请输入搜索关键字">
+         </span>
+        <a class="right zmboxb borar2" href="javascript:void(0)"><i class="icon"></i></a>
+       </div>
+     </form>
 
     <div class="result-wrap">
       <div class="purpose-list clearfix" style="display: none;"
@@ -60,7 +66,7 @@
                 <span data-bind="text: price"></span>
                 元/吨
               </span>
-              <span class="c-ff7700" data-bind="if: price() === 0">
+              <span class="c-ff7700" data-bind="if: price() == 0">
                 不限
               </span>
             </span>
@@ -101,23 +107,19 @@
           </p>
         </div>
       </div>
-      <div>
-        <div class="page-wrap-out">
-          <div class="list-foot">
-            <p>共找到
-              <span class="num" data-bind="text: result.total"></span>条产品信息</p>
-            <p class="page-wrap" >
-              <a href="javascript:;" class="small" data-bind="click: result.pageFirst, css: {disabled: result.isFirstPage}">首页</a>
-              <a href="javascript:;" class="big"   data-bind="click: result.pageUp,    css: {disabled: result.isFirstPage}">上一页</a>
-              <span>
-                <span data-bind="text: result.currentPage"></span>
-                /
-                <span data-bind="text: result.pageCount"></span>
-              </span>
-              <a href="javascript:;" class="big"   data-bind="click: result.pageDown, css: {disabled: result.isLastPage}">下一页</a>
-              <a href="javascript:;" class="small" data-bind="click: result.pageLast, css: {disabled: result.isLastPage}">尾页</a>
-            </p>
-          </div>
+
+      <div class="loading"
+        data-bind="visible: result.loading">
+          <img src="images/loading.gif" alt="loading..."/>
+      </div>
+
+      <div class="page-wrap-out">
+        <div class="list-foot">
+          <button class="l-btn49"
+            data-bind="click: result.pageDown, visible: !result.isLastPage()">
+            更&nbsp;&nbsp;多
+          </button>
+          <p>共找到<span class="num" data-bind="text: result.total"></span>条产品信息</p>
         </div>
       </div>
     </div>

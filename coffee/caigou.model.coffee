@@ -172,7 +172,7 @@ fill = (data, model) ->
   model = new Model() if not model
   model.id data.caigou_id
   model.content data.content
-  model.price data.standard_price_money || data.caigou?.pay_price
+  model.price data.standard_price_money || data.caigou?.pay_price || 0
   model.weight data.standard_ton || data.caigou?.pay_weight
   model.rezhi data.standard_div_content?.rezhi_value
   model.company_name data.member?.company?.name

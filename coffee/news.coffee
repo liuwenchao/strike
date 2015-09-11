@@ -1,44 +1,52 @@
 $ = require 'jquery'
 ko = require 'knockout'
-params = require 'parameters'
+parameters = require 'parameters'
+NewsModel = require 'news.model'
 
-Model = ->
-  id: ko.observable()
-  title: ko.observable()
-  summary: ko.observable()
-  content: ko.observable()
-  addtime: ko.observable(new Date().toISOString())
+result =
+  q: ko.observable()
+  size: 5
+  more: ko.observable(false)
+  from: ko.observable(0)
+  rows: ko.observableArray()
+  sort: ko.observable('id:desc')
+  total: ko.observable(0)
+  loading: ko.observable(false)
+  currentPage: ko.pureComputed -> (Math.ceil result.from()/result.size)+1
+  pageCount:   ko.pureComputed -> Math.ceil result.total()/result.size
+  pageUp    : -> result.from if result.from() == 0 then 0 else (result.currentPage()-2)*result.size
+  pageDown  : -> result.from result.currentPage()*result.size
+  pageFirst : -> result.from 0
+  pageLast  : -> result.from (result.pageCount()-1)*result.size
+  isFirstPage : ko.pureComputed -> result.from() <= 0
+  isLastPage  : ko.pureComputed -> result.from() + result.size >= result.total()
 
-records = ko.observableArray()
-
-fill = (data, model) ->
-  model = new Model() if not model
-  model.id data.id
-  model.title data.title.substr 0,12
-  model.summary data.summary
-  model.content data.content?[0]?.content
-  model.addtime data.created_time
-  return model
+result.from.subscribe -> list()
 
 list = ->
-  $.get params.search.host + '/news/_search?size=10&sort=id:desc', (data) ->
-    for news in data.hits.hits
-      records.push fill news._source
-
-more = (from) ->
-  $.get params.search.host + '/news/_search?size=10&from='+from, (data) ->
-    for news in data.hits.hits
-      records.push fill news._source
+  return if result.loading()  #prevent double listing
+  result.loading true
+  q = result.q()
+  $.get parameters.search.host + '/news/_search',
+    from: result.from()
+    sort: result.sort()
+    size: result.size
+  , (data) ->
+    result.total data.hits.total
+    result.rows.removeAll() if result.from() == 0
+    result.more result.from()+result.size
+    for record in data.hits.hits
+      result.rows.push NewsModel.fill record._source
+    result.loading false
 
 load = (id) ->
-  record = new Model()
+  record = new NewsModel.Model()
   if id
-    $.get params.search.host + '/news/' + id, (news) ->
-      fill news._source, record
+    $.get parameters.search.host + '/news/' + id, (news) ->
+      NewsModel.fill news._source, record
   return record
 
 module.exports =
-  records: records
+  result: result
   list: list
-  more: more
   load: load

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>找煤网交易平台 - 热门咨询</title>
+  <title>找煤网交易平台 - 热门资讯</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -31,17 +31,14 @@
         <span class="back-btn"></span>
       </a>
       <span class="center">
-        <span class="title">资讯</span>
+        <span class="title">热门资讯</span>
       </span>
       <a class="right" href="javascript:void (0)" style="visibility: hidden"></a>
     </div>
 
-    <div class="list-top">
-      煤炭最新资讯动态
-    </div>
     <div class="list-wrap">
       <ul style="display: none;"
-        data-bind="foreach: records, visible: records().length > 0">
+        data-bind="foreach: result.rows, visible: result.rows().length > 0">
         <a href="#" data-bind="attr: { href: 'news_detail.html?id='+id()}">
           <li>
             <span class="title">
@@ -54,6 +51,20 @@
           </li>
         </a>
       </ul>
+
+      <div class="loading"
+        data-bind="visible: result.loading">
+          <img src="images/loading.gif" alt="loading..."/>
+      </div>
+      <div class="page-wrap-out">
+        <div class="list-foot">
+          <button class="l-btn49"
+            data-bind="click: result.pageDown, visible: !result.isLastPage()">
+            更&nbsp;&nbsp;多
+          </button>
+          <p style="text-align:center;margin-top:1.4rem;">共找到<span class="num" data-bind="text: result.total"></span>条产品信息</p>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -13,6 +13,7 @@ result =
   sort: ko.observable('id:desc')
   total: ko.observable(0)
   filter: filter
+  loading: ko.observable(false)
   currentPage: ko.pureComputed -> (Math.ceil result.from()/result.size)+1
   pageCount:   ko.pureComputed -> Math.ceil result.total()/result.size
   pageUp    : -> result.from if result.from() == 0 then 0 else (result.currentPage()-2)*result.size
@@ -46,6 +47,8 @@ create = (form) ->
     success: -> window.location.href='myorder.html'
 
 list = ->
+  return if result.loading()  #prevent double listing
+  result.loading true
   q = result.q()
   $.get parameters.search.host + '/caigou/_search',
     q: filter.to_string
@@ -54,10 +57,11 @@ list = ->
     size: result.size
   , (data) ->
     result.total data.hits.total
-    result.rows.removeAll()# if result.from() == 0
+    result.rows.removeAll() if result.from() == 0
     result.more result.from()+result.size
     for record in data.hits.hits
       result.rows.push Model.fill record._source
+    result.loading false
 
 listMine = (from = 0, filter)->
   $.ajax
