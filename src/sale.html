@@ -19,7 +19,6 @@
   <link href="css/zm.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link href="css/quotation.css" rel="stylesheet">
-  <script type="text/javascript" src="./jquery/dist/jquery.js"></script>
 </head>
 
 <body>
@@ -43,7 +42,7 @@
       <div class="area-con zm-wraps mt10">
       <div class="market-list-new">
         <div class="pro-wrap">
-          <div class="inner-list hidden" style="display: block;" data-bind="foreach: sales">
+          <div class="inner-list hidden" style="display: block;" data-bind="foreach: result.rows">
             <a href="supply.html?id=110"
               data-bind="attr: { href: 'supply.html?id='+id()}"
               class="inner-row showKuaisuPricePrice">
@@ -66,6 +65,11 @@
                 <span class="row-right color-9" data-bind="text: addtime().substr(0,10)"></span>
               </p>
             </a>
+          </div>
+
+          <div class="loading"
+            data-bind="visible: result.loading">
+              <img src="images/loading.gif" alt="loading..."/>
           </div>
         </div>
       </div>

@@ -146,7 +146,7 @@ switch route
     supply.result.filter.ifsale 1
     supply.list()
     ko.applyBindings
-      sales: supply.result.rows
+      result: supply.result
 
   else # do nothing
 
