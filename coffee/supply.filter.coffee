@@ -53,6 +53,17 @@ Model.to_json = ->
                 must: []
             filter:
               and: [{
+                or: [{
+                  range:
+                    online_expire_date:
+                      gt: 'now'
+                }, {
+                  not:
+                    exists:
+                      field:
+                        'online_expire_date'
+                }]
+              }, {
                 bool:
                   must_not:
                     term:
