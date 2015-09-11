@@ -13,7 +13,7 @@ result =
   sort: ko.observable('id:desc')
   total: ko.observable(0)
   filter: filter
-  loading: ko.observable(false);
+  loading: ko.observable(false)
   currentPage: ko.pureComputed -> (Math.ceil result.from()/result.size())+1
   pageCount:   ko.pureComputed -> Math.ceil result.total()/result.size()
   pageUp    : -> result.from if result.from() == 0 then 0 else (result.currentPage()-2)*result.size()

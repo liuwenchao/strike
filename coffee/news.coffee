@@ -11,6 +11,7 @@ result =
   rows: ko.observableArray()
   sort: ko.observable('id:desc')
   total: ko.observable(0)
+  loading: ko.observable(false)
   currentPage: ko.pureComputed -> (Math.ceil result.from()/result.size)+1
   pageCount:   ko.pureComputed -> Math.ceil result.total()/result.size
   pageUp    : -> result.from if result.from() == 0 then 0 else (result.currentPage()-2)*result.size
@@ -23,6 +24,8 @@ result =
 result.from.subscribe -> list()
 
 list = ->
+  return if result.loading()  #prevent double listing
+  result.loading true
   q = result.q()
   $.get parameters.search.host + '/news/_search',
     from: result.from()
@@ -34,6 +37,7 @@ list = ->
     result.more result.from()+result.size
     for record in data.hits.hits
       result.rows.push NewsModel.fill record._source
+    result.loading false
 
 load = (id) ->
   record = new NewsModel.Model()
