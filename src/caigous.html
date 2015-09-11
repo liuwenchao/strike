@@ -26,13 +26,12 @@
     <img src='images/logo_wx.jpg' />
   </div>
   <div class="purpose-page fake-body" style="box-sizing: border-box;">
-      <div class="main-header bb1">
-        <a class="backwrap" href="javascript:history.back();"><i class="backicon icon"></i> </a>
-        <span class="center-wrap">
-          采购信息
-        </span>
-      </div>
-    </form>
+    <div class="main-header bb1">
+      <a class="backwrap" href="javascript:history.back();"><i class="backicon icon"></i> </a>
+      <span class="center-wrap">
+        采购信息
+      </span>
+    </div>
 
     <div class="result-wrap">
       <div class="purpose-list clearfix" style="display: none;"
@@ -104,19 +103,11 @@
       <div>
         <div class="page-wrap-out">
           <div class="list-foot">
-            <p>共找到
-              <span class="num" data-bind="text: result.total"></span>条产品信息</p>
-            <p class="page-wrap" >
-              <a href="javascript:;" class="small" data-bind="click: result.pageFirst, css: {disabled: result.isFirstPage}">首页</a>
-              <a href="javascript:;" class="big"   data-bind="click: result.pageUp,    css: {disabled: result.isFirstPage}">上一页</a>
-              <span>
-                <span data-bind="text: result.currentPage"></span>
-                /
-                <span data-bind="text: result.pageCount"></span>
-              </span>
-              <a href="javascript:;" class="big"   data-bind="click: result.pageDown, css: {disabled: result.isLastPage}">下一页</a>
-              <a href="javascript:;" class="small" data-bind="click: result.pageLast, css: {disabled: result.isLastPage}">尾页</a>
-            </p>
+            <button class="l-btn50"
+              data-bind="click: result.pageDown, visible: !result.isLastPage()">
+              更&nbsp;&nbsp;多
+            </button>
+            <p>共找到<span class="num" data-bind="text: result.total"></span>条产品信息</p>
           </div>
         </div>
       </div>

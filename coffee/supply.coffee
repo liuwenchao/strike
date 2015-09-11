@@ -78,7 +78,7 @@ list = (params)->
   , (data) ->
     result.q if result.q() then result.q().replace(/[+ ]+/, ' ') else result.q()
     result.total data.hits.total
-    result.rows.removeAll()# if result.from() == 0
+    result.rows.removeAll() if result.from() == 0
     result.more result.from()+result.size()
     for record in data.hits.hits
       result.rows.push SupplyModel.fill record._source

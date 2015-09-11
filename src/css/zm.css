@@ -185,6 +185,20 @@ textarea.l-input49 {
   border: 0;
   margin-top: 2rem;
 }
+button.l-btn50 {
+  font-size: 1.5rem;
+  background: #f70;
+  height: 4rem;
+  display: block;
+  line-height: 4rem;
+  border-radius: .2rem;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  border: 0;
+  margin-top: 2rem;
+}
 a.l-btn50 {
   font-size: 1.5rem;
   background: #168bb4;
