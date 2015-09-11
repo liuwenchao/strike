@@ -153,25 +153,25 @@
         <div class="my-office zm-wraps mt10">
       <div class="name bb1">我的</div>
 
-      <a class="office-item bb1" href="caigou_new.html" data-bind="visible: account.profile.status() != 1" onclick="alert('您的帐号正在核实中，请联系客服，热线：400-065-6868'); return false;">
+      <a class="office-item bb1" href="caigou_new.html" data-bind="visible: account.profile.isLoggedin() && account.profile.status() != 1" onclick="alert('您的帐号正在核实中，请联系客服，热线：400-065-6868'); return false;">
         <i class="o-icon icon3"></i>
         <span class="title">发布采购</span>
 
         <p class="word">免费找煤，第一手实时报价信息</p>
       </a>
-      <a class="office-item bb1" href="caigou_new.html" data-bind="visible: account.profile.status() == 1">
+      <a class="office-item bb1" href="caigou_new.html" data-bind="visible: !account.profile.isLoggedin() || account.profile.status() == 1">
         <i class="o-icon icon3"></i>
         <span class="title">发布采购</span>
 
         <p class="word">免费找煤，第一手实时报价信息</p>
       </a>
-      <a class="office-item bb1" href="supply_new.html" data-bind="visible: account.profile.status() != 1" onclick="alert('您的帐号正在核实中，请联系客服，热线：400-065-6868'); return false;">
+      <a class="office-item bb1" href="supply_new.html" data-bind="visible: account.profile.isLoggedin() && account.profile.status() != 1" onclick="alert('您的帐号正在核实中，请联系客服，热线：400-065-6868'); return false;">
         <i class="o-icon icon3"></i>
         <span class="title">发布供货</span>
 
         <p class="word">我们会尽快帮您找到最合适的买家</p>
       </a>
-      <a class="office-item bb1" href="supply_new.html" data-bind="visible: account.profile.status() == 1">
+      <a class="office-item bb1" href="supply_new.html" data-bind="visible: !account.profile.isLoggedin() || account.profile.status() == 1">
         <i class="o-icon icon3"></i>
         <span class="title">发布供货</span>
 
