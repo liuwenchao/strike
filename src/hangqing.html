@@ -39,11 +39,11 @@
       <ul style="display: none;"
         data-bind="foreach: records, visible: records().length > 0">
         <li class="bb1">
-          <span class="name title" data-bind="text: title">秦皇岛挂牌价</span>
+          <span class="name title" data-bind="html: title">秦皇岛挂牌价</span>
         </li>
         <!-- ko foreach: children -->
         <li class="bb1">
-          <span class="name ellipsis" data-bind="html: title"></span>
+          <span class="name ellipsis" data-bind="text: title"></span>
           <span class="price" data-bind="text: price"></span>
           <span class="arrow ellipsis" data-bind="text: fudong, css: upordown"></span>
         </li>
