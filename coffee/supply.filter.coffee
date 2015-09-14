@@ -64,11 +64,6 @@ Model.to_json = ->
                         'online_expire_date'
                 }]
               }, {
-                bool:
-                  must_not:
-                    term:
-                      ifhide: true
-              }, {
                 term:
                   status: 1
               }]
