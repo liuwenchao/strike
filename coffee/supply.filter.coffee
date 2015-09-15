@@ -8,7 +8,7 @@ for param in decodeURIComponent(location.search).substr(1).split('&')
 
 Model =
   q: ko.observable(params.q)
-  isqihuo: ko.observable(params.isqihuo || 1)
+  isqihuo: ko.observable(params.isqihuo)
   ifsale:  ko.observable(params.ifsale  || 0)
   pinming: ko.observable(params.pinming)
   paihao:  ko.observable(params.paihao)
