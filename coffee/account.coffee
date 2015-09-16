@@ -168,6 +168,7 @@ resetPassword = (form) ->
 
 verify = (mobile, template, event) ->
   if mobile and mobile.length == 11
+    error false
     countdown = 60
     $this = $(event.target)
     jobId = window.setInterval ->
