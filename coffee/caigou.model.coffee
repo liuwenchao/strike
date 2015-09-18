@@ -11,6 +11,7 @@ Model = ->
     weight: ko.observable()
     rezhi: ko.observable()
     company_name: ko.observable()
+    company_nickname: ko.observable('某某公司')
     pinming: ko.observable()
     addtime: ko.observable()
     staff: ko.observable()
