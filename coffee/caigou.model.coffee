@@ -7,12 +7,12 @@ Model = ->
   model =
     id: ko.observable()
     caigou_no: ko.observable()
-    company_no: ko.observable()
     price: ko.observable(0)
     content: ko.observable()
     weight: ko.observable()
     rezhi: ko.observable()
     company_name: ko.observable()
+    company_nickname: ko.observable('某某公司')
     pinming: ko.observable()
     addtime: ko.observable()
     staff: ko.observable()
