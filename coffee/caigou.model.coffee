@@ -119,12 +119,12 @@ Model = ->
 
   model.all_zhibiao = ko.pureComputed ->
     results = []
-    if model.qsf_value() then results.push
-      name: '水份(Mt)'
-      value: model.qsf_value()
     if model.dwfrl_u10_value()  then results.push
       name: '卡值(kcal)'
       value: model.dwfrl_u10_value()
+    if model.qsf_value() then results.push
+      name: '全水份(%)'
+      value: model.qsf_value()
     if model.hff_value()  then results.push
       name: '挥发份(%)'
       value: model.hff_value()

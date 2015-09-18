@@ -46,28 +46,25 @@
 
 
         <div class="pro-wrap ks-wraps">
-          <p class="content fz15" data-bind="text: content">
-            求购 38.500吨 HDPE EX5
-          </p>
 
           <p class="ellipsis fz12">
             <span class="fl halfrow">
-              <span data-bind="text: pinming"></span>
+              <span class="c-ff7700" data-bind="text: pinming"></span>:
               <span data-bind="text: caigou_no"></span>
             </span>
-            <span class="factory halfrow">公司编号：
-              <span data-bind="text: company_no"></span>
+            <span class="factory halfrow">公司:
+              <span class="c-ff7700" data-bind="text: company_no"></span>
             </span>
           </p>
 
           <p class="ellipsis fz12">
             <span class="city fl halfrow">
-              交割地：
-              <span data-bind="text: address"></span>
+              交割地:
+              <span class="c-ff7700" data-bind="text: address"></span>
             </span>
-            <span class="fr price halfrow ">意向价格：
-              <span class="c-ff7700" data-bind="if: price() > 0">
-                <span data-bind="text: price"></span>
+            <span class="fr price halfrow ">价格:
+              <span data-bind="if: price() > 0">
+                <span class="c-ff7700" data-bind="text: price"></span>
                 元/吨
               </span>
               <span class="c-ff7700" data-bind="if: price() == 0">
@@ -77,12 +74,21 @@
           </p>
 
           <p class="ellipsis fz12">
-            <span class="person c-ff7700 halfrow fl">交易员：
-              <span data-bind="text: staff"></span>
+            <span class="person halfrow fl">交易员:
+              <span class="c-ff7700" data-bind="text: staff"></span>
+            </span>
+            <span class="fr price halfrow">数量:
+              <span data-bind="if: weight() > 0">
+                <span class="c-ff7700" data-bind="text: weight"></span>
+                吨
+              </span>
+              <span class="c-ff7700" data-bind="if: !weight()">
+                未知
+              </span>
             </span>
             <span class="time halfrow c-999 fr">
-              <span data-bind="text: addtime().substr(0,10)"></span>
-              <span data-bind="text: addtime().substr(11,8)"></span>
+               <span data-bind="text: addtime().substr(0,10)"></span>
+               <span data-bind="text: addtime().substr(11,8)"></span>
             </span>
           </p>
 
