@@ -170,6 +170,13 @@ Model = ->
     results
   return model
 
+  model.formatted_weight = ko.pureComputed ->
+    switch model.pinming_one()
+      when 1 then model.rezhi() + 'kcal'
+      when 2 then model.rezhi() + 'kcal'
+      when 3 then model.rezhi() + 'kcal'
+      else model.rezhi() + 'kcal'
+
 fill = (data, model) ->
   model = new Model() if not model
   model.id data.caigou_id
