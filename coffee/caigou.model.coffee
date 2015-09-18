@@ -6,6 +6,8 @@ Zhibiao = require 'zhibiao'
 Model = ->
   model =
     id: ko.observable()
+    caigou_no: ko.observable()
+    company_no: ko.observable()
     price: ko.observable(0)
     content: ko.observable()
     weight: ko.observable()
@@ -118,59 +120,60 @@ Model = ->
   model.all_zhibiao = ko.pureComputed ->
     results = []
     if model.qsf_value() then results.push
-      name: '全水分（Mt)'
+      name: '水份(Mt)'
       value: model.qsf_value()
     if model.dwfrl_u10_value()  then results.push
-      name: '低位发热量(kcal)'
+      name: '卡值(kcal)'
       value: model.dwfrl_u10_value()
     if model.hff_value()  then results.push
       name: '挥发份(%)'
       value: model.hff_value()
     if model.qlf_value()  then results.push
-      name: '硫分(%)'
+      name: '全硫份(%)'
       value: model.qlf_value()
     if model.hrd_value()  then results.push
       name: '灰熔点(℃)'
       value: model.hrd_value()
     if model.njzs_value()  then results.push
-      name: 'G值'
+      name: '粘结指数'
       value: model.njzs_value()
     if model.jzchd_value()  then results.push
-      name: 'Y值'
+      name: '胶质层厚度'
       value: model.jzchd_value()
-    # if model.ganguo_value() then results.push
-    #   name: '坩埚/自由膨胀序数(CSN/FSI)'
-    #   value: model.ganguo_value()
-    # if model.hskmzs_value() then results.push
-    #   name: '哈氏可磨(HGI)'
-    #   value: model.hskmzs_value()
-    # if model.lidu_value_min() then results.push
-    #   name: '粒度(MM)'
-    #   value: model.lidu_value_min()
-    # if model.gdt_value() then results.push
-    #   name: '固定碳(FC)'
-    #   value: model.gdt_value()
-    # if model.jztz_value() then results.push
-    #   name: '焦渣特性(CRC)'
-    #   value: model.jztz_value()
-    # if model.ksqd_value() then results.push
-    #   name: '抗碎强度(M40/M25)'
-    #   value: model.ksqd_value()
-    # if model.nmqd_value() then results.push
-    #   name: '耐磨强度(M10)'
-    #   value: model.nmqd_value()
-    # if model.fyhqd_value() then results.push
-    #   name: '反应后强度(CSR)'
-    #   value: model.fyhqd_value()
-    # if model.jtfyx_value() then results.push
-    #   name: '焦炭反应性'
-    #   value: model.jtfyx_value()
+    if model.ganguo_value() then results.push
+      name: '坩埚/自由膨胀序数(CSN/FSI)'
+      value: model.ganguo_value()
+    if model.hskmzs_value() then results.push
+      name: '哈氏可磨指数(HGI)'
+      value: model.hskmzs_value()
+    if model.lidu_value_min() then results.push
+      name: '粒度(MM)'
+      value: model.lidu_value_min()
+    if model.gdt_value() then results.push
+      name: '固定碳(FC)'
+      value: model.gdt_value()
+    if model.jztz_value() then results.push
+      name: '焦渣特征(CRC)'
+      value: model.jztz_value()
+    if model.ksqd_value() then results.push
+      name: '抗碎强度(M40/M25)'
+      value: model.ksqd_value()
+    if model.nmqd_value() then results.push
+      name: '耐磨强度(M10)'
+      value: model.nmqd_value()
+    if model.fyhqd_value() then results.push
+      name: '反应后强度(CSR)'
+      value: model.fyhqd_value()
+    if model.jtfyx_value() then results.push
+      name: '焦炭反应性'
+      value: model.jtfyx_value()
     results
   return model
 
 fill = (data, model) ->
   model = new Model() if not model
   model.id data.caigou_id
+  model.caigou_no data.caigou_no
   model.content data.content
   model.price data.standard_price_money || data.caigou?.pay_price || 0
   model.weight data.standard_ton || data.caigou?.pay_weight
@@ -183,35 +186,35 @@ fill = (data, model) ->
   model.address data.standard_address
   model.progress data.progress || data.caigou?.progress
   model.dwfrl_cell data.standard_div_content?.dwfrl_cell
-  model.dwfrl_u10_value data.standard_div_content?.dwfrl_u10_value
+  model.dwfrl_u10_value data.dwfrl_ar
   model.dwfrl_u20_value data.standard_div_content?.dwfrl_u20_value
   model.dwfrl_unit data.standard_div_content?.dwfrl_unit
   model.fyhqd_cell data.standard_div_content?.fyhqd_cell
   model.fyhqd_unit data.standard_div_content?.fyhqd_unit
-  model.fyhqd_value data.standard_div_content?.fyhqd_value
+  model.fyhqd_value data.fyhqd
   model.ganguo_cell data.standard_div_content?.ganguo_cell
   model.ganguo_unit data.standard_div_content?.ganguo_unit
-  model.ganguo_value data.standard_div_content?.ganguo_value
+  model.ganguo_value data.ganguo
   model.gdt_cell data.standard_div_content?.gdt_cell
   model.gdt_unit data.standard_div_content?.gdt_unit
-  model.gdt_value data.standard_div_content?.gdt_value
+  model.gdt_value data.gdt_ar
   model.gwfrl_cell data.standard_div_content?.gwfrl_cell
   model.gwfrl_u10_value data.standard_div_content?.gwfrl_u10_value
   model.gwfrl_u20_value data.standard_div_content?.gwfrl_u20_value
   model.gwfrl_unit data.standard_div_content?.gwfrl_unit
   model.hf_cell data.standard_div_content?.hf_cell
   model.hf_unit data.standard_div_content?.hf_unit
-  model.hf_value data.standard_div_content?.hf_value
+  model.hf_value data.hf_ar
   model.hff_cell data.standard_div_content?.hff_cell
   model.hff_unit data.standard_div_content?.hff_unit
-  model.hff_value data.standard_div_content?.hff_value
+  model.hff_value data.hff_ar
   model.hits data.standard_div_content?.hits
   model.hrd_cell data.standard_div_content?.hrd_cell
   model.hrd_unit data.standard_div_content?.hrd_unit
-  model.hrd_value data.standard_div_content?.hrd_value
+  model.hrd_value data.hrd
   model.hskmzs_cell data.standard_div_content?.hskmzs_cell
   model.hskmzs_unit data.standard_div_content?.hskmzs_unit
-  model.hskmzs_value data.standard_div_content?.hskmzs_value
+  model.hskmzs_value data.hskmzs
   model.jiaoge_address data.standard_div_content?.jiaoge_address
   model.jiaoge_date data.standard_div_content?.jiaoge_date
   model.jiaoge_weight data.standard_div_content?.jiaoge_weight
@@ -220,29 +223,29 @@ fill = (data, model) ->
   model.jsldd_value data.standard_div_content?.jsldd_value
   model.jtfyx_cell data.standard_div_content?.jtfyx_cell
   model.jtfyx_unit data.standard_div_content?.jtfyx_unit
-  model.jtfyx_value data.standard_div_content?.jtfyx_value
+  model.jtfyx_value data.jtfyx
   model.jzchd_cell data.standard_div_content?.jzchd_cell
   model.jzchd_unit data.standard_div_content?.jzchd_unit
-  model.jzchd_value data.standard_div_content?.jzchd_value
+  model.jzchd_value data.jzchd
   model.jztz_cell data.standard_div_content?.jztz_cell
   model.jztz_unit data.standard_div_content?.jztz_unit
-  model.jztz_value data.standard_div_content?.jztz_value
+  model.jztz_value data.jztz
   model.ksqd_cell data.standard_div_content?.ksqd_cell
   model.ksqd_unit data.standard_div_content?.ksqd_unit
-  model.ksqd_value data.standard_div_content?.ksqd_value
+  model.ksqd_value data.ksqd_m40 || data.ksqd_m25
   model.lidu_cell data.standard_div_content?.lidu_cell
   model.lidu_unit data.standard_div_content?.lidu_unit
-  model.lidu_value_max data.standard_div_content?.lidu_value_max
-  model.lidu_value_min data.standard_div_content?.lidu_value_min
+  model.lidu_value_max data.lidu_max
+  model.lidu_value_min data.lidu_min
   model.linfen_cell data.standard_div_content?.linfen_cell
   model.linfen_unit data.standard_div_content?.linfen_unit
   model.linfen_value data.standard_div_content?.linfen_value
   model.njzs_cell data.standard_div_content?.njzs_cell
   model.njzs_unit data.standard_div_content?.njzs_unit
-  model.njzs_value data.standard_div_content?.njzs_value
+  model.njzs_value data.njzs
   model.nmqd_cell data.standard_div_content?.nmqd_cell
   model.nmqd_unit data.standard_div_content?.nmqd_unit
-  model.nmqd_value data.standard_div_content?.nmqd_value
+  model.nmqd_value data.nmqd
   model.ns_cell data.standard_div_content?.ns_cell
   model.ns_unit data.standard_div_content?.ns_unit
   model.ns_value data.standard_div_content?.ns_value
@@ -256,10 +259,10 @@ fill = (data, model) ->
   model.pinming_two data.standard_div_content?.pinming_two
   model.qlf_cell data.standard_div_content?.qlf_cell
   model.qlf_unit data.standard_div_content?.qlf_unit
-  model.qlf_value data.standard_div_content?.qlf_value
+  model.qlf_value data.qlf_ar
   model.qsf_cell data.standard_div_content?.qsf_cell
   model.qsf_unit data.standard_div_content?.qsf_unit
-  model.qsf_value data.standard_div_content?.qsf_value
+  model.qsf_value data.qsf
   model
 
 module.exports =
