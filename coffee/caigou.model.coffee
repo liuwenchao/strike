@@ -12,7 +12,7 @@ Model = ->
     weight: ko.observable()
     rezhi: ko.observable()
     company_name: ko.observable()
-    company_nickname: ko.observable('某某公司')
+    company_no: ko.observable()
     pinming: ko.observable()
     addtime: ko.observable()
     staff: ko.observable()
@@ -179,6 +179,7 @@ fill = (data, model) ->
   model.weight data.standard_ton || data.caigou?.pay_weight
   model.rezhi data.standard_div_content?.rezhi_value
   model.company_name data.member?.company?.name
+  model.company_no data.member?.company?.no
   model.pinming data.variety[0]?.cate_name
   model.addtime data.created_time
   model.staff data.operate_staff?.name || ''
