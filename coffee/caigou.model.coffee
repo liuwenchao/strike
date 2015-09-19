@@ -168,14 +168,15 @@ Model = ->
       name: '焦炭反应性'
       value: model.jtfyx_value()
     results
-  return model
 
   model.formatted_weight = ko.pureComputed ->
-    switch model.pinming_one()
-      when 1 then model.rezhi() + 'kcal'
-      when 2 then model.rezhi() + 'kcal'
-      when 3 then model.rezhi() + 'kcal'
-      else model.rezhi() + 'kcal'
+    (model.weight()).toString().replace /./g, (match, position, string)->
+      if position > 0 and match != "." and (string.length - position) % 3 == 0 
+        ',' + match
+      else
+        match
+
+  return model
 
 fill = (data, model) ->
   model = new Model() if not model
