@@ -111,7 +111,7 @@ Model = ->
       pay_address: model.jiaoge_address()
 
   model.formatted_weight = ko.pureComputed ->
-    (model.weight()).toString().replace /./g, (match, position, string)->
+    (model.weight()||0).toString().replace /./g, (match, position, string)->
       if position > 0 and match != "." and (string.length - position) % 3 == 0
         ',' + match
       else
