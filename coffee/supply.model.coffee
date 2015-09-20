@@ -110,6 +110,12 @@ Model = ->
       pay_weight: model.weight()
       pay_address: model.jiaoge_address()
 
+  model.formatted_weight = ko.pureComputed ->
+    (model.weight()).toString().replace /./g, (match, position, string)->
+      if position > 0 and match != "." and (string.length - position) % 3 == 0
+        ',' + match
+      else
+        match
 
   model.main_zhibiao = ko.pureComputed ->
     switch model.pinming_one()
