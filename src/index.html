@@ -1,20 +1,11 @@
 <script type="text/javascript">
+// I exist as a dispatcher for static url
+// you can visit defined page with static url: index.html?r=js
 var redirect = '/';
 var query = decodeURIComponent(location.search);
 var length = query.indexOf('&') > -1 ? query.indexOf('&')-3 : undefined;
 switch (query.substr(3, length)) {
-  case "login":     redirect = 'login.html';    break;
-  case "register":  redirect = 'register.html'; break;
-  case "hangqing":  redirect = 'hangqing.html'; break;
-  case "news":      redirect = 'news.html';     break;
-  case "sale":      redirect = 'sale.html';     break;
-  case "profile":   redirect = 'profile.html';  break;
-  case "help":      redirect = 'help.html';     break;
-  case "caigous":   redirect = 'caigous.html';  break;
-  case "supplies":  redirect = 'supplies.html'; break;
-  case "supply_new":redirect = 'supply_new.html'; break;
-  case "caigou_new":redirect = 'caigou_new.html'; break;
-  case "oauth":     redirect = 'oauth.html';    break;
+  case "js":        redirect = 'js.html';       break;
   default:          redirect = 'home.html';
 }
 window.location.href = redirect+window.location.search;

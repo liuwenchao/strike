@@ -1,10 +1,10 @@
 {
-  "name": "zhaomei_weixin",
+  "name": "kowp",
   "version": "0.0.1",
   "private": true,
-  "author": "zhaomei.com",
-  "description": "weixin application for zhaomei.",
-  "homepage": "https://github.com/starterkits/frontend-starterkit-minimal",
+  "author": "liuwenchao",
+  "description": "html structure ",
+  "homepage": "https://github.com/liuwenchao/kowp",
   "keywords": [
     "node",
     "coffeescript",
@@ -14,9 +14,9 @@
   "repository": {
     "type": "git"
   },
-  "bugs": "https://github.com/starterkits/frontend-starterkit-minimal/issues",
-  "contributors": "https://github.com/starterkits/frontend-starterkit-minimal/graphs/contributors",
-  "licenses": "Commertial",
+  "bugs": "https://github.com/liuwenchao/issues",
+  "contributors": "https://github.com/liuwenchao/graphs/contributors",
+  "licenses": "MIT",
   "scripts": {
     "start": "gulp",
     "install": "bower install"

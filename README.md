@@ -1,13 +1,13 @@
-## Weixin application for zhaomei
+## HTML skeleton based on Knockout, Webpack and CoffeeScript
 
 # Introduction of the Framework
-This Frontend StarterKit is a barebones framework with [gulp](http://gulpjs.com/) and [webpack](http://webpack.github.io/) fully configured for rapid development.
+This is a barebones framework with [gulp](http://gulpjs.com/) and [webpack](http://webpack.github.io/) fully configured for rapid development.
 
 Webpack runs webpack-dev-server in development for on-the-fly compilation of source file changes. It can also compile assets for production.
 
 CoffeeScript, SCSS and Bower are installed and configured.
 
-By default, CSS files are included by requiring them in JavaScript files via webpack magic. This reduces network latency and allows webpack to intelligently manage which files are actually required. See [src/js/head.coffee](src/js/head.coffee).
+By default, CSS files are included by requiring them in JavaScript files via webpack magic. This reduces network latency and allows webpack to intelligently manage which files are actually required.
 
 
 # Install
@@ -27,9 +27,9 @@ npm install -g gulp webpack-dev-server bower coffee-script
 npm install
 
 # open this in browser
-open http://localhost:8090/webpack-dev-server/index.html
-# or 
-open http://localhost:8090/index.html
+open http://localhost:8080/webpack-dev-server/index.html
+# or
+open http://localhost:8080/index.html
 ```
 
 # Development
