@@ -1,7 +1,11 @@
 ## HTML skeleton based on Knockout, Webpack and CoffeeScript
 
-# Introduction of the Framework
-This is a barebones framework with [gulp](http://gulpjs.com/) and [webpack](http://webpack.github.io/) fully configured for rapid development.
+# Introduction
+This is a barebones framework fully configured for rapid development with following:
+* [webpack](http://webpack.github.io/)
+* [gulp](http://gulpjs.com/)
+* [CoffeeScript](http://coffeescript.org/)
+* [Knockout](http://knockoutjs.com) - You can easily replace it with other MVVM framework
 
 Webpack runs webpack-dev-server in development for on-the-fly compilation of source file changes. It can also compile assets for production.
 
