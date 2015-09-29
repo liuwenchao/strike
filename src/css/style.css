@@ -3,4 +3,10 @@ html {
   background: #f3f3f3;
   color: #666;
   font-size: 2rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+button {
+  font-size: 1rem;
+  border-radius: 0.1rem;
 }

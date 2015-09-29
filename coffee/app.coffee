@@ -1,12 +1,13 @@
 $  = require 'jquery'
 ko = require 'knockout'
+require 'css/style.css'
 
 route = window.location.pathname.substr(1,window.location.pathname.indexOf('.')-1)
 
 switch route
   when 'home'
     ko.applyBindings
-      welcome: 'Knockout Weppack and CoffeeScript'
+      welcome: 'Weppack, Gulp, CoffeeScript and Knockout (Or other MVVM)'
       suprise: -> window.alert 'And a CHEESEBURG!'
 
   when 'proxy'
