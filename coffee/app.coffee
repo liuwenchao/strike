@@ -7,7 +7,7 @@ route = window.location.pathname.substr(1,window.location.pathname.indexOf('.')-
 switch route
   when 'home'
     ko.applyBindings
-      welcome: 'Weppack, Gulp, CoffeeScript and Knockout (Or other MVVM)'
+      welcome: 'Weppack, Gulp, CoffeeScript and MVVM(Knockout as an example)'
       suprise: -> window.alert 'And a CHEESEBURG!'
 
   when 'proxy'

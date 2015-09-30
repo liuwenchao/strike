@@ -1,4 +1,4 @@
-## HTML skeleton based on Knockout, Webpack and CoffeeScript
+## Strike: HTML framework based on MVVM, Webpack, Gulp and CoffeeScript
 
 # Introduction
 This is a barebones framework fully configured for rapid development with following:

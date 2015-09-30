@@ -8,3 +8,4 @@
 /*.sublime-workspace
 /src/*.js
 dist
+src/app.js.map
