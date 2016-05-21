@@ -13,6 +13,13 @@ CoffeeScript, SCSS and Bower are installed and configured.
 
 By default, CSS files are included by requiring them in JavaScript files via webpack magic. This reduces network latency and allows webpack to intelligently manage which files are actually required.
 
+# Usage
+
+* download strike.zip from release page
+* unzip the code and use it as a start point of the new project
+* run `npm install` to install dependencies
+* run `npm start` to start server
+* modify source files and see it live
 
 # Install
 
